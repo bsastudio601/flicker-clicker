@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dedlxesrql1yu"]
+
+[ext_resource type="Texture2D" uid="uid://d14sgui1djid" path="res://sprites/background.png" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cgl2niusxjmnu" path="res://sprites/Bulb_sprite.png" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://cadvk8gfv4ldw" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
+colors = PackedColorArray(1, 1, 1, 1, 0.5079365, 0.5079365, 0.5079365, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t4kkl"]
+gradient = SubResource("Gradient_lquwl")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Main" type="Node2D" unique_id=1473243590]
+script = ExtResource("1_lquwl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1090858143]
+color = Color(0.2159017, 0.21590173, 0.2159017, 1)
+
+[node name="Background" type="Node2D" parent="." unique_id=1669736185]
+position = Vector2(24, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1967612789]
+position = Vector2(24, 97)
+texture = ExtResource("1_1bvp3")
+
+[node name="Bulb" type="Node2D" parent="." unique_id=626596963]
+position = Vector2(49, 95)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bulb" unique_id=731785263]
+texture = ExtResource("1_h2yge")
+
+[node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
+position = Vector2(1.4305115e-06, -10)
+scale = Vector2(0.7521184, 0.7521184)
+energy = 4.0
+texture = SubResource("GradientTexture2D_t4kkl")
+texture_scale = 1.93
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bulb" unique_id=1947696895]
+position = Vector2(0, 34)
+texture = ExtResource("4_5vw27")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
+
+[node name="Charge_Bar" type="TextureProgressBar" parent="." unique_id=323203053]
+offset_left = 25.0
+offset_top = 43.0
+offset_right = 73.0
+offset_bottom = 53.0
+texture_under = ExtResource("4_272bh")
+texture_progress = ExtResource("5_5vw27")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=424303906]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 131.0
+offset_right = 64.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_1bvp3")
+texture_pressed = ExtResource("3_lquwl")
+
+[node name="CPM_Lable" type="Label" parent="." unique_id=957167476]
+offset_left = 12.0
+offset_top = 49.0
+offset_right = 52.0
+offset_bottom = 72.0
+text = "hi"
+
+[node name="CPM_Timer" type="Timer" parent="." unique_id=1945194985]
+autostart = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="CPM_Timer" to="." method="_on_cpm_timer_timeout"]
