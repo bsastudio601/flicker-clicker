@@ -13,12 +13,15 @@ config_version=5
 config/name="Flicker Clicker"
 run/main_scene="uid://dedlxesrql1yu"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+
+[autoload]
+
+GameData="*uid://xwb50k50orgt"
 
 [display]
 
-window/size/viewport_width=96
-window/size/viewport_height=176
+window/size/viewport_width=128
+window/size/viewport_height=224
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

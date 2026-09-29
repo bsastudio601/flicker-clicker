@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://thsgsvrjm61o"]
+
+[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="1_5bs5i"]
+[ext_resource type="Texture2D" uid="uid://dtqev58lo6bx3" path="res://sprites/upgrade_item_bg.png" id="1_xt7r4"]
+[ext_resource type="Texture2D" uid="uid://bn41hih5a4ei2" path="res://sprites/buy_button_bg.png" id="3_0jk56"]
+[ext_resource type="Texture2D" uid="uid://q3kno4ucdhj" path="res://sprites/buy_button_disabled_bg.png" id="4_pv2k2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mnlc0"]
+texture = ExtResource("1_xt7r4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cujw0"]
+texture = ExtResource("3_0jk56")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_getpj"]
+texture = ExtResource("4_pv2k2")
+modulate_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+
+[node name="Upgrade_Item" type="PanelContainer" unique_id=1823130261]
+custom_minimum_size = Vector2(116, 32)
+custom_maximum_size = Vector2(111.355, 32)
+propagate_maximum_size = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.5
+offset_top = -11.0
+offset_right = -6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mnlc0")
+
+[node name="Control" type="Control" parent="." unique_id=201925102]
+layout_mode = 2
+
+[node name="Buy Button" type="Button" parent="Control" unique_id=1098203105]
+layout_mode = 0
+offset_left = 84.177505
+offset_top = 9.0
+offset_right = 108.677505
+offset_bottom = 23.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.5
+theme_override_fonts/font = ExtResource("1_5bs5i")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_cujw0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_getpj")
+text = "Unlock"
+
+[node name="Cost" type="Label" parent="Control" unique_id=504765800]
+layout_mode = 0
+offset_left = 67.5
+offset_top = 12.0
+offset_right = 84.5
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("1_5bs5i")
+theme_override_font_sizes/font_size = 6
+text = "cost"
+horizontal_alignment = 1
+
+[node name="Upgrade_Name" type="Label" parent="Control" unique_id=1175081216]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 39.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("1_5bs5i")
+theme_override_font_sizes/font_size = 8
+text = "the titel for the "
+horizontal_alignment = 1
+
+[node name="Upgrade_Info" type="Label" parent="Control" unique_id=1317953888]
+custom_maximum_size = Vector2(64, 14)
+layout_mode = 0
+offset_left = 4.5
+offset_top = 14.0
+offset_right = 68.5
+offset_bottom = 28.0
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("1_5bs5i")
+theme_override_font_sizes/font_size = 4
+text = "the brown fox jumps over the brown wolf or something idk much about that."
+autowrap_mode = 2

@@ -8,6 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
+[ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://ui.gd" id="5_cegan"]
+[ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="5_w48qg"]
+[ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="6_vivmo"]
+[ext_resource type="Texture2D" uid="uid://c3c4mu5tggaxf" path="res://sprites/icon_bolt.png" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://bn41hih5a4ei2" path="res://sprites/buy_button_bg.png" id="9_074og"]
+[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://scenes/up_Fast_Charging.gd" id="11_82xsv"]
+[ext_resource type="Texture2D" uid="uid://whsqnamoq7ao" path="res://sprites/buttons_icon.png" id="11_dg77c"]
+[ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://wyo2s1fj7dhc" path="res://scenes/up_charge_multiplier.gd" id="12_getpj"]
+[ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
+[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://scenes/up_battery_increase.gd" id="16_2cqfq"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -20,6 +33,15 @@ height = 96
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0, 0, 0, 0.7490196)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0jk56"]
+texture = ExtResource("9_074og")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_074og"]
+texture = ExtResource("15_yaehf")
+
 [node name="Main" type="Node2D" unique_id=1473243590]
 script = ExtResource("1_lquwl")
 
@@ -27,21 +49,22 @@ script = ExtResource("1_lquwl")
 color = Color(0.2159017, 0.21590173, 0.2159017, 1)
 
 [node name="Background" type="Node2D" parent="." unique_id=1669736185]
-position = Vector2(24, -9)
+position = Vector2(29, -1)
+scale = Vector2(1.3338861, 1.2875249)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1967612789]
-position = Vector2(24, 97)
+position = Vector2(26.097618, 88.57146)
 texture = ExtResource("1_1bvp3")
 
 [node name="Bulb" type="Node2D" parent="." unique_id=626596963]
-position = Vector2(49, 95)
+position = Vector2(62, 113)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bulb" unique_id=731785263]
 texture = ExtResource("1_h2yge")
 
 [node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
-position = Vector2(1.4305115e-06, -10)
-scale = Vector2(0.7521184, 0.7521184)
+position = Vector2(3, -12.000009)
+scale = Vector2(1.0731764, 1.1910853)
 energy = 4.0
 texture = SubResource("GradientTexture2D_t4kkl")
 texture_scale = 1.93
@@ -51,14 +74,117 @@ position = Vector2(0, 34)
 texture = ExtResource("4_5vw27")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
+script = ExtResource("5_cegan")
+
+[node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
+offset_right = 128.0
+offset_bottom = 224.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
+
+[node name="Label" type="Label" parent="UI/Factory_Popup" unique_id=1430615835]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.0
+offset_right = 85.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 10
+text = "Factory "
+
+[node name="Factory_Close" type="Button" parent="UI/Factory_Popup" unique_id=996086542]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 203.0
+offset_right = 80.545456
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_0jk56")
+text = "Close"
+
+[node name="Panel" type="Panel" parent="UI/Factory_Popup" unique_id=1550187219]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 23.0
+offset_right = 125.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Item_List" type="ScrollContainer" parent="UI/Factory_Popup/Panel" unique_id=250240406]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 117.0
+offset_bottom = 172.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="Item_Vbox" type="VBoxContainer" parent="UI/Factory_Popup/Panel/Item_List" unique_id=672265558]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Capacity_Increase_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1823130261 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("16_2cqfq")
+
+[node name="Fast_Charging_up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("11_82xsv")
+
+[node name="Charge_Multiplier_up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1941677639 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("12_getpj")
+
+[node name="Battery4" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Battery5" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Battery6" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
+offset_left = 52.0
+offset_top = 197.0
+offset_right = 72.0
+offset_bottom = 213.0
+texture_normal = ExtResource("5_w48qg")
+texture_pressed = ExtResource("6_vivmo")
 
 [node name="Charge_Bar" type="TextureProgressBar" parent="." unique_id=323203053]
-offset_left = 25.0
-offset_top = 43.0
-offset_right = 73.0
-offset_bottom = 53.0
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 65.0
+offset_bottom = 19.0
 texture_under = ExtResource("4_272bh")
 texture_progress = ExtResource("5_5vw27")
+
+[node name="TextureRect" type="TextureRect" parent="Charge_Bar" unique_id=1470159783]
+layout_mode = 0
+offset_left = -12.0
+offset_right = -2.0
+offset_bottom = 10.0
+texture = ExtResource("7_kek77")
+expand_mode = 1
+
+[node name="Multiplier_Label" type="Label" parent="Charge_Bar" unique_id=914645631]
+layout_mode = 0
+offset_left = 50.0
+offset_top = -1.0
+offset_right = 65.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "00x"
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=424303906]
 anchors_preset = 8
@@ -66,24 +192,55 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 32.0
-offset_top = 131.0
-offset_right = 64.0
-offset_bottom = 151.0
+offset_left = 46.0
+offset_top = 149.0
+offset_right = 78.0
+offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_1bvp3")
 texture_pressed = ExtResource("3_lquwl")
 
 [node name="CPM_Lable" type="Label" parent="." unique_id=957167476]
-offset_left = 12.0
-offset_top = 49.0
-offset_right = 52.0
-offset_bottom = 72.0
-text = "hi"
+offset_left = 18.0
+offset_top = 23.0
+offset_right = 36.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 10
+text = "cps"
+
+[node name="TextureRect" type="TextureRect" parent="CPM_Lable" unique_id=27183991]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = 12.0
+texture = ExtResource("11_dg77c")
+expand_mode = 1
 
 [node name="CPM_Timer" type="Timer" parent="." unique_id=1945194985]
 autostart = true
 
+[node name="Light_Label" type="Label" parent="." unique_id=721523755]
+offset_left = 18.0
+offset_top = 37.0
+offset_right = 41.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 10
+text = "light"
+
+[node name="TextureRect" type="TextureRect" parent="Light_Label" unique_id=1843927395]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 13.0
+texture = ExtResource("12_dg77c")
+expand_mode = 1
+
+[connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
+[connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="CPM_Timer" to="." method="_on_cpm_timer_timeout"]
