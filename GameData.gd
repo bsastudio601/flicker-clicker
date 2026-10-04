@@ -1,7 +1,10 @@
 extends Node
+#track var (dont edit)
+var clicked := 0
+var charge := 0.0
 
 #currency
-var light := 0
+var light := 4000
 var base_multiplier := 1
 #charge
 var charge_multiplier := 2

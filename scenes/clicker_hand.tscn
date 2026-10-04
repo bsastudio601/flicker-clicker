@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cgjxtjbbufgra"]
+
+[ext_resource type="Script" uid="uid://d10y4jnmvfwyg" path="res://scenes/clicker_hand.gd" id="1_bjhrx"]
+[ext_resource type="Texture2D" uid="uid://lmd787jgd1at" path="res://sprites/clicking_hand_2.png" id="2_tsy2i"]
+[ext_resource type="Texture2D" uid="uid://csbxfl5ct54tb" path="res://sprites/clicking_hand_1.png" id="3_3t015"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw31f"]
+atlas = ExtResource("2_tsy2i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_833ts"]
+atlas = ExtResource("3_3t015")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4kkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw31f")
+}],
+"loop": 1,
+"name": &"hand_clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_833ts")
+}],
+"loop": 1,
+"name": &"hand_normal",
+"speed": 5.0
+}]
+
+[node name="Clicker_Hand" type="Node2D" unique_id=1900481451]
+script = ExtResource("1_bjhrx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1490249697]
+sprite_frames = SubResource("SpriteFrames_t4kkl")
+animation = &"hand_clicked"
+
+[node name="Timer" type="Timer" parent="." unique_id=1872185069]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

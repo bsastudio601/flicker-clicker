@@ -12,15 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="5_w48qg"]
 [ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="6_vivmo"]
 [ext_resource type="Texture2D" uid="uid://c3c4mu5tggaxf" path="res://sprites/icon_bolt.png" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://q3kno4ucdhj" path="res://sprites/buy_button_disabled_bg.png" id="8_ryguw"]
 [ext_resource type="Texture2D" uid="uid://bn41hih5a4ei2" path="res://sprites/buy_button_bg.png" id="9_074og"]
 [ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="10_efxa6"]
-[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://scenes/up_Fast_Charging.gd" id="11_82xsv"]
+[ext_resource type="Script" uid="uid://ddnd4edom7wxx" path="res://upgrades/up_battery_capacity.gd" id="11_d13ii"]
 [ext_resource type="Texture2D" uid="uid://whsqnamoq7ao" path="res://sprites/buttons_icon.png" id="11_dg77c"]
 [ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
-[ext_resource type="Script" uid="uid://wyo2s1fj7dhc" path="res://scenes/up_charge_multiplier.gd" id="12_getpj"]
+[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_filament_upgrade.gd" id="13_ryguw"]
+[ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://scenes/up_clicking_hands.gd" id="14_1u8w0"]
+[ext_resource type="Script" uid="uid://cagx4dmjdphp7" path="res://scenes/up_extra_bulb.gd" id="15_lswn8"]
 [ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
-[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://scenes/up_battery_increase.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_efficient_filament.gd" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hand.tscn" id="22_ryguw"]
+[ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs.tscn" id="25_0odxb"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -38,6 +43,12 @@ bg_color = Color(0, 0, 0, 0.7490196)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0jk56"]
 texture = ExtResource("9_074og")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pv2k2"]
+texture = ExtResource("8_ryguw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2pwb"]
+texture = ExtResource("8_ryguw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_074og"]
 texture = ExtResource("15_yaehf")
@@ -63,7 +74,7 @@ position = Vector2(62, 113)
 texture = ExtResource("1_h2yge")
 
 [node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
-position = Vector2(3, -12.000009)
+position = Vector2(0, -10)
 scale = Vector2(1.0731764, 1.1910853)
 energy = 4.0
 texture = SubResource("GradientTexture2D_t4kkl")
@@ -100,6 +111,8 @@ offset_bottom = 219.0
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_0jk56")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pv2k2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n2pwb")
 text = "Close"
 
 [node name="Panel" type="Panel" parent="UI/Factory_Popup" unique_id=1550187219]
@@ -125,30 +138,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Capacity_Increase_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1823130261 instance=ExtResource("15_vivmo")]
+[node name="Battery_Capacity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1823130261 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("11_d13ii")
+
+[node name="Efficient_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("16_2cqfq")
 
-[node name="Fast_Charging_up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
+[node name="Filament_Upgrade_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("11_82xsv")
+script = ExtResource("13_ryguw")
 
-[node name="Charge_Multiplier_up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1941677639 instance=ExtResource("15_vivmo")]
+[node name="Clicker_Hands_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("12_getpj")
+script = ExtResource("14_1u8w0")
 
-[node name="Battery4" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("15_lswn8")
 
-[node name="Battery5" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("15_vivmo")]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Battery6" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_Speed_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=410071955 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -239,6 +254,29 @@ offset_right = -3.0
 offset_bottom = 13.0
 texture = ExtResource("12_dg77c")
 expand_mode = 1
+
+[node name="AutoClickerHand" type="Node" parent="." unique_id=1296696959]
+
+[node name="Clicker_Hand" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("22_ryguw")]
+position = Vector2(64, 165)
+scale = Vector2(1.0731764, 1.1910853)
+
+[node name="Clicker_Hand2" parent="AutoClickerHand" unique_id=1119065800 instance=ExtResource("22_ryguw")]
+position = Vector2(80, 157)
+rotation = -1.5707964
+
+[node name="Clicker_Hand3" parent="AutoClickerHand" unique_id=827688609 instance=ExtResource("22_ryguw")]
+position = Vector2(44, 158)
+rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="ExtraAutoBulb" type="Node" parent="." unique_id=1873554621]
+
+[node name="extra_bulbs" parent="ExtraAutoBulb" unique_id=1768370951 instance=ExtResource("25_0odxb")]
+position = Vector2(101, 120)
+
+[node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("25_0odxb")]
+position = Vector2(25, 119)
 
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]

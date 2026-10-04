@@ -11,6 +11,12 @@ texture = ExtResource("1_xt7r4")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cujw0"]
 texture = ExtResource("3_0jk56")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ja258"]
+texture = ExtResource("4_pv2k2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mfvlo"]
+texture = ExtResource("4_pv2k2")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_getpj"]
 texture = ExtResource("4_pv2k2")
 modulate_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
@@ -46,6 +52,8 @@ size_flags_stretch_ratio = 1.5
 theme_override_fonts/font = ExtResource("1_5bs5i")
 theme_override_font_sizes/font_size = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_cujw0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ja258")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mfvlo")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_getpj")
 text = "Unlock"
 
