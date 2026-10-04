@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bdko5crsju2qf"]
+
+[ext_resource type="FontFile" uid="uid://cht0o05jblh26" path="res://fonts/PixelifySans-Medium.ttf" id="1_5qo4b"]
+
+[resource]
+font = ExtResource("1_5qo4b")

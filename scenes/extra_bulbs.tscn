@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://q87teedc3ak4" path="res://sprites/autoclicker_bulb_sprite.png" id="1_t6uto"]
 [ext_resource type="Script" uid="uid://mx4t6a75qym6" path="res://scenes/extra_bulbs.gd" id="1_vq538"]
+[ext_resource type="Script" uid="uid://4svmiuiht5ad" path="res://damage_number_spawner.gd" id="3_kvv0f"]
+[ext_resource type="LabelSettings" uid="uid://bdko5crsju2qf" path="res://idk/new_label_settings.tres" id="4_nu55w"]
 
 [sub_resource type="Gradient" id="Gradient_t6uto"]
 offsets = PackedFloat32Array(0.06896552, 0.25, 0.62068963)
@@ -25,5 +27,10 @@ energy = 2.04
 texture = SubResource("GradientTexture2D_kvv0f")
 
 [node name="Timer" type="Timer" parent="." unique_id=1119105158]
+
+[node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=253762728]
+script = ExtResource("3_kvv0f")
+label_settings = ExtResource("4_nu55w")
+metadata/_custom_type_script = "uid://4svmiuiht5ad"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

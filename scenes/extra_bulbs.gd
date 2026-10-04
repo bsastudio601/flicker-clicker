@@ -31,4 +31,5 @@ func _on_timer_timeout() -> void:
 
 func add_light() -> void:
 	GameData.light += 1
+	$DamageNumberSpawner.spawn_label(GameData.light)
 	print("is being called1")
