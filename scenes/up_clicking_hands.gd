@@ -63,7 +63,7 @@ func buying_item() -> void:
 		clicker2.activate()
 	elif level == 3:
 		clicker3.activate()
-
+		
 	update_cost()
 	update_upgrade_info()
 	

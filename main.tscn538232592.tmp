@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://cadvk8gfv4ldw" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="3_lquwl"]
-[ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://bulb_system_script.gd" id="3_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
@@ -26,9 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
 [ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_efficient_filament.gd" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hand.tscn" id="22_ryguw"]
-[ext_resource type="Script" uid="uid://bc04qc4lrsbky" path="res://charge_bar_script.gd" id="22_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs.tscn" id="25_0odxb"]
-[ext_resource type="Script" uid="uid://dwqcjf3wipwq" path="res://stats.gd" id="27_a6jrf"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -72,7 +69,6 @@ texture = ExtResource("1_1bvp3")
 
 [node name="Bulb" type="Node2D" parent="." unique_id=626596963]
 position = Vector2(62, 113)
-script = ExtResource("3_qsp4k")
 
 [node name="Bulb_Button" type="TextureButton" parent="Bulb" unique_id=424303906]
 anchors_preset = 8
@@ -93,8 +89,8 @@ texture_pressed = ExtResource("3_lquwl")
 texture = ExtResource("1_h2yge")
 
 [node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
-position = Vector2(0, -3.6710687)
-scale = Vector2(1.0731764, 1.2594028)
+position = Vector2(0, -10)
+scale = Vector2(1.0731764, 1.1910853)
 energy = 4.0
 texture = SubResource("GradientTexture2D_t4kkl")
 texture_scale = 1.93
@@ -183,27 +179,116 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("15_lswn8")
 
-[node name="Overcharge_Tower_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=410071955 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_Speed_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=410071955 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
-offset_left = 96.0
-offset_top = 9.0
-offset_right = 116.0
-offset_bottom = 25.0
+offset_left = 52.0
+offset_top = 197.0
+offset_right = 72.0
+offset_bottom = 213.0
 texture_normal = ExtResource("5_w48qg")
 texture_pressed = ExtResource("6_vivmo")
 
+[node name="Charge_Bar" type="TextureProgressBar" parent="." unique_id=323203053]
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 65.0
+offset_bottom = 19.0
+texture_under = ExtResource("4_272bh")
+texture_progress = ExtResource("5_5vw27")
+
+[node name="TextureRect" type="TextureRect" parent="Charge_Bar" unique_id=1470159783]
+layout_mode = 0
+offset_left = -12.0
+offset_right = -2.0
+offset_bottom = 10.0
+texture = ExtResource("7_kek77")
+expand_mode = 1
+
+[node name="Multiplier_Label" type="Label" parent="Charge_Bar" unique_id=914645631]
+layout_mode = 0
+offset_left = 50.0
+offset_top = -1.0
+offset_right = 65.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "00x"
+
+[node name="Charge_label_White" type="Label" parent="Charge_Bar" unique_id=1941700991]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 5
+text = "2.0k/2.0k"
+
+[node name="Black_Label_Mask" type="Control" parent="Charge_Bar" unique_id=388748496]
+clip_contents = true
+anchors_preset = 0
+offset_left = 12.0
+offset_right = 52.0
+offset_bottom = 40.0
+
+[node name="Charge_label_Black" type="Label" parent="Charge_Bar/Black_Label_Mask" unique_id=436050136]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 5
+text = "2.0k/2.0k"
+
+[node name="CPM_Lable" type="Label" parent="." unique_id=957167476]
+offset_left = 18.0
+offset_top = 23.0
+offset_right = 36.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 10
+text = "cps"
+
+[node name="TextureRect" type="TextureRect" parent="CPM_Lable" unique_id=27183991]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = 12.0
+texture = ExtResource("11_dg77c")
+expand_mode = 1
+
 [node name="CPM_Timer" type="Timer" parent="." unique_id=1945194985]
 autostart = true
+
+[node name="Light_Label" type="Label" parent="." unique_id=721523755]
+offset_left = 18.0
+offset_top = 37.0
+offset_right = 41.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 10
+text = "light"
+
+[node name="TextureRect" type="TextureRect" parent="Light_Label" unique_id=1843927395]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 13.0
+texture = ExtResource("12_dg77c")
+expand_mode = 1
 
 [node name="AutoClickerHand" type="Node" parent="." unique_id=1296696959]
 
 [node name="Clicker_Hand" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("22_ryguw")]
 position = Vector2(64, 165)
 scale = Vector2(1.0731764, 1.1910853)
-click_delay = 0.17
 
 [node name="Clicker_Hand2" parent="AutoClickerHand" unique_id=1119065800 instance=ExtResource("22_ryguw")]
 position = Vector2(80, 157)
@@ -213,7 +298,6 @@ rotation = -1.5707964
 position = Vector2(44, 158)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
-click_delay = 0.34
 
 [node name="ExtraAutoBulb" type="Node" parent="." unique_id=1873554621]
 
@@ -223,189 +307,7 @@ position = Vector2(101, 120)
 [node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("25_0odxb")]
 position = Vector2(25, 119)
 
-[node name="Stats" type="Control" parent="." unique_id=897435244]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 45.0
-offset_top = 195.0
-offset_right = 85.0
-offset_bottom = 226.0
-script = ExtResource("27_a6jrf")
-
-[node name="Energy_consumption" type="Label" parent="Stats" unique_id=811271432]
-layout_mode = 0
-offset_left = -54.0
-offset_top = 14.0
-offset_right = 13.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "Power consumption
-"
-horizontal_alignment = 1
-
-[node name="cps_num" type="Label" parent="Stats/Energy_consumption" unique_id=988651193]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 66.0
-offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "100 / sec"
-horizontal_alignment = 1
-
-[node name="Energy_Geneation" type="Label" parent="Stats" unique_id=804440843]
-layout_mode = 0
-offset_left = -14.0
-offset_top = 14.0
-offset_right = 53.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "Power Generation
-"
-horizontal_alignment = 1
-
-[node name="gps_num" type="Label" parent="Stats/Energy_Geneation" unique_id=1873113890]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 66.0
-offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "100 / sec"
-horizontal_alignment = 1
-
-[node name="supply_efficiency" type="Label" parent="Stats" unique_id=1713065458]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 14.0
-offset_right = 92.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "supply efficiency"
-horizontal_alignment = 1
-
-[node name="sep_num" type="Label" parent="Stats/supply_efficiency" unique_id=359590596]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 66.0
-offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "99%"
-horizontal_alignment = 1
-
-[node name="Labels" type="Control" parent="." unique_id=460599528]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CPM_Lable" type="Label" parent="Labels" unique_id=957167476]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 23.0
-offset_right = 34.0
-offset_bottom = 36.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 8
-text = "cps"
-
-[node name="TextureRect" type="TextureRect" parent="Labels/CPM_Lable" unique_id=27183991]
-layout_mode = 0
-offset_left = -10.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 10.0
-texture = ExtResource("11_dg77c")
-expand_mode = 1
-
-[node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 34.0
-offset_right = 39.0
-offset_bottom = 47.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 8
-text = "light"
-
-[node name="TextureRect" type="TextureRect" parent="Labels/Light_Label" unique_id=1843927395]
-layout_mode = 0
-offset_left = -10.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 10.0
-texture = ExtResource("12_dg77c")
-expand_mode = 1
-
-[node name="Charge_Bar" type="TextureProgressBar" parent="Labels" unique_id=323203053]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 13.0
-offset_right = 56.0
-offset_bottom = 23.0
-texture_under = ExtResource("4_272bh")
-texture_progress = ExtResource("5_5vw27")
-script = ExtResource("22_xuqvo")
-
-[node name="TextureRect" type="TextureRect" parent="Labels/Charge_Bar" unique_id=1470159783]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 6.0
-offset_bottom = 9.0
-texture = ExtResource("7_kek77")
-expand_mode = 1
-
-[node name="Multiplier_Label" type="Label" parent="Labels/Charge_Bar" unique_id=914645631]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 2.0
-offset_right = 56.0
-offset_bottom = 13.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 5
-text = "00x"
-
-[node name="Charge_label_White" type="Label" parent="Labels/Charge_Bar" unique_id=1941700991]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 2.0
-offset_right = 55.0
-offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "2.0k/2.0k"
-
-[node name="Black_Label_Mask" type="Control" parent="Labels/Charge_Bar" unique_id=388748496]
-clip_contents = true
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 1.0
-offset_right = 54.0
-offset_bottom = 10.0
-
-[node name="Charge_label_Black" type="Label" parent="Labels/Charge_Bar/Black_Label_Mask" unique_id=436050136]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 41.0
-offset_bottom = 24.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "2.0k/2.0k"
-
-[connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
+[connection signal="pressed" from="Bulb/Bulb_Button" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
 [connection signal="timeout" from="CPM_Timer" to="." method="_on_cpm_timer_timeout"]
-[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand" to="." method="_on_clicker_hand_hand_clicked"]
-[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="." method="_on_clicker_hand_2_hand_clicked"]
-[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="." method="_on_clicker_hand_3_hand_clicked"]

@@ -12,7 +12,7 @@ var upgrade_info := ""
 
 
 var level := 0
-var max_level := 3
+var max_level := 2
 var drain_decrease_percent:= [5,7,10]
 var costs := [300,700,1100]
 

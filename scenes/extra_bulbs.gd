@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var timer: Timer = $Timer
-
+@onready var temp_number := 1 
 func _ready() -> void:
 	visible = false
 
@@ -30,6 +30,6 @@ func _on_timer_timeout() -> void:
 
 
 func add_light() -> void:
-	GameData.light += 1
-	$DamageNumberSpawner.spawn_label(GameData.light)
+	GameData.light += temp_number
+	$DamageNumberSpawner.spawn_label(temp_number)
 	print("is being called1")

@@ -104,7 +104,6 @@ position = Vector2(0, 34)
 texture = ExtResource("4_5vw27")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
-visible = false
 script = ExtResource("5_cegan")
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
@@ -195,8 +194,101 @@ offset_bottom = 25.0
 texture_normal = ExtResource("5_w48qg")
 texture_pressed = ExtResource("6_vivmo")
 
+[node name="Charge_Bar" type="TextureProgressBar" parent="." unique_id=323203053]
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 56.0
+offset_bottom = 23.0
+texture_under = ExtResource("4_272bh")
+texture_progress = ExtResource("5_5vw27")
+script = ExtResource("22_xuqvo")
+
+[node name="TextureRect" type="TextureRect" parent="Charge_Bar" unique_id=1470159783]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 6.0
+offset_bottom = 9.0
+texture = ExtResource("7_kek77")
+expand_mode = 1
+
+[node name="Multiplier_Label" type="Label" parent="Charge_Bar" unique_id=914645631]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 2.0
+offset_right = 56.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 5
+text = "00x"
+
+[node name="Charge_label_White" type="Label" parent="Charge_Bar" unique_id=1941700991]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 55.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 4
+text = "2.0k/2.0k"
+
+[node name="Black_Label_Mask" type="Control" parent="Charge_Bar" unique_id=388748496]
+clip_contents = true
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 1.0
+offset_right = 54.0
+offset_bottom = 41.0
+
+[node name="Charge_label_Black" type="Label" parent="Charge_Bar/Black_Label_Mask" unique_id=436050136]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 4
+text = "2.0k/2.0k"
+
+[node name="CPM_Lable" type="Label" parent="." unique_id=957167476]
+offset_left = 16.0
+offset_top = 23.0
+offset_right = 34.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "cps"
+
+[node name="TextureRect" type="TextureRect" parent="CPM_Lable" unique_id=27183991]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 10.0
+texture = ExtResource("11_dg77c")
+expand_mode = 1
+
 [node name="CPM_Timer" type="Timer" parent="." unique_id=1945194985]
 autostart = true
+
+[node name="Light_Label" type="Label" parent="." unique_id=721523755]
+offset_left = 16.0
+offset_top = 34.0
+offset_right = 39.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "light"
+
+[node name="TextureRect" type="TextureRect" parent="Light_Label" unique_id=1843927395]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 10.0
+texture = ExtResource("12_dg77c")
+expand_mode = 1
 
 [node name="AutoClickerHand" type="Node" parent="." unique_id=1296696959]
 
@@ -300,109 +392,7 @@ theme_override_font_sizes/font_size = 4
 text = "99%"
 horizontal_alignment = 1
 
-[node name="Labels" type="Control" parent="." unique_id=460599528]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CPM_Lable" type="Label" parent="Labels" unique_id=957167476]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 23.0
-offset_right = 34.0
-offset_bottom = 36.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 8
-text = "cps"
-
-[node name="TextureRect" type="TextureRect" parent="Labels/CPM_Lable" unique_id=27183991]
-layout_mode = 0
-offset_left = -10.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 10.0
-texture = ExtResource("11_dg77c")
-expand_mode = 1
-
-[node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 34.0
-offset_right = 39.0
-offset_bottom = 47.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 8
-text = "light"
-
-[node name="TextureRect" type="TextureRect" parent="Labels/Light_Label" unique_id=1843927395]
-layout_mode = 0
-offset_left = -10.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 10.0
-texture = ExtResource("12_dg77c")
-expand_mode = 1
-
-[node name="Charge_Bar" type="TextureProgressBar" parent="Labels" unique_id=323203053]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 13.0
-offset_right = 56.0
-offset_bottom = 23.0
-texture_under = ExtResource("4_272bh")
-texture_progress = ExtResource("5_5vw27")
-script = ExtResource("22_xuqvo")
-
-[node name="TextureRect" type="TextureRect" parent="Labels/Charge_Bar" unique_id=1470159783]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 6.0
-offset_bottom = 9.0
-texture = ExtResource("7_kek77")
-expand_mode = 1
-
-[node name="Multiplier_Label" type="Label" parent="Labels/Charge_Bar" unique_id=914645631]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 2.0
-offset_right = 56.0
-offset_bottom = 13.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 5
-text = "00x"
-
-[node name="Charge_label_White" type="Label" parent="Labels/Charge_Bar" unique_id=1941700991]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 2.0
-offset_right = 55.0
-offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "2.0k/2.0k"
-
-[node name="Black_Label_Mask" type="Control" parent="Labels/Charge_Bar" unique_id=388748496]
-clip_contents = true
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 1.0
-offset_right = 54.0
-offset_bottom = 10.0
-
-[node name="Charge_label_Black" type="Label" parent="Labels/Charge_Bar/Black_Label_Mask" unique_id=436050136]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 41.0
-offset_bottom = 24.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "2.0k/2.0k"
-
-[connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
+[connection signal="pressed" from="Bulb/Bulb_Button" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
 [connection signal="timeout" from="CPM_Timer" to="." method="_on_cpm_timer_timeout"]

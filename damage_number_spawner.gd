@@ -7,7 +7,7 @@ class_name DamageNumberSpawner
 func spawn_label(number: float, critical_hit: bool = false) -> void:
 	var new_label:Label = Label.new()
 	
-	new_label.text = str(number if step_decimals(number) != 0 else number as int)
+	new_label.text = "+" + str(number if step_decimals(number) != 0 else number as int)
 	new_label.label_settings = label_settings.duplicate()
 	new_label.z_index = 1000
 	new_label.pivot_offset_ratio = Vector2(0.5,1.0)
