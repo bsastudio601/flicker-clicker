@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgjxtjbbufgra"]
 
-[ext_resource type="Script" uid="uid://d10y4jnmvfwyg" path="res://scenes/clicker_hand.gd" id="1_bjhrx"]
+[ext_resource type="Script" uid="uid://d10y4jnmvfwyg" path="res://scenes/clicker_hands/clicker_hand.gd" id="1_bjhrx"]
 [ext_resource type="Texture2D" uid="uid://lmd787jgd1at" path="res://sprites/clicking_hand_2.png" id="2_tsy2i"]
 [ext_resource type="Texture2D" uid="uid://csbxfl5ct54tb" path="res://sprites/clicking_hand_1.png" id="3_3t015"]
 

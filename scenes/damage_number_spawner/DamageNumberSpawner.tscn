@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c32n00jgqltwu"]
+
+[ext_resource type="Script" uid="uid://4svmiuiht5ad" path="res://scenes/damage_number_spawner/damage_number_spawner.gd" id="1_vcl2u"]
+
+[node name="DamageNodeSpawner" type="Node2D" unique_id=1807784680]
+script = ExtResource("1_vcl2u")

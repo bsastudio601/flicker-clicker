@@ -5,20 +5,17 @@ extends PanelContainer
 @onready var info_label: Label = $Control/Upgrade_Info
 @onready var cost_label: Label = $Control/Cost
 @onready var buy_button: Button = $"Control/Buy Button"
-#hands
-@onready var clicker1 := $"../../../../../../AutoClickerHand/Clicker_Hand"
-@onready var clicker2 := $"../../../../../../AutoClickerHand/Clicker_Hand2"
-@onready var clicker3 := $"../../../../../../AutoClickerHand/Clicker_Hand3"
 
 #setting vars
-var upgrade_name := "Clicking Hands"
-var upgrade_info := ""
+var upgrade_name := "E Bulb Intensity"
+var upgrade_info := "Increases the charge generation to: "
+var max_reached_info := "Max intensity reached"
 
 
 var level := 0
-var max_level := 3
-
-var costs := [500,1500,3100]
+var max_level := 4
+var new_var := [2,3,4,5,6]
+var costs := [100,500,1000,2500,5000]
 
 
 func _ready() -> void:
@@ -45,6 +42,7 @@ func update_cost() -> void:
 	buy_button.disabled = GameData.light < costs[level]
 
 func buying_item() -> void:
+
 	if level >= max_level:
 		return
 
@@ -52,24 +50,21 @@ func buying_item() -> void:
 
 	if GameData.light < cost:
 		return
-
 	GameData.light -= cost
-
+	
 	level += 1
-
-	if level == 1:
-		clicker1.activate()
-	elif level == 2:
-		clicker2.activate()
-	elif level == 3:
-		clicker3.activate()
-		
 	update_cost()
-	update_upgrade_info()
+	
+	#here site the actual gamedata var logic
+	
+	
+	GameData.extra_bulb_light_generation = new_var[level]
+
+	
 	
 func update_upgrade_info() -> void:
 	if level >= max_level:
-		info_label.text = "Max number of hands reached"
+		info_label.text = max_reached_info
 		return
 
-	info_label.text = "Adds A automatic clicking hand" 
+	info_label.text = upgrade_info + str(new_var[level])

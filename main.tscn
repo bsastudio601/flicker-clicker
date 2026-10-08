@@ -2,33 +2,39 @@
 
 [ext_resource type="Texture2D" uid="uid://d14sgui1djid" path="res://sprites/background.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cgl2niusxjmnu" path="res://sprites/Bulb_sprite.png" id="1_h2yge"]
-[ext_resource type="Script" uid="uid://cadvk8gfv4ldw" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="3_lquwl"]
-[ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://bulb_system_script.gd" id="3_qsp4k"]
+[ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://codes/bulb_system_script.gd" id="3_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
-[ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://ui.gd" id="5_cegan"]
+[ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://codes/ui.gd" id="5_cegan"]
 [ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="5_w48qg"]
 [ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="6_vivmo"]
 [ext_resource type="Texture2D" uid="uid://c3c4mu5tggaxf" path="res://sprites/icon_bolt.png" id="7_kek77"]
+[ext_resource type="PackedScene" uid="uid://c32n00jgqltwu" path="res://scenes/damage_number_spawner/DamageNumberSpawner.tscn" id="7_qsp4k"]
+[ext_resource type="LabelSettings" uid="uid://bdko5crsju2qf" path="res://idk/new_label_settings.tres" id="8_kq58d"]
 [ext_resource type="Texture2D" uid="uid://q3kno4ucdhj" path="res://sprites/buy_button_disabled_bg.png" id="8_ryguw"]
 [ext_resource type="Texture2D" uid="uid://bn41hih5a4ei2" path="res://sprites/buy_button_bg.png" id="9_074og"]
 [ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="10_efxa6"]
 [ext_resource type="Script" uid="uid://ddnd4edom7wxx" path="res://upgrades/up_battery_capacity.gd" id="11_d13ii"]
-[ext_resource type="Texture2D" uid="uid://whsqnamoq7ao" path="res://sprites/buttons_icon.png" id="11_dg77c"]
 [ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
-[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_filament_upgrade.gd" id="13_ryguw"]
-[ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://scenes/up_clicking_hands.gd" id="14_1u8w0"]
-[ext_resource type="Script" uid="uid://cagx4dmjdphp7" path="res://scenes/up_extra_bulb.gd" id="15_lswn8"]
+[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_stronger_filament.gd" id="13_ryguw"]
+[ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://upgrades/up_clicking_hands.gd" id="14_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
-[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_efficient_filament.gd" id="16_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hand.tscn" id="22_ryguw"]
-[ext_resource type="Script" uid="uid://bc04qc4lrsbky" path="res://charge_bar_script.gd" id="22_xuqvo"]
-[ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs.tscn" id="25_0odxb"]
-[ext_resource type="Script" uid="uid://dwqcjf3wipwq" path="res://stats.gd" id="27_a6jrf"]
+[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://05wi4mig00tf" path="res://scenes/up_efficient_filament.gd" id="18_kq58d"]
+[ext_resource type="Script" uid="uid://bqsxlhm4uv7mo" path="res://scenes/up_clicking_hand_speed.gd" id="20_seu75"]
+[ext_resource type="Script" uid="uid://dmqhe1nrenj2l" path="res://scenes/up_clicking_hand_cooldown.gd" id="21_htxhm"]
+[ext_resource type="Script" uid="uid://cagx4dmjdphp7" path="res://upgrades/up_extra_bulb.gd" id="22_jq2sk"]
+[ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hands/clicker_hand.tscn" id="22_ryguw"]
+[ext_resource type="Script" uid="uid://bc04qc4lrsbky" path="res://codes/charge_bar_script.gd" id="22_xuqvo"]
+[ext_resource type="Script" uid="uid://bhkgw71c0a5am" path="res://scenes/up_extra_bulb_intensity.gd" id="23_4k2k6"]
+[ext_resource type="Script" uid="uid://dfpx3l12sml3n" path="res://scenes/up_extra_bulb_efficiency.gd" id="24_0rl1p"]
+[ext_resource type="Script" uid="uid://3wyk2p54viq8" path="res://codes/label_system_script.gd" id="24_kq58d"]
+[ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs/extra_bulbs.tscn" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://dwqcjf3wipwq" path="res://codes/stats.gd" id="27_a6jrf"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -57,7 +63,6 @@ texture = ExtResource("8_ryguw")
 texture = ExtResource("15_yaehf")
 
 [node name="Main" type="Node2D" unique_id=1473243590]
-script = ExtResource("1_lquwl")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1090858143]
 color = Color(0.2159017, 0.21590173, 0.2159017, 1)
@@ -103,8 +108,11 @@ texture_scale = 1.93
 position = Vector2(0, 34)
 texture = ExtResource("4_5vw27")
 
+[node name="DamageNodeSpawner" parent="Bulb" unique_id=1807784680 instance=ExtResource("7_qsp4k")]
+position = Vector2(0, -11)
+label_settings = ExtResource("8_kq58d")
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
-visible = false
 script = ExtResource("5_cegan")
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
@@ -163,47 +171,64 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("11_d13ii")
 
-[node name="Efficient_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
+[node name="Upgraded_Battery_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("16_2cqfq")
 
-[node name="Filament_Upgrade_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
+[node name="Stronger_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("13_ryguw")
+
+[node name="Efficient_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1567299439 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("18_kq58d")
 
 [node name="Clicker_Hands_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("14_1u8w0")
 
+[node name="Clicking_Hand_Speed_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1392930644 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("20_seu75")
+
+[node name="Clicking_Hand_Cooldown_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=2053930824 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("21_htxhm")
+
 [node name="Extra_Bulb_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("15_lswn8")
+script = ExtResource("22_jq2sk")
 
-[node name="Overcharge_Tower_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=410071955 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_intensity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=281134204 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("23_4k2k6")
+
+[node name="Extra_Bulb_Efficiency_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=714071102 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("24_0rl1p")
 
 [node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
-offset_left = 96.0
-offset_top = 9.0
-offset_right = 116.0
-offset_bottom = 25.0
+offset_left = 52.0
+offset_top = 191.0
+offset_right = 72.0
+offset_bottom = 207.0
 texture_normal = ExtResource("5_w48qg")
 texture_pressed = ExtResource("6_vivmo")
 
-[node name="CPM_Timer" type="Timer" parent="." unique_id=1945194985]
-autostart = true
-
 [node name="AutoClickerHand" type="Node" parent="." unique_id=1296696959]
 
-[node name="Clicker_Hand" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("22_ryguw")]
+[node name="Clicker_Hand1" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("22_ryguw")]
 position = Vector2(64, 165)
 scale = Vector2(1.0731764, 1.1910853)
-click_delay = 0.17
 
 [node name="Clicker_Hand2" parent="AutoClickerHand" unique_id=1119065800 instance=ExtResource("22_ryguw")]
 position = Vector2(80, 157)
@@ -213,7 +238,6 @@ rotation = -1.5707964
 position = Vector2(44, 158)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
-click_delay = 0.34
 
 [node name="ExtraAutoBulb" type="Node" parent="." unique_id=1873554621]
 
@@ -226,10 +250,10 @@ position = Vector2(25, 119)
 [node name="Stats" type="Control" parent="." unique_id=897435244]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 45.0
-offset_top = 195.0
-offset_right = 85.0
-offset_bottom = 226.0
+offset_left = 47.0
+offset_top = 165.0
+offset_right = 71.0
+offset_bottom = 192.0
 script = ExtResource("27_a6jrf")
 
 [node name="Energy_consumption" type="Label" parent="Stats" unique_id=811271432]
@@ -305,42 +329,23 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="CPM_Lable" type="Label" parent="Labels" unique_id=957167476]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 23.0
-offset_right = 34.0
-offset_bottom = 36.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 8
-text = "cps"
-
-[node name="TextureRect" type="TextureRect" parent="Labels/CPM_Lable" unique_id=27183991]
-layout_mode = 0
-offset_left = -10.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 10.0
-texture = ExtResource("11_dg77c")
-expand_mode = 1
+script = ExtResource("24_kq58d")
 
 [node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 34.0
+offset_top = 26.0
 offset_right = 39.0
-offset_bottom = 47.0
+offset_bottom = 39.0
 theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 6
 text = "light"
 
 [node name="TextureRect" type="TextureRect" parent="Labels/Light_Label" unique_id=1843927395]
 layout_mode = 0
 offset_left = -10.0
-offset_top = 2.0
 offset_right = -2.0
-offset_bottom = 10.0
+offset_bottom = 8.0
 texture = ExtResource("12_dg77c")
 expand_mode = 1
 
@@ -405,7 +410,6 @@ text = "2.0k/2.0k"
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
-[connection signal="timeout" from="CPM_Timer" to="." method="_on_cpm_timer_timeout"]
-[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand" to="." method="_on_clicker_hand_hand_clicked"]
-[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="." method="_on_clicker_hand_2_hand_clicked"]
-[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="." method="_on_clicker_hand_3_hand_clicked"]
+[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand1" to="Bulb" method="_on_clicker_hand_1_hand_clicked"]
+[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="Bulb" method="_on_clicker_hand_2_hand_clicked"]
+[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="Bulb" method="_on_clicker_hand_3_hand_clicked"]

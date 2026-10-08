@@ -7,14 +7,15 @@ extends PanelContainer
 @onready var buy_button: Button = $"Control/Buy Button"
 
 #setting vars
-var upgrade_name := "Efficient Filament"
-var upgrade_info := ""
+var upgrade_name := "Clicking Hand Speed"
+var upgrade_info := "Increases the speed generation to: "
+var max_reached_info := "Max speed reach reached"
 
 
 var level := 0
-var max_level := 2
-var drain_decrease_percent:= [5,7,10]
-var costs := [300,700,1100]
+var max_level := 4
+var new_var := [1.5,1,0.7,0.5,0.2]
+var costs := [100,500,1000,2500,5000]
 
 
 func _ready() -> void:
@@ -49,18 +50,21 @@ func buying_item() -> void:
 
 	if GameData.light < cost:
 		return
-
 	GameData.light -= cost
-	level += 1
 	
-	var decrease = GameData.drain_per_second * (drain_decrease_percent[level] / 100.0)
-	GameData.drain_per_second = GameData.drain_per_second - decrease
-
+	level += 1
 	update_cost()
+	
+	#here site the actual gamedata var logic
+	
+	
+	GameData.clicking_hand_cps = new_var[level]
+
+	
 	
 func update_upgrade_info() -> void:
 	if level >= max_level:
-		info_label.text = "Filament Efficency MAX"
+		info_label.text = max_reached_info
 		return
 
-	info_label.text = "Decreses battery drain by " + str(drain_decrease_percent[level]) + "%"
+	info_label.text = upgrade_info + str(new_var[level])
