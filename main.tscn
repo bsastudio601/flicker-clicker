@@ -34,7 +34,9 @@
 [ext_resource type="Script" uid="uid://dfpx3l12sml3n" path="res://scenes/up_extra_bulb_efficiency.gd" id="24_0rl1p"]
 [ext_resource type="Script" uid="uid://3wyk2p54viq8" path="res://codes/label_system_script.gd" id="24_kq58d"]
 [ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs/extra_bulbs.tscn" id="25_0odxb"]
-[ext_resource type="Script" uid="uid://dwqcjf3wipwq" path="res://codes/stats.gd" id="27_a6jrf"]
+[ext_resource type="Script" uid="uid://b8xo31ub87txn" path="res://StatPopUp.gd" id="35_facbu"]
+[ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
+[ext_resource type="Script" uid="uid://csxvn6h8hiugu" path="res://BalancingSystem.gd" id="36_ok6jj"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -61,6 +63,9 @@ texture = ExtResource("8_ryguw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_074og"]
 texture = ExtResource("15_yaehf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rl1p"]
+texture = ExtResource("35_ok6jj")
 
 [node name="Main" type="Node2D" unique_id=1473243590]
 
@@ -113,6 +118,7 @@ position = Vector2(0, -11)
 label_settings = ExtResource("8_kq58d")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
+visible = false
 script = ExtResource("5_cegan")
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
@@ -217,10 +223,10 @@ size_flags_vertical = 3
 script = ExtResource("24_0rl1p")
 
 [node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
-offset_left = 52.0
-offset_top = 191.0
-offset_right = 72.0
-offset_bottom = 207.0
+offset_left = 53.0
+offset_top = 202.0
+offset_right = 73.0
+offset_bottom = 218.0
 texture_normal = ExtResource("5_w48qg")
 texture_pressed = ExtResource("6_vivmo")
 
@@ -246,83 +252,6 @@ position = Vector2(101, 120)
 
 [node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("25_0odxb")]
 position = Vector2(25, 119)
-
-[node name="Stats" type="Control" parent="." unique_id=897435244]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 47.0
-offset_top = 165.0
-offset_right = 71.0
-offset_bottom = 192.0
-script = ExtResource("27_a6jrf")
-
-[node name="Energy_consumption" type="Label" parent="Stats" unique_id=811271432]
-layout_mode = 0
-offset_left = -54.0
-offset_top = 14.0
-offset_right = 13.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "Power consumption
-"
-horizontal_alignment = 1
-
-[node name="cps_num" type="Label" parent="Stats/Energy_consumption" unique_id=988651193]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 66.0
-offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "100 / sec"
-horizontal_alignment = 1
-
-[node name="Energy_Geneation" type="Label" parent="Stats" unique_id=804440843]
-layout_mode = 0
-offset_left = -14.0
-offset_top = 14.0
-offset_right = 53.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "Power Generation
-"
-horizontal_alignment = 1
-
-[node name="gps_num" type="Label" parent="Stats/Energy_Geneation" unique_id=1873113890]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 66.0
-offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "100 / sec"
-horizontal_alignment = 1
-
-[node name="supply_efficiency" type="Label" parent="Stats" unique_id=1713065458]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 14.0
-offset_right = 92.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "supply efficiency"
-horizontal_alignment = 1
-
-[node name="sep_num" type="Label" parent="Stats/supply_efficiency" unique_id=359590596]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 66.0
-offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 4
-text = "99%"
-horizontal_alignment = 1
 
 [node name="Labels" type="Control" parent="." unique_id=460599528]
 layout_mode = 3
@@ -407,9 +336,113 @@ theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 4
 text = "2.0k/2.0k"
 
+[node name="DashBoard" type="Control" parent="." unique_id=1174753452]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("35_facbu")
+
+[node name="StatsWindow" type="Panel" parent="DashBoard" unique_id=850599284]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -8.0
+offset_right = 101.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
+script = ExtResource("36_ok6jj")
+
+[node name="Title" type="Label" parent="DashBoard/StatsWindow" unique_id=1759810355]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.0
+offset_right = 12.5
+offset_bottom = 11.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 7
+text = "Stats"
+
+[node name="PowerPerSecondTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=1365126526]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 46.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "Generation :"
+
+[node name="PowerPerSecond" type="Label" parent="DashBoard/StatsWindow/PowerPerSecondTitle" unique_id=657898120]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 16.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "20 Light / sec"
+
+[node name="ConsumptionPerSecondTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=727452417]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 48.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "Consumption :"
+
+[node name="ConsumptionPerSecond" type="Label" parent="DashBoard/StatsWindow/ConsumptionPerSecondTitle" unique_id=513975421]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "40 Light / sec"
+
+[node name="EfficiencyTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=643283135]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 46.0
+offset_right = 47.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "Net Efficiency"
+
+[node name="NetEfficiency" type="Label" parent="DashBoard/StatsWindow/EfficiencyTitle" unique_id=901790338]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "96%"
+
+[node name="Stat_button" type="Button" parent="DashBoard" unique_id=199608787]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 7
+text = "Stats"
+
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand1" to="Bulb" method="_on_clicker_hand_1_hand_clicked"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="Bulb" method="_on_clicker_hand_2_hand_clicked"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="Bulb" method="_on_clicker_hand_3_hand_clicked"]
+[connection signal="pressed" from="DashBoard/Stat_button" to="DashBoard" method="_on_stat_button_pressed"]

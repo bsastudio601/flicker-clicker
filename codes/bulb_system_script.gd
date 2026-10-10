@@ -23,11 +23,13 @@ func _process(delta: float) -> void:
 func _on_bulb_button_pressed() -> void:
 	add_light_and_charge()
 	
+	
 func add_light_and_charge() -> void: #adds currency with the max charge multiplier
 	var charge_generation : float = GameData.main_bulb_charge_generation
 	var light_generation : float = GameData.main_bulb_light_generation
 
 	GameData.charge += charge_generation
+	GameData.total_power_generation += 1 
 	
 	var main_light_total_payout = light_generation
 	
