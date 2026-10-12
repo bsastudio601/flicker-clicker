@@ -12,9 +12,9 @@ var upgrade_info := ""
 
 
 var level := 0
-var max_level := 5
-var battery_increase := [100,200,300,400,500]
-var costs := [100,500,1000,2000,4000]
+var max_level := 7
+var battery_increase := [30,45,65,90,125,170,230,300]
+var costs := [50,100,190,370,720,1400,2750,5350]
 
 
 func _ready() -> void:
@@ -49,10 +49,12 @@ func buying_item() -> void:
 
 	if GameData.light < cost:
 		return
-
-	GameData.light -= cost
-	GameData.max_charge += battery_increase[level]
+		
 	level += 1
+	GameData.light -= cost
+	
+	GameData.max_charge = battery_increase[level]
+	
 
 	update_cost()
 	

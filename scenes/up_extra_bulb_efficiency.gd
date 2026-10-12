@@ -13,9 +13,9 @@ var max_reached_info := "Max Efficiency reached"
 
 
 var level := 0
-var max_level := 4
-var new_var := [8,6,4,2,1]
-var costs := [100,500,1000,2500,5000]
+var max_level := 5
+var new_var := [8,6,4,2,1,0.5]
+var costs := [2200,3950,7150,13000,23000,41500]
 
 
 func _ready() -> void:

@@ -15,10 +15,10 @@ var max_reached_info := "cooldown reached"
 
 
 var level := 0
-var max_level := 4
-var new_var := [4,3,2,1,0.5] #for colldown time
-var new_var_2 := [20,30,40,500,60] #for clicks before cooldown
-var costs := [100,500,1000,2500,5000]
+var max_level := 5
+var new_var := [10,8,6.5,5,4,2,1] #for colldown time
+var new_var_2 := [20,40,50,60,70,100] #for clicks before cooldown
+var costs := [300,630,1300,2800,5850,12500]
 
 
 func _ready() -> void:
@@ -62,6 +62,7 @@ func buying_item() -> void:
 	
 	
 	GameData.clicking_hand_cooldown = new_var[level]
+	GameData.clicking_hand_clicks_before_cooldown = new_var_2[level]
 
 	
 	

@@ -12,9 +12,9 @@ var upgrade_info := ""
 
 
 var level := 0
-var max_level := 2
-var drain_decrease_percent:= [5,7,10]
-var costs := [300,700,1100]
+var max_level := 5
+var drain_decrease_percent:= [5,5,5,5,5,5]
+var costs := [380,860,2000,4550,10500,24000]
 
 
 func _ready() -> void:

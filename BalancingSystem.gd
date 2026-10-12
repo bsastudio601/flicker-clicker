@@ -2,6 +2,7 @@ extends Control
 
 @onready var power_generation :Label = $PowerPerSecondTitle/PowerPerSecond
 @onready var power_consumption :Label = $ConsumptionPerSecondTitle/ConsumptionPerSecond
+@onready var net_efficiency: Label = $EfficiencyTitle/NetEfficiency
 
 var sample_timer := 0.0
 
@@ -39,4 +40,8 @@ func total_calc(elapsed:float) -> void:
 	GameData.power_consumption_per_second = light_consumption / elapsed
 	pre_onesec_consumption = GameData.total_power_consumption
 	power_consumption.text = "%.2f/s" % GameData.power_consumption_per_second
+	
+	net_efficiency.text = str((GameData.power_generation_per_second/GameData.power_consumption_per_second) * 100)
+	
+	
 	

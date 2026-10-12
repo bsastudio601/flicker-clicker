@@ -13,9 +13,9 @@ var max_reached_info := "Max speed reach reached"
 
 
 var level := 0
-var max_level := 4
-var new_var := [1.5,1,0.7,0.5,0.2]
-var costs := [100,500,1000,2500,5000]
+var max_level := 7
+var new_var := [0.9,0.8,0.7,0.6,0.5,0.42,0.35,0.3]
+var costs := [250,490,950,1850,3600,7050,13500,27000]
 
 
 func _ready() -> void:

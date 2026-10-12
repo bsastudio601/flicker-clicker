@@ -13,9 +13,9 @@ var max_reached_info := "Max efficiency reached"
 
 
 var level := 0
-var max_level := 5
-var new_var := [2,3,4,5,6]
-var costs := [100,500,1000,2500,5000]
+var max_level := 9
+var new_var := [2,3,4,5,6.8,10,12,15,18]
+var costs := [30,55,110,230,450,900,1800,3600,7200,14500]
 
 
 func _ready() -> void:
@@ -52,14 +52,11 @@ func buying_item() -> void:
 		return
 	GameData.light -= cost
 	
-	level += 1
-	update_cost()
-	
 	#here site the actual gamedata var logic
-	
-	
 	GameData.main_bulb_charge_generation += new_var[level]
 
+	level += 1
+	update_cost()
 	
 	
 func update_upgrade_info() -> void:

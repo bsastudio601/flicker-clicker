@@ -13,9 +13,9 @@ var max_reached_info := "Max intensity reached"
 
 
 var level := 0
-var max_level := 4
-var new_var := [2,3,4,5,6]
-var costs := [100,500,1000,2500,5000]
+var max_level := 7
+var new_var := [2,3,4,5,6,8,10,12]
+var costs := [2500,3600,5250,7600,11000,16000,23000,33500]
 
 
 func _ready() -> void:

@@ -32,4 +32,5 @@ func _on_timer_timeout() -> void:
 func add_light() -> void:
 	var light_generation := GameData.extra_bulb_light_generation
 	GameData.light += light_generation
+	GameData.total_power_consumption += 10
 	$DamageNumberSpawner.spawn_label(light_generation)

@@ -12,9 +12,9 @@ var upgrade_info := ""
 
 
 var level := 0
-var max_level := 5
-var base_multiplier_increase := [1.2,1.4,1.7,2,2.5]
-var costs := [100,500,1000,2500,5000]
+var max_level := 10
+var light_generation_per_click := [2,3,4,5,6,8,10,12,15,18]
+var costs := [30,60,120,240,480,960,1900,3850,7700,15500]
 
 
 func _ready() -> void:
@@ -51,7 +51,7 @@ func buying_item() -> void:
 		return
 
 	GameData.light -= cost
-	GameData.base_multiplier = base_multiplier_increase[level]
+	GameData.main_bulb_light_generation = light_generation_per_click[level]
 	level += 1
 
 	update_cost()
@@ -61,4 +61,4 @@ func update_upgrade_info() -> void:
 		info_label.text = "Battery capacity MAX"
 		return
 
-	info_label.text = "Increases the light generation by x" + str(base_multiplier_increase[level])
+	info_label.text = "Increases the light generation to " + str(light_generation_per_click[level])

@@ -17,7 +17,7 @@ var upgrade_info := ""
 var level := 0
 var max_level := 2
 
-var costs := [1500,3100]
+var costs := [1800,6300]
 
 
 func _ready() -> void:
