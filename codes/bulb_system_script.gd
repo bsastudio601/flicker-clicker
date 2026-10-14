@@ -10,7 +10,7 @@ var pressed_texture: Texture2D
 var main_bulb_generation: float = 1
 
 @onready var charge_multipler_label: Label = $"../Labels/Charge_Bar/Multiplier_Label"
-
+@onready var click_sound: AudioStreamPlayer = $Bulb_Button/button_click_sfx
 
 
 func _ready() -> void:
@@ -28,8 +28,10 @@ func add_light_and_charge() -> void: #adds currency with the max charge multipli
 	var charge_generation : float = GameData.main_bulb_charge_generation
 	var light_generation : float = GameData.main_bulb_light_generation
 
-	GameData.charge += charge_generation
+	GameData.charge = clampf(GameData.charge + GameData.main_bulb_charge_generation, 0.0 , GameData.max_charge)
 	GameData.total_power_generation += 1 
+	
+	click_sound.play()
 	
 	var main_light_total_payout = light_generation
 	
@@ -45,31 +47,9 @@ func add_light_and_charge() -> void: #adds currency with the max charge multipli
 	
 	$DamageNodeSpawner	.spawn_label(main_light_total_payout)
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 func update_bulb_visual() -> void:
 	var brightness : float = GameData.charge /GameData.max_charge
-	point_light.energy = lerp(0.5 , 4.0 , brightness)
+	point_light.energy = lerpf(0.5 , 4.0 , brightness)
 	
 func press_button_animation() -> void: #Call this func to play the animation automatically
 	bulb_button.texture_normal = pressed_texture

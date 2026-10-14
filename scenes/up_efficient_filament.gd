@@ -38,7 +38,10 @@ func update_cost() -> void:
 		buy_button.disabled = true
 		return
 
-	cost_label.text = str(costs[level])
+	if costs[level] >= 1000:
+		cost_label.text = str(round(costs[level] / 100.0) / 10.0) + "K"
+	else:
+		cost_label.text = str(costs[level])
 	buy_button.disabled = GameData.light < costs[level]
 
 func buying_item() -> void:

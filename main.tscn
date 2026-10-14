@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
+[ext_resource type="AudioStream" uid="uid://gnepjrnparm8" path="res://sfx/universfield-click-button-140881.mp3" id="5_b1qrp"]
 [ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://codes/ui.gd" id="5_cegan"]
 [ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="5_w48qg"]
 [ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="6_vivmo"]
@@ -37,6 +38,15 @@
 [ext_resource type="Script" uid="uid://b8xo31ub87txn" path="res://StatPopUp.gd" id="35_facbu"]
 [ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
 [ext_resource type="Script" uid="uid://csxvn6h8hiugu" path="res://BalancingSystem.gd" id="36_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://iqiwm2mnt6uw" path="res://sprites/stats_button_normal.png" id="39_0cp0l"]
+[ext_resource type="Script" uid="uid://dwlyx84t6gi01" path="res://setting_window.gd" id="39_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://dgs8bfbup02up" path="res://sprites/stats_button_pressed.png" id="40_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://d21485qpraepv" path="res://sprites/slider_bar_button.png" id="40_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://c8n47u3cpa0ml" path="res://sprites/slider_1_line.png" id="41_f6a44"]
+[ext_resource type="Texture2D" uid="uid://dllqvcqouh2qn" path="res://sprites/setting_icon_normal.png" id="41_gngh3"]
+[ext_resource type="Texture2D" uid="uid://bb6annyfixmv7" path="res://sprites/setting_icon_pressedl.png" id="42_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://dgqtne8gd8pjp" path="res://sprites/credit_button_normal.png" id="43_gngh3"]
+[ext_resource type="Texture2D" uid="uid://2d036xukme3f" path="res://sprites/credit_button_pressed.png" id="44_0n3wm"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -66,6 +76,17 @@ texture = ExtResource("15_yaehf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rl1p"]
 texture = ExtResource("35_ok6jj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqjc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrvbo"]
+texture = ExtResource("41_f6a44")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cbny"]
+texture = ExtResource("41_f6a44")
 
 [node name="Main" type="Node2D" unique_id=1473243590]
 
@@ -99,6 +120,10 @@ grow_vertical = 2
 texture_normal = ExtResource("2_1bvp3")
 texture_pressed = ExtResource("3_lquwl")
 
+[node name="button_click_sfx" type="AudioStreamPlayer" parent="Bulb/Bulb_Button" unique_id=1849726800]
+stream = ExtResource("5_b1qrp")
+bus = &"sfx"
+
 [node name="Sprite2D" type="Sprite2D" parent="Bulb" unique_id=731785263]
 texture = ExtResource("1_h2yge")
 
@@ -118,6 +143,7 @@ position = Vector2(0, -11)
 label_settings = ExtResource("8_kq58d")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
+visible = false
 script = ExtResource("5_cegan")
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
@@ -255,8 +281,9 @@ position = Vector2(25, 119)
 [node name="Labels" type="Control" parent="." unique_id=460599528]
 layout_mode = 3
 anchors_preset = 0
+offset_top = -5.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 35.0
 script = ExtResource("24_kq58d")
 
 [node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
@@ -338,8 +365,8 @@ text = "2.0k/2.0k"
 [node name="DashBoard" type="Control" parent="." unique_id=1174753452]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 128.0
+offset_bottom = 74.0
 script = ExtResource("35_facbu")
 
 [node name="StatsWindow" type="Panel" parent="DashBoard" unique_id=850599284]
@@ -349,34 +376,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 53.0
-offset_top = -8.0
-offset_right = 101.0
-offset_bottom = 57.0
+offset_left = -2.0
+offset_top = -15.0
+offset_right = 46.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
 script = ExtResource("36_ok6jj")
 
-[node name="Title" type="Label" parent="DashBoard/StatsWindow" unique_id=1759810355]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -11.0
-offset_right = 12.5
-offset_bottom = 11.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 7
-text = "Stats"
-
 [node name="PowerPerSecondTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=1365126526]
 layout_mode = 1
 offset_left = 2.0
-offset_top = 11.0
+offset_top = 3.0
 offset_right = 46.0
-offset_bottom = 25.0
+offset_bottom = 17.0
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 6
 text = "Generation :"
@@ -393,9 +407,9 @@ text = "20 Light / sec"
 [node name="ConsumptionPerSecondTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=727452417]
 layout_mode = 0
 offset_left = 2.0
-offset_top = 28.0
+offset_top = 18.0
 offset_right = 48.0
-offset_bottom = 51.0
+offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 6
 text = "Consumption :"
@@ -412,9 +426,9 @@ text = "40 Light / sec"
 [node name="EfficiencyTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=643283135]
 layout_mode = 0
 offset_left = 2.0
-offset_top = 46.0
+offset_top = 35.0
 offset_right = 47.0
-offset_bottom = 62.0
+offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 6
 text = "Net Efficiency"
@@ -428,15 +442,90 @@ theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 6
 text = "96%"
 
-[node name="Stat_button" type="Button" parent="DashBoard" unique_id=199608787]
+[node name="SettingWindow" type="Panel" parent="DashBoard" unique_id=648771040]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -15.0
+offset_right = 61.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
+script = ExtResource("39_0n3wm")
+
+[node name="sliders" type="Control" parent="DashBoard/SettingWindow" unique_id=534937052]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 51.0
+offset_bottom = 31.0
+
+[node name="Label" type="Label" parent="DashBoard/SettingWindow/sliders" unique_id=1180628828]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 8.0
-offset_right = 112.0
-offset_bottom = 25.0
+offset_right = 11.0
+offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("10_efxa6")
-theme_override_font_sizes/font_size = 7
-text = "Stats"
+theme_override_font_sizes/font_size = 6
+text = "sfx"
+
+[node name="sfx_slider" type="HSlider" parent="DashBoard/SettingWindow/sliders" unique_id=230838412]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 15.0
+theme_override_icons/grabber = ExtResource("40_wnkbs")
+theme_override_icons/grabber_highlight = ExtResource("40_wnkbs")
+theme_override_icons/grabber_disabled = ExtResource("40_wnkbs")
+theme_override_icons/tick = ExtResource("40_wnkbs")
+theme_override_styles/slider = SubResource("StyleBoxFlat_abqjc")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hrvbo")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0cbny")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="music_slider" type="HSlider" parent="DashBoard/SettingWindow/sliders" unique_id=1764908061]
+visible = false
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+
+[node name="Stat_button" type="TextureButton" parent="DashBoard" unique_id=1635771142]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 7.0
+offset_right = 96.0
+offset_bottom = 23.0
+scale = Vector2(0.67, 0.67)
+texture_normal = ExtResource("39_0cp0l")
+texture_pressed = ExtResource("40_d2t1y")
+
+[node name="Setting_button" type="TextureButton" parent="DashBoard" unique_id=1495491499]
+layout_mode = 0
+offset_left = 95.99999
+offset_top = 7.0
+offset_right = 111.99999
+offset_bottom = 23.0
+scale = Vector2(0.67, 0.67)
+texture_normal = ExtResource("41_gngh3")
+texture_pressed = ExtResource("42_0n3wm")
+
+[node name="Credit_button" type="TextureButton" parent="DashBoard" unique_id=451026051]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 7.0
+offset_right = 128.0
+offset_bottom = 23.0
+scale = Vector2(0.67, 0.67)
+texture_normal = ExtResource("43_gngh3")
+texture_pressed = ExtResource("44_0n3wm")
 
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
@@ -444,4 +533,7 @@ text = "Stats"
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand1" to="Bulb" method="_on_clicker_hand_1_hand_clicked"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="Bulb" method="_on_clicker_hand_2_hand_clicked"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="Bulb" method="_on_clicker_hand_3_hand_clicked"]
+[connection signal="changed" from="DashBoard/SettingWindow/sliders/sfx_slider" to="DashBoard/SettingWindow" method="_on_sfx_slider_changed"]
+[connection signal="changed" from="DashBoard/SettingWindow/sliders/music_slider" to="DashBoard/SettingWindow" method="_on_music_slider_changed"]
 [connection signal="pressed" from="DashBoard/Stat_button" to="DashBoard" method="_on_stat_button_pressed"]
+[connection signal="pressed" from="DashBoard/Setting_button" to="DashBoard" method="_on_texture_button_pressed"]

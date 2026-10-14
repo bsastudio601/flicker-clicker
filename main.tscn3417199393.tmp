@@ -1,0 +1,452 @@
+[gd_scene format=3 uid="uid://dedlxesrql1yu"]
+
+[ext_resource type="Texture2D" uid="uid://d14sgui1djid" path="res://sprites/background.png" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cgl2niusxjmnu" path="res://sprites/Bulb_sprite.png" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://codes/bulb_system_script.gd" id="3_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
+[ext_resource type="AudioStream" uid="uid://gnepjrnparm8" path="res://sfx/universfield-click-button-140881.mp3" id="5_b1qrp"]
+[ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://codes/ui.gd" id="5_cegan"]
+[ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="5_w48qg"]
+[ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="6_vivmo"]
+[ext_resource type="Texture2D" uid="uid://c3c4mu5tggaxf" path="res://sprites/icon_bolt.png" id="7_kek77"]
+[ext_resource type="PackedScene" uid="uid://c32n00jgqltwu" path="res://scenes/damage_number_spawner/DamageNumberSpawner.tscn" id="7_qsp4k"]
+[ext_resource type="LabelSettings" uid="uid://bdko5crsju2qf" path="res://idk/new_label_settings.tres" id="8_kq58d"]
+[ext_resource type="Texture2D" uid="uid://q3kno4ucdhj" path="res://sprites/buy_button_disabled_bg.png" id="8_ryguw"]
+[ext_resource type="Texture2D" uid="uid://bn41hih5a4ei2" path="res://sprites/buy_button_bg.png" id="9_074og"]
+[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://ddnd4edom7wxx" path="res://upgrades/up_battery_capacity.gd" id="11_d13ii"]
+[ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_stronger_filament.gd" id="13_ryguw"]
+[ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://upgrades/up_clicking_hands.gd" id="14_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
+[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://05wi4mig00tf" path="res://scenes/up_efficient_filament.gd" id="18_kq58d"]
+[ext_resource type="Script" uid="uid://bqsxlhm4uv7mo" path="res://scenes/up_clicking_hand_speed.gd" id="20_seu75"]
+[ext_resource type="Script" uid="uid://dmqhe1nrenj2l" path="res://scenes/up_clicking_hand_cooldown.gd" id="21_htxhm"]
+[ext_resource type="Script" uid="uid://cagx4dmjdphp7" path="res://upgrades/up_extra_bulb.gd" id="22_jq2sk"]
+[ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hands/clicker_hand.tscn" id="22_ryguw"]
+[ext_resource type="Script" uid="uid://bc04qc4lrsbky" path="res://codes/charge_bar_script.gd" id="22_xuqvo"]
+[ext_resource type="Script" uid="uid://bhkgw71c0a5am" path="res://scenes/up_extra_bulb_intensity.gd" id="23_4k2k6"]
+[ext_resource type="Script" uid="uid://dfpx3l12sml3n" path="res://scenes/up_extra_bulb_efficiency.gd" id="24_0rl1p"]
+[ext_resource type="Script" uid="uid://3wyk2p54viq8" path="res://codes/label_system_script.gd" id="24_kq58d"]
+[ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs/extra_bulbs.tscn" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://b8xo31ub87txn" path="res://StatPopUp.gd" id="35_facbu"]
+[ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
+[ext_resource type="Script" uid="uid://csxvn6h8hiugu" path="res://BalancingSystem.gd" id="36_ok6jj"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
+colors = PackedColorArray(1, 1, 1, 1, 0.5079365, 0.5079365, 0.5079365, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t4kkl"]
+gradient = SubResource("Gradient_lquwl")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0, 0, 0, 0.7490196)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0jk56"]
+texture = ExtResource("9_074og")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pv2k2"]
+texture = ExtResource("8_ryguw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2pwb"]
+texture = ExtResource("8_ryguw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_074og"]
+texture = ExtResource("15_yaehf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rl1p"]
+texture = ExtResource("35_ok6jj")
+
+[node name="Main" type="Node2D" unique_id=1473243590]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1090858143]
+color = Color(0.2159017, 0.21590173, 0.2159017, 1)
+
+[node name="Background" type="Node2D" parent="." unique_id=1669736185]
+position = Vector2(29, -1)
+scale = Vector2(1.3338861, 1.2875249)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1967612789]
+position = Vector2(26.097618, 88.57146)
+texture = ExtResource("1_1bvp3")
+
+[node name="Bulb" type="Node2D" parent="." unique_id=626596963]
+position = Vector2(62, 113)
+script = ExtResource("3_qsp4k")
+
+[node name="Bulb_Button" type="TextureButton" parent="Bulb" unique_id=424303906]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 36.0
+offset_right = 16.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_1bvp3")
+texture_pressed = ExtResource("3_lquwl")
+
+[node name="button_click_sfx" type="AudioStreamPlayer" parent="Bulb/Bulb_Button" unique_id=1849726800]
+stream = ExtResource("5_b1qrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bulb" unique_id=731785263]
+texture = ExtResource("1_h2yge")
+
+[node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
+position = Vector2(0, -3.6710687)
+scale = Vector2(1.0731764, 1.2594028)
+energy = 4.0
+texture = SubResource("GradientTexture2D_t4kkl")
+texture_scale = 1.93
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bulb" unique_id=1947696895]
+position = Vector2(0, 34)
+texture = ExtResource("4_5vw27")
+
+[node name="DamageNodeSpawner" parent="Bulb" unique_id=1807784680 instance=ExtResource("7_qsp4k")]
+position = Vector2(0, -11)
+label_settings = ExtResource("8_kq58d")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
+visible = false
+script = ExtResource("5_cegan")
+
+[node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
+offset_right = 128.0
+offset_bottom = 224.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
+
+[node name="Label" type="Label" parent="UI/Factory_Popup" unique_id=1430615835]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.0
+offset_right = 85.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 10
+text = "Factory "
+
+[node name="Factory_Close" type="Button" parent="UI/Factory_Popup" unique_id=996086542]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 203.0
+offset_right = 80.545456
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_0jk56")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pv2k2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n2pwb")
+text = "Close"
+
+[node name="Panel" type="Panel" parent="UI/Factory_Popup" unique_id=1550187219]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 23.0
+offset_right = 125.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Item_List" type="ScrollContainer" parent="UI/Factory_Popup/Panel" unique_id=250240406]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 117.0
+offset_bottom = 172.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="Item_Vbox" type="VBoxContainer" parent="UI/Factory_Popup/Panel/Item_List" unique_id=672265558]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Battery_Capacity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1823130261 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("11_d13ii")
+
+[node name="Upgraded_Battery_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("16_2cqfq")
+
+[node name="Stronger_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_ryguw")
+
+[node name="Efficient_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1567299439 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("18_kq58d")
+
+[node name="Clicker_Hands_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("14_1u8w0")
+
+[node name="Clicking_Hand_Speed_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1392930644 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("20_seu75")
+
+[node name="Clicking_Hand_Cooldown_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=2053930824 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("21_htxhm")
+
+[node name="Extra_Bulb_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("22_jq2sk")
+
+[node name="Extra_Bulb_intensity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=281134204 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("23_4k2k6")
+
+[node name="Extra_Bulb_Efficiency_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=714071102 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("24_0rl1p")
+
+[node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
+offset_left = 53.0
+offset_top = 202.0
+offset_right = 73.0
+offset_bottom = 218.0
+texture_normal = ExtResource("5_w48qg")
+texture_pressed = ExtResource("6_vivmo")
+
+[node name="AutoClickerHand" type="Node" parent="." unique_id=1296696959]
+
+[node name="Clicker_Hand1" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("22_ryguw")]
+position = Vector2(64, 165)
+scale = Vector2(1.0731764, 1.1910853)
+
+[node name="Clicker_Hand2" parent="AutoClickerHand" unique_id=1119065800 instance=ExtResource("22_ryguw")]
+position = Vector2(80, 157)
+rotation = -1.5707964
+
+[node name="Clicker_Hand3" parent="AutoClickerHand" unique_id=827688609 instance=ExtResource("22_ryguw")]
+position = Vector2(44, 158)
+rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="ExtraAutoBulb" type="Node" parent="." unique_id=1873554621]
+
+[node name="extra_bulbs" parent="ExtraAutoBulb" unique_id=1768370951 instance=ExtResource("25_0odxb")]
+position = Vector2(101, 120)
+
+[node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("25_0odxb")]
+position = Vector2(25, 119)
+
+[node name="Labels" type="Control" parent="." unique_id=460599528]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("24_kq58d")
+
+[node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 26.0
+offset_right = 39.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "light"
+
+[node name="TextureRect" type="TextureRect" parent="Labels/Light_Label" unique_id=1843927395]
+layout_mode = 0
+offset_left = -10.0
+offset_right = -2.0
+offset_bottom = 8.0
+texture = ExtResource("12_dg77c")
+expand_mode = 1
+
+[node name="Charge_Bar" type="TextureProgressBar" parent="Labels" unique_id=323203053]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 56.0
+offset_bottom = 23.0
+texture_under = ExtResource("4_272bh")
+texture_progress = ExtResource("5_5vw27")
+script = ExtResource("22_xuqvo")
+
+[node name="TextureRect" type="TextureRect" parent="Labels/Charge_Bar" unique_id=1470159783]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 6.0
+offset_bottom = 9.0
+texture = ExtResource("7_kek77")
+expand_mode = 1
+
+[node name="Multiplier_Label" type="Label" parent="Labels/Charge_Bar" unique_id=914645631]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 2.0
+offset_right = 56.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 5
+text = "00x"
+
+[node name="Charge_label_White" type="Label" parent="Labels/Charge_Bar" unique_id=1941700991]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 55.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 4
+text = "2.0k/2.0k"
+
+[node name="Black_Label_Mask" type="Control" parent="Labels/Charge_Bar" unique_id=388748496]
+clip_contents = true
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 1.0
+offset_right = 54.0
+offset_bottom = 10.0
+
+[node name="Charge_label_Black" type="Label" parent="Labels/Charge_Bar/Black_Label_Mask" unique_id=436050136]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 4
+text = "2.0k/2.0k"
+
+[node name="DashBoard" type="Control" parent="." unique_id=1174753452]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("35_facbu")
+
+[node name="StatsWindow" type="Panel" parent="DashBoard" unique_id=850599284]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -8.0
+offset_right = 101.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
+script = ExtResource("36_ok6jj")
+
+[node name="Title" type="Label" parent="DashBoard/StatsWindow" unique_id=1759810355]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.0
+offset_right = 12.5
+offset_bottom = 11.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 7
+text = "Stats"
+
+[node name="PowerPerSecondTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=1365126526]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 46.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "Generation :"
+
+[node name="PowerPerSecond" type="Label" parent="DashBoard/StatsWindow/PowerPerSecondTitle" unique_id=657898120]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 16.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "20 Light / sec"
+
+[node name="ConsumptionPerSecondTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=727452417]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 48.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "Consumption :"
+
+[node name="ConsumptionPerSecond" type="Label" parent="DashBoard/StatsWindow/ConsumptionPerSecondTitle" unique_id=513975421]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "40 Light / sec"
+
+[node name="EfficiencyTitle" type="Label" parent="DashBoard/StatsWindow" unique_id=643283135]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 46.0
+offset_right = 47.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "Net Efficiency"
+
+[node name="NetEfficiency" type="Label" parent="DashBoard/StatsWindow/EfficiencyTitle" unique_id=901790338]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "96%"
+
+[node name="Stat_button" type="Button" parent="DashBoard" unique_id=199608787]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 7
+text = "Stats"
+
+[connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
+[connection signal="pressed" from="UI/Factory_Popup/Factory_Close" to="UI" method="_on_factory_close_pressed"]
+[connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
+[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand1" to="Bulb" method="_on_clicker_hand_1_hand_clicked"]
+[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="Bulb" method="_on_clicker_hand_2_hand_clicked"]
+[connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="Bulb" method="_on_clicker_hand_3_hand_clicked"]
+[connection signal="pressed" from="DashBoard/Stat_button" to="DashBoard" method="_on_stat_button_pressed"]
