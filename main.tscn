@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
 [ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://cytcdetbnom4t" path="res://scenes/up_overcharge_protection.gd" id="18_0cbny"]
 [ext_resource type="Script" uid="uid://05wi4mig00tf" path="res://scenes/up_efficient_filament.gd" id="18_kq58d"]
 [ext_resource type="Script" uid="uid://bqsxlhm4uv7mo" path="res://scenes/up_clicking_hand_speed.gd" id="20_seu75"]
 [ext_resource type="Script" uid="uid://dmqhe1nrenj2l" path="res://scenes/up_clicking_hand_cooldown.gd" id="21_htxhm"]
@@ -35,6 +36,8 @@
 [ext_resource type="Script" uid="uid://dfpx3l12sml3n" path="res://scenes/up_extra_bulb_efficiency.gd" id="24_0rl1p"]
 [ext_resource type="Script" uid="uid://3wyk2p54viq8" path="res://codes/label_system_script.gd" id="24_kq58d"]
 [ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs/extra_bulbs.tscn" id="25_0odxb"]
+[ext_resource type="AudioStream" uid="uid://di1fde1pr6u02" path="res://sfx/universfield-computer-mouse-click-352734.mp3" id="26_f6a44"]
+[ext_resource type="Script" uid="uid://bkw8r131qr17s" path="res://scenes/up_extra_bulb_effectiveness.gd" id="27_hrvbo"]
 [ext_resource type="Script" uid="uid://b8xo31ub87txn" path="res://StatPopUp.gd" id="35_facbu"]
 [ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
 [ext_resource type="Script" uid="uid://csxvn6h8hiugu" path="res://BalancingSystem.gd" id="36_ok6jj"]
@@ -143,7 +146,6 @@ position = Vector2(0, -11)
 label_settings = ExtResource("8_kq58d")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
-visible = false
 script = ExtResource("5_cegan")
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
@@ -207,6 +209,11 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("16_2cqfq")
 
+[node name="Overcharge_protection_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1620329305 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("18_0cbny")
+
 [node name="Stronger_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
@@ -246,6 +253,18 @@ script = ExtResource("23_4k2k6")
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("24_0rl1p")
+
+[node name="Extra_Bulb_Effectiveness_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=809125 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("27_hrvbo")
+
+[node name="Ascend_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=760594522 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=367711867]
+stream = ExtResource("26_f6a44")
 
 [node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
 offset_left = 53.0
@@ -458,6 +477,9 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
 script = ExtResource("39_0n3wm")
 
+[node name="button_click_sfx" type="AudioStreamPlayer" parent="DashBoard/SettingWindow" unique_id=1072490669]
+stream = ExtResource("26_f6a44")
+
 [node name="sliders" type="Control" parent="DashBoard/SettingWindow" unique_id=534937052]
 anchors_preset = 0
 offset_left = 2.0
@@ -472,6 +494,15 @@ offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 6
 text = "sfx"
+
+[node name="Label2" type="Label" parent="DashBoard/SettingWindow/sliders" unique_id=2118818414]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 17.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 6
+text = "music"
 
 [node name="sfx_slider" type="HSlider" parent="DashBoard/SettingWindow/sliders" unique_id=230838412]
 layout_mode = 0
@@ -489,13 +520,21 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="music_slider" type="HSlider" parent="DashBoard/SettingWindow/sliders" unique_id=1764908061]
-visible = false
+[node name="music_slider" type="HSlider" parent="DashBoard/SettingWindow/sliders" unique_id=192580834]
 layout_mode = 0
-offset_right = 45.0
-offset_bottom = 16.0
+offset_top = 22.0
+offset_right = 44.0
+offset_bottom = 30.0
+theme_override_icons/grabber = ExtResource("40_wnkbs")
+theme_override_icons/grabber_highlight = ExtResource("40_wnkbs")
+theme_override_icons/grabber_disabled = ExtResource("40_wnkbs")
+theme_override_icons/tick = ExtResource("40_wnkbs")
+theme_override_styles/slider = SubResource("StyleBoxFlat_abqjc")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hrvbo")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0cbny")
 max_value = 1.0
 step = 0.001
+value = 1.0
 
 [node name="Stat_button" type="TextureButton" parent="DashBoard" unique_id=1635771142]
 layout_mode = 0

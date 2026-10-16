@@ -29,7 +29,8 @@ var clicking_hand_clicks_before_cooldown := 5.0
 
 #extra light var 
 var extra_bulb_light_generation := 1.0
-var extra_bulb_charge_consumption := 10
+var extra_bulb_charge_consumption := 10.0
+var extra_bulb_generation_interval := 1.0
 
 #balance system var
 var total_power_generation := 0.0 
@@ -38,3 +39,5 @@ var total_power_consumption := 0.0
 
 var power_generation_per_second := 0.0 
 var power_consumption_per_second := 0.0 
+
+var total_light := light

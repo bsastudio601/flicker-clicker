@@ -16,15 +16,19 @@ func _ready() -> void:
 func _on_stat_button_pressed() -> void:
 	if stats_popup.visible:
 		stats_popup.hide()
+		$SettingWindow/button_click_sfx.play()
 	else:
 		setting_popup.hide()
 		stats_popup.show()
+		$SettingWindow/button_click_sfx.play()
 
 
 
 func _on_texture_button_pressed() -> void:
 	if setting_popup.visible:
 		setting_popup.hide()
+		$SettingWindow/button_click_sfx.play()
 	else:
 		stats_popup.hide()
 		setting_popup.show()
+		$SettingWindow/button_click_sfx.play()

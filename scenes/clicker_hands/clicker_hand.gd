@@ -42,6 +42,3 @@ func deactivate() -> void:
 	
 func _on_timer_timeout() -> void:
 	auto_click()
-
-
-	

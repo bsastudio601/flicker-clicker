@@ -28,12 +28,15 @@ func _ready() -> void:
 	info_label.text = upgrade_info
 
 	update_cost()
+	
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
+	hiding_unhiding_dependent()
 
 func _on_buy_button_pressed() -> void:
 	buying_item()
+	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
 	if level >= max_level:
@@ -75,3 +78,14 @@ func update_upgrade_info() -> void:
 		return
 
 	info_label.text = upgrade_info + str(new_var[level]) + "sec" + upgrade_info_2 +str(new_var_2[level])
+var unlocked := false
+@onready var dependent_on : PanelContainer = $"../Clicker_Hands_Up"
+
+func hiding_unhiding_dependent() -> void:
+	if dependent_on.visible:
+		unlocked = true
+
+	if unlocked:
+		show()
+	else:
+		hide()

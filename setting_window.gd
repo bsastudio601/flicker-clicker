@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func _on_sfx_slider_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index_1, linear_to_db(value))
+	$button_click_sfx.play()
 
 func _on_music_slider_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index_2, linear_to_db(value))

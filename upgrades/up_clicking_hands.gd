@@ -26,14 +26,18 @@ func _ready() -> void:
 
 	name_label.text = upgrade_name
 	info_label.text = upgrade_info
+	
+	hide()
 
 	update_cost()
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
+	hiding_unhiding()
 
 func _on_buy_button_pressed() -> void:
 	buying_item()
+	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
 	if level >= max_level:
@@ -76,3 +80,13 @@ func update_upgrade_info() -> void:
 		return
 
 	info_label.text = "Adds A automatic clicking hand" 
+
+var unlocked := false
+
+func hiding_unhiding() -> void:
+	if GameData.light >= costs[0]:
+		unlocked = true
+
+	if unlocked:
+		show()
+	

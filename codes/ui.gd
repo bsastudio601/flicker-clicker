@@ -7,6 +7,8 @@ func _ready() -> void:
 
 func _on_factory_button_pressed() -> void:
 	factory_popup.show()
+	$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
 
 func _on_factory_close_pressed() -> void:
 	factory_popup.hide()
+	$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()

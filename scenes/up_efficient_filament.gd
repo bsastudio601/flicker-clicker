@@ -31,6 +31,7 @@ func _process(_delta: float) -> void:
 
 func _on_buy_button_pressed() -> void:
 	buying_item()
+	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
 	if level >= max_level:
