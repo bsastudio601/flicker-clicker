@@ -43,15 +43,15 @@ func add_light_and_charge() -> void: 														#adds currency with the max c
 	else:
 		charge_multipler_label.text = ""
 	
-	GameData.light += round(main_light_total_payout)                      #adds currency in the var in gamedata
+	GameData.light_raw += main_light_total_payout                      #adds currency in the var in gamedata
 	
-	GameData.total_power_generation += round(main_light_total_payout)     #increases the var in gamedata for generation per sec tracking
+	GameData.total_power_generation += main_light_total_payout   #increases the var in gamedata for generation per sec tracking
 	
 	$DamageNodeSpawner	.spawn_label(main_light_total_payout)
 		
 func update_bulb_visual() -> void:
 	var brightness: float = GameData.charge / GameData.max_charge
-	var target_energy: float = lerpf(0.5, 4.0, brightness)
+	var target_energy: float = lerpf(0.5, 4.5, brightness)
 
 	if target_energy < point_light.energy:
 		point_light.energy = lerpf(point_light.energy, target_energy, 0.02)

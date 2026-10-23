@@ -5,7 +5,13 @@ var clicked := 0
 var charge := 0.0
 
 #currency
-var light := 999999
+var light_raw: float = 0.0
+
+var light: int:
+	get:
+		return roundi(light_raw)
+	set(value):
+		light_raw += value - roundi(light_raw)		
 var base_multiplier := 1
 
 #charge

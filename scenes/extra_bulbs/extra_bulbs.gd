@@ -38,7 +38,7 @@ func _on_timer_timeout() -> void:
 
 func add_light() -> void:
 	var light_generation := GameData.extra_bulb_light_generation
-	GameData.light += light_generation
+	GameData.light_raw += light_generation
 	GameData.total_power_consumption += 10
 	GameData.total_power_generation += light_generation
 	$DamageNumberSpawner.spawn_label(light_generation)
@@ -47,7 +47,7 @@ func update_bulb_visual() -> void:
 	var charge_consumption := GameData.extra_bulb_charge_consumption
 
 	if GameData.charge >= charge_consumption:
-		create_tween().tween_property(point_light , "energy" , 3.0 , 1.0)
+		create_tween().tween_property(point_light , "energy" , 2.0 , 1.0)
 
 	else:
 		create_tween().tween_property(point_light , "energy" , 0.0 , 1.0)

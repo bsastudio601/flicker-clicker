@@ -21,8 +21,9 @@ GameData="*uid://xwb50k50orgt"
 [display]
 
 window/size/viewport_width=128
-window/size/viewport_height=224
+window/size/viewport_height=284
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [editor_plugins]
 
@@ -37,3 +38,4 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

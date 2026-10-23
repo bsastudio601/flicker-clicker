@@ -7,14 +7,14 @@ extends PanelContainer
 @onready var buy_button: Button = $"Control/Buy Button"
 
 #setting vars
-var upgrade_name := "Overcharge Protection"
+var upgrade_name := "Overcharge"
 var upgrade_info := ""
 
 
 var level := 0
 var max_level := 4
 var new_var := [2,2.5,3,3.5,4]
-var costs := [50,250,650,1000,1300] 
+var costs := [2800,6500,15000,34000,78000] 
 
 
 func _ready() -> void:

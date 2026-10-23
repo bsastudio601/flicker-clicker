@@ -23,7 +23,6 @@ texture = ExtResource("1_t6uto")
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=800471544]
 position = Vector2(0, -6)
-energy = 2.04
 texture = SubResource("GradientTexture2D_kvv0f")
 
 [node name="Timer" type="Timer" parent="." unique_id=1119105158]
