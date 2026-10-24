@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_stronger_filament.gd" id="13_ryguw"]
 [ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://upgrades/up_clicking_hands.gd" id="14_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://d3qtqjydygtmu" path="res://scenes/news_item.tscn" id="15_0cbny"]
 [ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
 [ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="16_2cqfq"]
@@ -211,9 +212,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Ascend_Up" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1823130261 instance=ExtResource("15_vivmo")]
+[node name="news_item" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=585660140 instance=ExtResource("15_0cbny")]
 layout_mode = 2
-size_flags_vertical = 3
+headline = "the data center"
+details = "fk em they just building data center and i hate em for theat cuz data center just consume     
+
+
+sdsfdsf"
+
+[node name="news_item2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=177785053 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+
+[node name="news_item3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=503933276 instance=ExtResource("15_0cbny")]
+layout_mode = 2
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1387187370]
 stream = ExtResource("26_f6a44")
