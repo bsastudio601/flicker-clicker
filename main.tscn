@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d14sgui1djid" path="res://sprites/background.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cgl2niusxjmnu" path="res://sprites/Bulb_sprite.png" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="2_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://p3shthyvpjeo" path="res://sfx/turning_pages-quiet-courtyard-610075.mp3" id="2_4w656"]
+[ext_resource type="Script" uid="uid://bt8rm1vma1xmc" path="res://backgroun_music.gd" id="3_e71vb"]
 [ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://codes/bulb_system_script.gd" id="3_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
@@ -16,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c32n00jgqltwu" path="res://scenes/damage_number_spawner/DamageNumberSpawner.tscn" id="7_qsp4k"]
 [ext_resource type="LabelSettings" uid="uid://bdko5crsju2qf" path="res://idk/new_label_settings.tres" id="8_kq58d"]
 [ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://c233cl0no0gbx" path="res://news_popup.gd" id="11_blkrb"]
 [ext_resource type="Script" uid="uid://ddnd4edom7wxx" path="res://upgrades/up_battery_capacity.gd" id="11_d13ii"]
 [ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_stronger_filament.gd" id="13_ryguw"]
@@ -24,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
 [ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://c4eeucjicrme3" path="res://stats_popup.gd" id="17_hrvbo"]
 [ext_resource type="Script" uid="uid://cytcdetbnom4t" path="res://scenes/up_overcharge_protection.gd" id="18_0cbny"]
 [ext_resource type="Script" uid="uid://05wi4mig00tf" path="res://scenes/up_efficient_filament.gd" id="18_kq58d"]
 [ext_resource type="Script" uid="uid://bqsxlhm4uv7mo" path="res://scenes/up_clicking_hand_speed.gd" id="20_seu75"]
@@ -40,6 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://3xw5tfp65fr1" path="res://sprites/news_button_normal.png" id="31_blkrb"]
 [ext_resource type="Texture2D" uid="uid://bd8id4ap3ox4x" path="res://sprites/news_button_pressed.png" id="32_abqjc"]
 [ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
+[ext_resource type="AudioStream" uid="uid://c72226ihmitwn" path="res://sfx/universfield-new-notification-062-494544.mp3" id="36_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://bivgf0epytbk2" path="res://sprites/new_news_dot.png" id="36_abqjc"]
 [ext_resource type="Texture2D" uid="uid://iqiwm2mnt6uw" path="res://sprites/stats_button_normal.png" id="39_0cp0l"]
 [ext_resource type="Script" uid="uid://dwlyx84t6gi01" path="res://setting_window.gd" id="39_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://dgs8bfbup02up" path="res://sprites/stats_button_pressed.png" id="40_d2t1y"]
@@ -119,6 +125,11 @@ position = Vector2(26.908115, 110.9632)
 scale = Vector2(1.0168854, 1.2544515)
 texture = ExtResource("1_1bvp3")
 
+[node name="Backgroun_music" type="AudioStreamPlayer" parent="Background" unique_id=529663803]
+stream = ExtResource("2_4w656")
+bus = &"music"
+script = ExtResource("3_e71vb")
+
 [node name="Bulb" type="Node2D" parent="." unique_id=626596963]
 position = Vector2(63, 134)
 script = ExtResource("3_qsp4k")
@@ -164,9 +175,11 @@ label_settings = ExtResource("8_kq58d")
 script = ExtResource("5_cegan")
 
 [node name="News_Popup" type="Panel" parent="UI" unique_id=869492641]
+visible = false
 offset_right = 130.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
+script = ExtResource("11_blkrb")
 
 [node name="Label" type="Label" parent="UI/News_Popup" unique_id=294467559]
 layout_mode = 0
@@ -212,27 +225,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="news_item" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=585660140 instance=ExtResource("15_0cbny")]
+[node name="news_item_1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=585660140 instance=ExtResource("15_0cbny")]
 layout_mode = 2
 headline = "the data center"
 details = "fk em they just building data center and i hate em for theat cuz data center just consume     
 
 
 sdsfdsf"
+consumption_adds = 10.0
 
-[node name="news_item2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=177785053 instance=ExtResource("15_0cbny")]
+[node name="news_item_2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=2082741052 instance=ExtResource("15_0cbny")]
 layout_mode = 2
+headline = "this is set to 30"
+details = "fk em they just building data center and i hate em for theat cuz data center just consume     
 
-[node name="news_item3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=503933276 instance=ExtResource("15_0cbny")]
-layout_mode = 2
+
+sdsfdsf"
+consumption_adds = 5.0
+gps_required = 10.0
+applied_delay = 10.0
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1387187370]
 stream = ExtResource("26_f6a44")
 
 [node name="Stats_Popup" type="Panel" parent="UI" unique_id=1193389610]
+visible = false
 offset_right = 130.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
+script = ExtResource("17_hrvbo")
+
+[node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Stats_Popup" unique_id=780028542]
+stream = ExtResource("26_f6a44")
 
 [node name="Label" type="Label" parent="UI/Stats_Popup" unique_id=1856456279]
 layout_mode = 0
@@ -262,26 +286,24 @@ offset_right = 125.0
 offset_bottom = 248.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
 
-[node name="Item_List" type="ScrollContainer" parent="UI/Stats_Popup/Panel" unique_id=1742526543]
+[node name="generation" type="Label" parent="UI/Stats_Popup/Panel" unique_id=1822383464]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 6.0
-offset_right = 117.0
-offset_bottom = 221.0
-mouse_filter = 0
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
+offset_left = 6.0
+offset_top = 27.0
+offset_right = 118.0
+offset_bottom = 50.0
+text = "generation"
 
-[node name="Item_Vbox" type="VBoxContainer" parent="UI/Stats_Popup/Panel/Item_List" unique_id=345258880]
-propagate_maximum_size = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Stats_Popup/Panel/Item_List/Item_Vbox" unique_id=780028542]
-stream = ExtResource("26_f6a44")
+[node name="consumption" type="Label" parent="UI/Stats_Popup/Panel" unique_id=361158790]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 49.0
+offset_right = 118.0
+offset_bottom = 72.0
+text = "consumption"
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
+visible = false
 offset_right = 130.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
@@ -396,6 +418,9 @@ size_flags_vertical = 3
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=367711867]
 stream = ExtResource("26_f6a44")
 
+[node name="notification_sfx" type="AudioStreamPlayer" parent="UI" unique_id=1191375368]
+stream = ExtResource("36_6iyjs")
+
 [node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
 offset_left = 53.0
 offset_top = 249.0
@@ -404,6 +429,10 @@ offset_bottom = 265.0
 texture_normal = ExtResource("5_w48qg")
 texture_pressed = ExtResource("6_vivmo")
 
+[node name="Sprite2D" type="Sprite2D" parent="Factory_Button" unique_id=1127791566]
+position = Vector2(21, 1)
+texture = ExtResource("36_abqjc")
+
 [node name="news_button" type="TextureButton" parent="." unique_id=412455254]
 offset_left = 80.0
 offset_top = 249.0
@@ -411,6 +440,10 @@ offset_right = 96.0
 offset_bottom = 265.0
 texture_normal = ExtResource("31_blkrb")
 texture_pressed = ExtResource("32_abqjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="news_button" unique_id=345883868]
+position = Vector2(16, 1)
+texture = ExtResource("36_abqjc")
 
 [node name="Stats_button" type="TextureButton" parent="." unique_id=1635771142]
 offset_left = 30.0
@@ -631,8 +664,11 @@ texture_pressed = ExtResource("44_0n3wm")
 
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/News_Popup/new_button_close" to="UI" method="_on_new_button_close_pressed"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/news_item_1" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/news_item_2" to="UI" method="_on_news_item_1_new_news"]
 [connection signal="pressed" from="UI/Stats_Popup/Label/Stats_button_close" to="UI" method="_on_stats_button_close_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Button_close" to="UI" method="_on_factory_button_close_pressed"]
+[connection signal="upgrade_unlocked" from="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Clicking_Hand_Speed_Up" to="UI" method="_on_clicking_hand_speed_up_upgrade_unlocked"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
 [connection signal="pressed" from="news_button" to="UI" method="_on_news_button_pressed"]
 [connection signal="pressed" from="Stats_button" to="UI" method="_on_stats_button_pressed"]

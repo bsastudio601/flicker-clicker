@@ -11,6 +11,11 @@ extends CanvasLayer
 @onready var stats_button : TextureButton = $"../Stats_button"
 @onready var stats_button_close : TextureButton = $Stats_Popup/Label/Stats_button_close
 
+@onready var news_notification_dot : Sprite2D = $"../news_button/Sprite2D"
+@onready var new_upgrade_unlocked : Sprite2D = $"../Factory_Button/Sprite2D"
+var unread_news := 0
+var unseen_upgrade := 0
+
 func _ready() -> void:
 	factory_popup.hide()
 	factory_button_close.hide()
@@ -21,17 +26,23 @@ func _ready() -> void:
 	stats_popup.hide()
 	stats_button_close.hide()
 	
+	news_notification_dot.hide()
+	new_upgrade_unlocked.hide()
+	
+	
 func _on_factory_button_pressed() -> void:
-		factory_popup.show()
-		factory_button_close.show()
-		factory_button.hide()
-		$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
-
+	factory_popup.show()
+	factory_button_close.show()
+	factory_button.hide()
+	$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
+	new_upgrade_unlocked.hide()
+	unseen_upgrade = 0
+	
 func _on_factory_button_close_pressed() -> void:
-		factory_popup.hide()
-		factory_button_close.hide()
-		factory_button.show()
-		$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
+	factory_popup.hide()
+	factory_button_close.hide()
+	factory_button.show()
+	$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
 	
 		
 func _on_news_button_pressed() -> void:
@@ -39,6 +50,8 @@ func _on_news_button_pressed() -> void:
 	news_button_close.show()
 	news_button.hide()
 	$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
+	news_notification_dot.hide()
+	unread_news = 0
 	
 func _on_new_button_close_pressed() -> void:
 	news_popup.hide()
@@ -59,3 +72,17 @@ func _on_stats_button_close_pressed() -> void:
 	stats_button.show()
 	$Factory_Popup/Panel/Item_List/Item_Vbox/button_click_sfx.play()
  
+
+func _on_news_item_1_new_news() -> void:
+	unread_news += 1 
+	news_notification_dot.show()
+	$notification_sfx.play()
+	pass # Replace with function body.
+
+
+func _on_clicking_hand_speed_up_upgrade_unlocked() -> void:
+	$notification_sfx.play()
+	unseen_upgrade += 1
+	new_upgrade_unlocked.show()
+	
+	pass # Replace with function body.

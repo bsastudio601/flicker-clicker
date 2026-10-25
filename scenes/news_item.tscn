@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dtqev58lo6bx3" path="res://sprites/upgrade_item_bg.png" id="1_x5e0j"]
 [ext_resource type="Script" uid="uid://cppyavnpjaw64" path="res://scenes/news_item.gd" id="2_iky2i"]
 [ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="2_r5l84"]
-[ext_resource type="AudioStream" uid="uid://gnepjrnparm8" path="res://sfx/universfield-click-button-140881.mp3" id="4_iky2i"]
+[ext_resource type="Texture2D" uid="uid://bkfsiv5ol3l3n" path="res://sprites/expanded_news_bg.png" id="3_hx0hf"]
+[ext_resource type="AudioStream" uid="uid://di1fde1pr6u02" path="res://sfx/universfield-computer-mouse-click-352734.mp3" id="5_hx0hf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b30ca"]
 texture = ExtResource("1_x5e0j")
@@ -33,6 +34,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_b30ca")
 script = ExtResource("2_iky2i")
+collapsed_texture = ExtResource("1_x5e0j")
+expanded_texture = ExtResource("3_hx0hf")
 
 [node name="Control" type="Control" parent="." unique_id=1959744617]
 layout_mode = 2
@@ -90,6 +93,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_iky2i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hx0hf")
 
 [node name="button_sound" type="AudioStreamPlayer" parent="." unique_id=1270612236]
-stream = ExtResource("4_iky2i")
+stream = ExtResource("5_hx0hf")
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

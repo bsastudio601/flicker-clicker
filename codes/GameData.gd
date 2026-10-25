@@ -21,8 +21,10 @@ var charge_per_click := 3.0
 var drain_per_second := 1.0
 
 #balance system
-var generation_per_sec := 0
-var consumption_per_sec := 100
+var generation_per_sec := 0.0
+var consumption_per_sec := 100.0
+
+var generation_per_sec_peak := 0.0
 
 #main buld vars
 var main_bulb_light_generation := 1.0

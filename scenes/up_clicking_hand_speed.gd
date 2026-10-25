@@ -1,4 +1,5 @@
 extends PanelContainer
+signal upgrade_unlocked
 
 #Labels
 @onready var name_label: Label = $Control/Upgrade_Name
@@ -79,10 +80,10 @@ var unlocked := false
 @onready var dependent_on : PanelContainer = $"../Clicker_Hands_Up"
 
 func hiding_unhiding_dependent() -> void:
-	if dependent_on.visible:
+	if dependent_on.visible and not unlocked:
 		unlocked = true
-
-	if unlocked:
 		show()
-	else:
+		upgrade_unlocked.emit()
+
+	if not unlocked:
 		hide()
