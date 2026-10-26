@@ -18,7 +18,7 @@ signal new_news
 @export var collapsed_texture: Texture2D
 @export var expanded_texture: Texture2D
 
-var applied:bool = false 
+var applied: bool = false
 var expanded: bool = false
 var shown: bool = false
 
@@ -48,30 +48,35 @@ func _on_button_pressed() -> void:
 		custom_minimum_size.y = 128
 		ghost_button.custom_minimum_size.y = 128
 		details_label.custom_maximum_size.y = 112
-
 		change_background(expanded_texture)
 	else:
 		custom_minimum_size.y = 32
 		ghost_button.custom_minimum_size.y = 32
 		details_label.custom_maximum_size.y = 16
-
 		change_background(collapsed_texture)
 
 	$button_sound.play()
 
 
 func check_gps() -> void:
-	
-	await get_tree().create_timer(applied_delay).timeout
-	
-	if not shown and GameData.generation_per_sec >= gps_required:
-		shown = true
-		show()
-		new_news.emit()
+	if shown or GameData.generation_per_sec < gps_required:
+		return
 
-		if not applied:
-			GameData.consumption_per_sec += consumption_adds
-			applied = true
+	# Prevent multiple timers from starting.
+	shown = true
+
+	# Wait before unlocking the news.
+	await get_tree().create_timer(applied_delay).timeout
+
+	# Show the news and notify the UI.
+	show()
+	new_news.emit()
+
+	# Apply consumption at the same time.
+	if not applied:
+		GameData.consumption_per_sec += consumption_adds
+		applied = true
+
 
 func change_background(texture: Texture2D) -> void:
 	if texture == null:

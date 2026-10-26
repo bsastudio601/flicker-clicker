@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func update_charge_value_visual() -> void: # the text inside the bar control with mask
-	var text := str(round(GameData.charge)) + " / " + str(round(GameData.max_charge))
+	var text := str(roundi(GameData.charge)) + " / " + str(round(GameData.max_charge))
 
 	charge_label_white.text = text
 	charge_label_black.text = text

@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 	update_bulb_visual() # so that it always updates 
 		
 func _on_bulb_button_pressed() -> void:
+	GameData.clicked += 1
 	add_light_and_charge()
 	
 	
@@ -67,6 +68,7 @@ func press_button_animation() -> void:  												#Call this func to play the 
 	
 func clicking_hand_signals() -> void:
 	add_light_and_charge()
+	GameData.clicked += 1
 
 func _on_clicker_hand_1_hand_clicked() -> void:
 	clicking_hand_signals()

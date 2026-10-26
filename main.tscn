@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
 [ext_resource type="AudioStream" uid="uid://c72226ihmitwn" path="res://sfx/universfield-new-notification-062-494544.mp3" id="36_6iyjs"]
 [ext_resource type="Texture2D" uid="uid://bivgf0epytbk2" path="res://sprites/new_news_dot.png" id="36_abqjc"]
+[ext_resource type="Script" uid="uid://bjvp2hlwtau11" path="res://scenes/up_asscend.gd" id="38_e71vb"]
 [ext_resource type="Texture2D" uid="uid://iqiwm2mnt6uw" path="res://sprites/stats_button_normal.png" id="39_0cp0l"]
 [ext_resource type="Script" uid="uid://dwlyx84t6gi01" path="res://setting_window.gd" id="39_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://dgs8bfbup02up" path="res://sprites/stats_button_pressed.png" id="40_d2t1y"]
@@ -191,6 +192,7 @@ theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 10
 text = "News
 "
+horizontal_alignment = 1
 
 [node name="new_button_close" type="TextureButton" parent="UI/News_Popup" unique_id=2143201848]
 layout_mode = 0
@@ -234,22 +236,155 @@ details = "fk em they just building data center and i hate em for theat cuz data
 sdsfdsf"
 consumption_adds = 10.0
 
-[node name="news_item_2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=2082741052 instance=ExtResource("15_0cbny")]
+[node name="Consumption1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=2082741052 instance=ExtResource("15_0cbny")]
 layout_mode = 2
-headline = "this is set to 30"
-details = "fk em they just building data center and i hate em for theat cuz data center just consume     
-
-
-sdsfdsf"
+headline = "Corner Store Adds Cold Storage"
+details = "A corner grocery on Pine Street has installed two more refrigerated cabinets to stock fresh produce and dairy. The owner says customers had been asking for months. Each cabinet runs around the clock on the local grid, and while the individual load is small, the first extra cooling units always are."
 consumption_adds = 5.0
-gps_required = 10.0
-applied_delay = 10.0
+gps_required = 14.0
+applied_delay = 15.0
+
+[node name="Hint1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1423266293 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Utility Reports Steady Growth In Evening Load"
+details = "The regional utility reports that evening electricity use has grown for six months in a row, as shops stay open later and more homes switch to electric appliances. Analysts say the trend is likely to continue, and the coming weeks may bring more businesses extending their opening hours."
+gps_required = 20.0
+applied_delay = 15.0
+
+[node name="Consumption2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1590839420 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Evening Demand Rises As Shops Extend Hours"
+details = "Several shops along the main road now stay open until ten at night, and the lights, tills and signs stay on with them. Shopkeepers report better sales after dark, and the grid operator reports higher evening use. Longer opening hours are good for business, but they keep demand elevated for more of each day.
+
+
+"
+gps_required = 25.0
+applied_delay = 20.0
+
+[node name="Hint2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1806874102 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Developer Files Plans For New Apartment Block"
+details = "A developer has filed plans with the council for a six-storey apartment block on the old timber yard. The building would add dozens of homes, with lifts, heating and shared lighting. If approved, the block would connect to the local feeder line, which already carries a busy load after sunset."
+gps_required = 32.0
+applied_delay = 20.0
+
+[node name="Consumption3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1284790625 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "New Apartment Block Connects To The Feeder"
+details = "The new apartment block on the old timber yard has finished construction, and the first residents are moving in. Lifts, corridor lighting and electric heating are now connected to the local feeder line. The utility says the extra load was expected, but it adds to a grid that already runs close to its comfortable limits."
+gps_required = 40.0
+applied_delay = 20.0
+
+[node name="Hint3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1527883424 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "City Approves Charging Stations On Main Street"
+details = "The city council has voted to install six electric vehicle charging stations on Main Street, with work starting next month. Supporters say drivers will stop and shop while their cars charge. The utility notes that fast chargers draw a great deal of power when several cars plug in at the same time."
+gps_required = 47.0
+applied_delay = 20.0
+
+[node name="Consumption4" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=262201083 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Electric Vehicle Hub Opens Downtown"
+details = "The new charging hub on Main Street opened this week, and every bay was busy by lunchtime. Drivers like the speed, but fast chargers pull heavy current in short bursts. Grid engineers say the hub has already become one of the largest single loads in the neighbourhood, and use is expected to keep growing."
+gps_required = 55.0
+applied_delay = 25.0
+
+[node name="Hint4" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=961442891 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Grid Operator Forecasts Record Evening Peak"
+details = "The grid operator has published its seasonal outlook and expects a new record for evening peak demand within weeks. Cooking, lighting, charging and heating all overlap after six o'clock. Operators say they will watch the weekly figures closely, and warn that one busy week could push the system past its previous high."
+gps_required = 72.0
+applied_delay = 20.0
+
+[node name="Consumption5" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1163316954 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Evening Demand Sets A New Record"
+details = "The grid operator confirmed a new record for evening peak demand on Tuesday, higher than any day this year. Cooking, charging, heating and lighting all overlapped at the same hour. Households noticed little, but operators had to hold extra reserve capacity, which means more power must now be produced simply to stay safe.
+"
+gps_required = 90.0
+applied_delay = 30.0
+
+[node name="Consumption6" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1845335343 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Hospital Annex Opens Its Doors"
+details = "The hospital's new outpatient annex opened on Monday, bringing imaging machines, ventilation and round-the-clock lighting online. Medical equipment cannot afford interruptions, so the annex gets priority access to power. The health authority says patients will benefit, and the utility says the extra continuous load is now a permanent part of the grid."
+gps_required = 130.0
+applied_delay = 30.0
+
+[node name="Hint5" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1598494102 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Weather Service Issues Heat Advisory"
+details = "The weather service has issued a heat advisory for the coming week, with temperatures expected to stay above thirty degrees. Officials urge residents to check on elderly neighbours and drink plenty of water. Utility planners note that days like these keep air conditioners running all afternoon, and demand tends to climb quickly."
+gps_required = 190.0
+applied_delay = 50.0
+
+[node name="Consumption7" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1357892717 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Heat Wave Pushes Cooling Demand To A High"
+details = "The heat wave arrived as forecast, and air conditioners across the district have been running from noon until midnight. Offices, shops and homes all want cooler air at the same time. The utility says afternoon demand has reached its highest level of the year, and power lines lose more energy in the heat as well."
+gps_required = 220.0
+applied_delay = 35.0
+
+[node name="Consumption8" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1984660749 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Rising Line Losses Reported On Old Cables"
+details = "A technical audit found that older distribution cables near the river lose more power than expected, especially under heavy load. Utility crews plan to replace the worst sections next year. Until then, a small share of every unit sent along those lines is lost as heat before it ever reaches a customer."
+gps_required = 300.0
+applied_delay = 40.0
+
+[node name="Consumption9" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=806103811 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Water Plant Expansion Comes Online"
+details = "The city water plant finished its expansion this month, adding two large pumps and a new filtration hall. The upgrade improves supply for the growing district, but pumps are among the largest electricity users in any town. The plant operator says the new equipment will run continuously, day and night."
+gps_required = 450.0
+applied_delay = 45.0
+
+[node name="Hint6" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=798886875 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Planning Board Approves Large Data Center"
+details = "The planning board has approved a permit for a large data center on the industrial estate east of town. Officials expect hundreds of construction jobs and a long-term tenant. Residents asked about power, and the utility said that servers and cooling run constantly, so the site would be a major new customer once it opens."
+gps_required = 520.0
+applied_delay = 20.0
+
+[node name="Consumption10" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1562311736 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Rail Depot Switches To Electric Traction"
+details = "The regional rail depot has begun replacing diesel shunting engines with electric ones. Cleaner air is a welcome change for the neighbourhood, but electric engines draw heavy current when pulling freight. The depot's power contract is now one of the largest on the grid, and it runs through every shift, day and night."
+gps_required = 600.0
+applied_delay = 50.0
+
+[node name="Hint7" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1682769267 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Data Center Begins Commissioning Tests"
+details = "Engineers at the new data center on the industrial estate have started commissioning tests. Backup generators, cooling units and server racks are being switched on in stages. A spokesperson says the site could open to customers within weeks, and the utility has asked for advance notice before each large test."
+gps_required = 700.0
+applied_delay = 20.0
+
+[node name="Consumption11" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1290722199 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "New Data Center Goes Live"
+details = "The new data center on the industrial estate went live this week, and its first customers are already moving in. Thousands of servers, and the cooling plant that keeps them from overheating, now draw power around the clock. The utility calls it the largest single connection the local grid has ever carried."
+gps_required = 880.0
+applied_delay = 40.0
+
+[node name="Hint8" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1266633152 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Operator Warns Of Maintenance Risk On The Northern Line"
+details = "The grid operator has warned that the northern transmission line is overdue for maintenance and could be taken offline at short notice. Regional supplies are tight, and any outage there would send electricity looking for another route. Local utilities have been told to prepare emergency plans for sudden load transfers."
+gps_required = 930.0
+applied_delay = 20.0
+
+[node name="Consumption12" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=765583793 instance=ExtResource("15_0cbny")]
+layout_mode = 2
+headline = "Regional Blackout Forces Emergency Load Transfer"
+details = "A fault on the northern transmission line caused a regional blackout overnight, and emergency procedures shifted a large share of demand onto neighbouring grids, including this one. Hospitals, transit and the new data center all stay supplied. Full restoration will take weeks, and the extra demand stays on the local grid until then."
+gps_required = 980.0
+applied_delay = 80.0
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1387187370]
 stream = ExtResource("26_f6a44")
 
 [node name="Stats_Popup" type="Panel" parent="UI" unique_id=1193389610]
-visible = false
 offset_right = 130.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
@@ -261,46 +396,95 @@ stream = ExtResource("26_f6a44")
 [node name="Label" type="Label" parent="UI/Stats_Popup" unique_id=1856456279]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 7.0
+offset_top = 100.0
 offset_right = 85.0
-offset_bottom = 20.0
+offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 10
 text = "Stats
 "
+horizontal_alignment = 1
 
 [node name="Stats_button_close" type="TextureButton" parent="UI/Stats_Popup/Label" unique_id=1289679018]
 layout_mode = 0
 offset_left = -12.0
-offset_top = 242.0
+offset_top = 149.0
 offset_right = 4.0
-offset_bottom = 258.0
+offset_bottom = 165.0
 texture_normal = ExtResource("39_0cp0l")
 texture_pressed = ExtResource("40_d2t1y")
 
 [node name="Panel" type="Panel" parent="UI/Stats_Popup" unique_id=1407150442]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 24.0
+offset_top = 117.0
 offset_right = 125.0
-offset_bottom = 248.0
+offset_bottom = 247.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Sec_1" type="Label" parent="UI/Stats_Popup/Panel" unique_id=1928937655]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 117.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "Light
+======================="
+horizontal_alignment = 1
 
 [node name="generation" type="Label" parent="UI/Stats_Popup/Panel" unique_id=1822383464]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 27.0
+offset_top = 33.0
 offset_right = 118.0
-offset_bottom = 50.0
-text = "generation"
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "generation : 20.00 /s"
 
 [node name="consumption" type="Label" parent="UI/Stats_Popup/Panel" unique_id=361158790]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 49.0
+offset_top = 46.0
 offset_right = 118.0
-offset_bottom = 72.0
-text = "consumption"
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "consumption : 20.00 /s"
+
+[node name="efficiency" type="Label" parent="UI/Stats_Popup/Panel" unique_id=525696619]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 59.0
+offset_right = 118.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "efficiency: 100%"
+
+[node name="Sec_2" type="Label" parent="UI/Stats_Popup/Panel" unique_id=264826557]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 75.0
+offset_right = 116.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "Clicks
+======================="
+horizontal_alignment = 1
+
+[node name="clicks" type="Label" parent="UI/Stats_Popup/Panel" unique_id=1456912002]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 104.0
+offset_right = 118.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 8
+text = "total clicks : 34"
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
 visible = false
@@ -414,6 +598,7 @@ script = ExtResource("27_hrvbo")
 [node name="Ascend_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=760594522 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("38_e71vb")
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=367711867]
 stream = ExtResource("26_f6a44")
@@ -665,7 +850,26 @@ texture_pressed = ExtResource("44_0n3wm")
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/News_Popup/new_button_close" to="UI" method="_on_new_button_close_pressed"]
 [connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/news_item_1" to="UI" method="_on_news_item_1_new_news"]
-[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/news_item_2" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption1" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint1" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption2" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint2" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption3" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint3" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption4" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint4" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption5" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption6" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint5" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption7" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption8" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption9" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint6" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption10" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint7" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption11" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Hint8" to="UI" method="_on_news_item_1_new_news"]
+[connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption12" to="UI" method="_on_news_item_1_new_news"]
 [connection signal="pressed" from="UI/Stats_Popup/Label/Stats_button_close" to="UI" method="_on_stats_button_close_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Button_close" to="UI" method="_on_factory_button_close_pressed"]
 [connection signal="upgrade_unlocked" from="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Clicking_Hand_Speed_Up" to="UI" method="_on_clicking_hand_speed_up_upgrade_unlocked"]
