@@ -17,7 +17,7 @@ var upgrade_info := ""
 var level := 0
 var max_level := 2
 
-var costs := [1800,6300]
+var costs := [1800,4000]
 
 
 func _ready() -> void:
@@ -67,13 +67,27 @@ func buying_item() -> void:
 	elif level == 2:
 		bulb2.activate()
 
-
+ 	
 	update_cost()
 	update_upgrade_info()
 	
+	var next_cost: float = costs[level] if level < max_level else -1.0
+	var next_level: int = level + 1 if level < max_level else -1
+
+	ProgressionTracker.record_upgrade(
+		upgrade_name,
+		level,
+		cost,
+		GameData.light,
+		GameData.generation_per_sec_peak,
+		GameData.consumption_per_sec,
+		next_cost,
+		next_level
+	)
+	
 func update_upgrade_info() -> void:
 	if level >= max_level:
-		info_label.text = "Max number of bulbs reached"
+		info_label.text = "more bulbs more light!"
 		return
 
 	info_label.text = "adds smaller bulb that generates light with charge"

@@ -67,6 +67,15 @@ func check_gps() -> void:
 
 	# Wait before unlocking the news.
 	await get_tree().create_timer(applied_delay).timeout
+	
+	ProgressionTracker.record_news(
+		headline,
+		gps_required,
+		GameData.generation_per_sec_peak,
+		applied_delay,
+		consumption_adds,
+		GameData.consumption_per_sec
+	)
 
 	# Show the news and notify the UI.
 	show()

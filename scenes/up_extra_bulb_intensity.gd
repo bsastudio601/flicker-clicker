@@ -7,15 +7,15 @@ extends PanelContainer
 @onready var buy_button: Button = $"Control/Buy Button"
 
 #setting vars
-var upgrade_name := "E Bulb Intensity"
+var upgrade_name := "E B Intensity"
 var upgrade_info := "Increases the charge generation to: "
 var max_reached_info := "Max intensity reached"
 
 
 var level := 0
 var max_level := 7
-var new_var := [2,3,4,5,6,8,10,12]
-var costs := [2500,3600,5250,7600,11000,16000,23000,33500]
+var new_var := [2,3,4,5,6,8,10]
+var costs := [6300,8400,11000,15000,19000,25000,33000]
 
 
 func _ready() -> void:
@@ -64,7 +64,20 @@ func buying_item() -> void:
 	
 	
 	GameData.extra_bulb_light_generation = new_var[level]
+	
+	var next_cost: float = costs[level] if level < max_level else -1.0
+	var next_level: int = level + 1 if level < max_level else -1
 
+	ProgressionTracker.record_upgrade(
+		upgrade_name,
+		level,
+		cost,
+		GameData.light,
+		GameData.generation_per_sec_peak,
+		GameData.consumption_per_sec,
+		next_cost,
+		next_level
+	)
 	
 	
 func update_upgrade_info() -> void:

@@ -35,10 +35,12 @@ offset_right = -6.5
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_mnlc0")
 
 [node name="Control" type="Control" parent="." unique_id=201925102]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Buy Button" type="Button" parent="Control" unique_id=1098203105]
 layout_mode = 0

@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.7", "Mobile")
 
 [autoload]
 
+ProgressionTracker="*uid://bxk0277r0rara"
 GameData="*uid://xwb50k50orgt"
 
 [display]

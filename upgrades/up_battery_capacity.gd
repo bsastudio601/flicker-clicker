@@ -7,14 +7,14 @@ extends PanelContainer
 @onready var buy_button: Button = $"Control/Buy Button"
 
 #setting vars
-var upgrade_name := "Battery Capacity"
+var upgrade_name := "Upgraded Battery"
 var upgrade_info := ""
 
 
 var level := 0
 var max_level := 7
-var battery_increase := [30,45,65,90,125,170,230,300]
-var costs := [50,100,190,370,720,1400,2750,5350]
+var battery_increase := [45,65,90,125,170,230,300]
+var costs := [360,560,880,1400,2200,3400,5400]
 
 
 func _ready() -> void:
@@ -45,7 +45,6 @@ func update_cost() -> void:
 	buy_button.disabled = GameData.light < costs[level]
 
 func buying_item() -> void:
-
 	if level >= max_level:
 		return
 
@@ -59,6 +58,19 @@ func buying_item() -> void:
 	
 	GameData.max_charge = battery_increase[level]
 	
+	var next_cost: float = costs[level] if level < max_level else -1.0
+	var next_level: int = level + 1 if level < max_level else -1
+
+	ProgressionTracker.record_upgrade(
+		upgrade_name,
+		level,
+		cost,
+		GameData.light,
+		GameData.generation_per_sec_peak,
+		GameData.consumption_per_sec,
+		next_cost,
+		next_level
+	)
 
 	update_cost()
 	
@@ -67,4 +79,4 @@ func update_upgrade_info() -> void:
 		info_label.text = "Battery capacity MAX"
 		return
 
-	info_label.text = "Increases battery capacity by +" + str(battery_increase[level])
+	info_label.text = "Increases battery capacity to " + str(battery_increase[level])

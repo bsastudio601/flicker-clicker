@@ -10,15 +10,15 @@ extends PanelContainer
 var upgrade_name := "Clicking Cooldown"
 var upgrade_info := "decreases cooldown to: "
 var upgrade_info_2 := "and clicks to cooldown to:  "
-var max_reached_info := "cooldown reached"
+var max_reached_info := "WATERCOOLED!"
 
 
 
 var level := 0
 var max_level := 5
-var new_var := [10,8,6.5,5,4,2,1] #for colldown time
+var new_var := [10,8,6.5,5,4,3] #for colldown time
 var new_var_2 := [20,40,50,60,70,100] #for clicks before cooldown
-var costs := [300,630,1300,2800,5850,12500]
+var costs := [820,1700,3500,7300,15000,30000]
 
 
 func _ready() -> void:
@@ -71,6 +71,19 @@ func buying_item() -> void:
 	GameData.clicking_hand_clicks_before_cooldown = new_var_2[level]
 
 	
+	var next_cost: float = costs[level] if level < max_level else -1.0
+	var next_level: int = level + 1 if level < max_level else -1
+
+	ProgressionTracker.record_upgrade(
+		upgrade_name,
+		level,
+		cost,
+		GameData.light,
+		GameData.generation_per_sec_peak,
+		GameData.consumption_per_sec,
+		next_cost,
+		next_level
+	)
 	
 func update_upgrade_info() -> void:
 	if level >= max_level:

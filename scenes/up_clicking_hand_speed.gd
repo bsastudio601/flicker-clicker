@@ -9,14 +9,14 @@ signal upgrade_unlocked
 
 #setting vars
 var upgrade_name := "Clicking Hand Speed"
-var upgrade_info := "Increases the speed generation to: "
-var max_reached_info := "Max speed reach reached"
+var upgrade_info := "Increases the clicking speed to: "
+var max_reached_info := "The fasted a machine can click!"
 
 
 var level := 0
 var max_level := 7
-var new_var := [0.9,0.8,0.7,0.6,0.5,0.42,0.35,0.3]
-var costs := [250,490,950,1850,3600,7050,13500,27000]
+var new_var := [0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2]
+var costs := [220,420,850,1700,3400,6900,14000,32000,48000]
 
 
 func _ready() -> void:
@@ -66,7 +66,20 @@ func buying_item() -> void:
 	
 	
 	GameData.clicking_hand_cps = new_var[level]
+	
+	var next_cost: float = costs[level] if level < max_level else -1.0
+	var next_level: int = level + 1 if level < max_level else -1
 
+	ProgressionTracker.record_upgrade(
+		upgrade_name,
+		level,
+		cost,
+		GameData.light,
+		GameData.generation_per_sec_peak,
+		GameData.consumption_per_sec,
+		next_cost,
+		next_level
+	)
 	
 	
 func update_upgrade_info() -> void:
@@ -74,7 +87,7 @@ func update_upgrade_info() -> void:
 		info_label.text = max_reached_info
 		return
 
-	info_label.text = upgrade_info + str(new_var[level])
+	info_label.text = upgrade_info + str(new_var[level]) + "s"
 	
 var unlocked := false
 @onready var dependent_on : PanelContainer = $"../Clicker_Hands_Up"

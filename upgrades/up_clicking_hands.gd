@@ -18,7 +18,7 @@ var upgrade_info := ""
 var level := 0
 var max_level := 3
 
-var costs := [150,600,2400]
+var costs := [170,600,2400]
 
 
 func _ready() -> void:
@@ -71,12 +71,26 @@ func buying_item() -> void:
 	elif level == 3:
 		clicker3.activate()
 		
+	var next_cost: float = costs[level] if level < max_level else -1.0
+	var next_level: int = level + 1 if level < max_level else -1
+
+	ProgressionTracker.record_upgrade(
+		upgrade_name,
+		level,
+		cost,
+		GameData.light,
+		GameData.generation_per_sec_peak,
+		GameData.consumption_per_sec,
+		next_cost,
+		next_level
+	)
+		
 	update_cost()
 	update_upgrade_info()
 	
 func update_upgrade_info() -> void:
 	if level >= max_level:
-		info_label.text = "Max number of hands reached"
+		info_label.text = "More the hand more the light"
 		return
 
 	info_label.text = "Adds A automatic clicking hand" 
