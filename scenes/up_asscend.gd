@@ -1,15 +1,14 @@
 extends PanelContainer
 
-#Labels
+# Labels
 @onready var name_label: Label = $Control/Upgrade_Name
 @onready var info_label: Label = $Control/Upgrade_Info
 @onready var cost_label: Label = $Control/Cost
 @onready var buy_button: Button = $"Control/Buy Button"
 
-#setting vars
+# Upgrade settings
 var upgrade_name := "Ascend"
-var upgrade_info := "You finished your job!"
-
+var upgrade_info := "You need to reach 99.99% efficiency"
 
 var level := 0
 var max_level := 1
@@ -23,46 +22,63 @@ func _ready() -> void:
 	info_label.text = upgrade_info
 
 	update_cost()
+	update_upgrade_info()
+
+
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
 
+
 func _on_buy_button_pressed() -> void:
 	buying_item()
 	$"../button_click_sfx".play()
-	
+
+
 func update_cost() -> void:
 	if level >= max_level:
-		cost_label.text = "BOUGHT"
+		cost_label.text = "!!!"
 		buy_button.disabled = true
 		return
-	
-	if costs[level] >= 1000:
-		cost_label.text = str(int(roundi(costs[level] / 100.0) / 10.0)) + "K"
+
+	if GameData.generation_efficiency < 99.99:
+		cost_label.text = "100K"
+		buy_button.disabled = true
+		return
+
+	var cost: int = costs[level]
+
+	if cost >= 1000:
+		cost_label.text = str(snappedf(float(cost) / 1000.0, 0.1)) + "K"
 	else:
-		cost_label.text = str(costs[level])
-	buy_button.disabled = GameData.light < costs[level]
+		cost_label.text = str(cost)
+
+	buy_button.disabled = GameData.light < cost
+
 
 func buying_item() -> void:
-
 	if level >= max_level:
 		return
 
-	var cost = costs[level]
+	if GameData.generation_efficiency < 99.99:
+		return
+
+	var cost: int = costs[level]
 
 	if GameData.light < cost:
 		return
-		
+
 	level += 1
 	GameData.light -= cost
-	
-	
 
 	update_cost()
-	
+	update_upgrade_info()
+
+	# Cutscene will be added here later.
+
+
 func update_upgrade_info() -> void:
 	if level >= max_level:
-		info_label.text = "Battery capacity MAX"
-		return
-
-	info_label.text = "Increases battery capacity by +"
+		info_label.text = "You have finished your job!"
+	else:
+		info_label.text = upgrade_info

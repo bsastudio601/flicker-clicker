@@ -52,7 +52,7 @@ func add_light_and_charge() -> void: 														#adds currency with the max c
 		
 func update_bulb_visual() -> void:
 	var brightness: float = GameData.charge / GameData.max_charge
-	var target_energy: float = lerpf(0.5, 4.5, brightness)
+	var target_energy: float = lerpf(0.5, 3.5, brightness)
 
 	if target_energy < point_light.energy:
 		point_light.energy = lerpf(point_light.energy, target_energy, 0.02)

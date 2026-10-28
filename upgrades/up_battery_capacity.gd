@@ -53,10 +53,12 @@ func buying_item() -> void:
 	if GameData.light < cost:
 		return
 		
-	level += 1
+	
 	GameData.light -= cost
 	
 	GameData.max_charge = battery_increase[level]
+	
+	level += 1
 	
 	var next_cost: float = costs[level] if level < max_level else -1.0
 	var next_level: int = level + 1 if level < max_level else -1

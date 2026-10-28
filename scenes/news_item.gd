@@ -59,7 +59,7 @@ func _on_button_pressed() -> void:
 
 
 func check_gps() -> void:
-	if shown or GameData.generation_per_sec < gps_required:
+	if shown or GameData.generation_per_sec_peak < gps_required:
 		return
 
 	# Prevent multiple timers from starting.
@@ -85,6 +85,9 @@ func check_gps() -> void:
 	if not applied:
 		GameData.consumption_per_sec += consumption_adds
 		applied = true
+		
+		details_label.text = details + "\n\nConsumption increased by +" \
+			+ str(consumption_adds) + "/sec"
 
 
 func change_background(texture: Texture2D) -> void:

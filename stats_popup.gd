@@ -28,9 +28,9 @@ func _process(delta: float) -> void:
 	var efficiency := 0.0 
 	
 	if GameData.consumption_per_sec > 0.0:
-		efficiency = (GameData.generation_per_sec_peak / GameData.consumption_per_sec) * 100.0
+		GameData.generation_efficiency = (GameData.generation_per_sec_peak / GameData.consumption_per_sec) * 100.0
 
-		$Panel/efficiency.text = "Efficiency: " + "%.2f" % efficiency + "%"
+		$Panel/efficiency.text = "Efficiency: " + "%.2f" % GameData.generation_efficiency + "%"
 		
 	$Panel/clicks.text = "Total _Clicks: " + str(GameData.clicked)
 	

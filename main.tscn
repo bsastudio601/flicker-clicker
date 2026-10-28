@@ -123,8 +123,8 @@ position = Vector2(29, -1)
 scale = Vector2(1.3338861, 1.2875249)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1967612789]
-position = Vector2(26.908115, 110.9632)
-scale = Vector2(1.0168854, 1.2544515)
+position = Vector2(26.158422, 110.9632)
+scale = Vector2(1.0012668, 1.2544515)
 texture = ExtResource("1_1bvp3")
 
 [node name="Backgroun_music" type="AudioStreamPlayer" parent="Background" unique_id=529663803]
@@ -159,8 +159,8 @@ bus = &"sfx"
 texture = ExtResource("1_h2yge")
 
 [node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
-position = Vector2(1.0000001, -10.749999)
-scale = Vector2(1.52585, 1.5193219)
+position = Vector2(-1.9073486e-06, -8.000003)
+scale = Vector2(1.7560166, 1.7485038)
 energy = 4.0
 texture = SubResource("GradientTexture2D_t4kkl")
 texture_scale = 1.93
@@ -409,8 +409,9 @@ applied_delay = 28.0
 stream = ExtResource("26_f6a44")
 
 [node name="Stats_Popup" type="Panel" parent="UI" unique_id=1193389610]
-offset_right = 130.0
-offset_bottom = 287.0
+visible = false
+offset_right = 128.0
+offset_bottom = 284.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
 script = ExtResource("17_hrvbo")
 
@@ -683,15 +684,27 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="extra_bulbs" parent="ExtraAutoBulb" unique_id=1768370951 instance=ExtResource("25_0odxb")]
 position = Vector2(102, 141)
 
+[node name="Sprite2D2" type="Sprite2D" parent="ExtraAutoBulb/extra_bulbs" unique_id=482582121]
+position = Vector2(-23.000004, 15.999997)
+rotation = 1.7208946
+scale = Vector2(1, 1.8566383)
+texture = ExtResource("4_5vw27")
+
 [node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("25_0odxb")]
 position = Vector2(26, 140)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ExtraAutoBulb/extra_bulbs2" unique_id=1988480695]
+position = Vector2(22, 16)
+rotation = -1.7208947
+scale = Vector2(1, 1.8566384)
+texture = ExtResource("4_5vw27")
 
 [node name="Labels" type="Control" parent="." unique_id=460599528]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -5.0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 35.0
+offset_bottom = 41.0
 script = ExtResource("24_kq58d")
 
 [node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
@@ -773,8 +786,9 @@ text = "2.0k/2.0k"
 [node name="DashBoard" type="Control" parent="." unique_id=1174753452]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 6.0
 offset_right = 128.0
-offset_bottom = 74.0
+offset_bottom = 80.0
 script = SubResource("GDScript_f6a44")
 
 [node name="SettingWindow" type="Panel" parent="DashBoard" unique_id=648771040]
@@ -897,7 +911,8 @@ script = ExtResource("57_rnkwl")
 [connection signal="new_news" from="UI/News_Popup/Panel/Item_List/Item_Vbox/Consumption12" to="UI" method="_on_news_item_1_new_news"]
 [connection signal="pressed" from="UI/Stats_Popup/Label/Stats_button_close" to="UI" method="_on_stats_button_close_pressed"]
 [connection signal="pressed" from="UI/Factory_Popup/Factory_Button_close" to="UI" method="_on_factory_button_close_pressed"]
-[connection signal="upgrade_unlocked" from="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Clicking_Hand_Speed_Up" to="UI" method="_on_clicking_hand_speed_up_upgrade_unlocked"]
+[connection signal="upgrade_unlocked" from="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Clicker_Hands_Up" to="UI" method="_on_clicker_hands_up_upgrade_unlocked"]
+[connection signal="upgrade_unlocked" from="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Extra_Bulb_Up" to="UI" method="_on_extra_bulb_up_upgrade_unlocked"]
 [connection signal="pressed" from="Factory_Button" to="UI" method="_on_factory_button_pressed"]
 [connection signal="pressed" from="news_button" to="UI" method="_on_news_button_pressed"]
 [connection signal="pressed" from="Stats_button" to="UI" method="_on_stats_button_pressed"]

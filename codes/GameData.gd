@@ -26,12 +26,14 @@ var consumption_per_sec := 100.0
 
 var generation_per_sec_peak := 0.0
 
+var generation_efficiency := 0.0
+
 #main buld vars
 var main_bulb_light_generation := 1.0
 var main_bulb_charge_generation := 1.0
 
 #clicking hand vars
-var clicking_hand_cps := 2.0
+var clicking_hand_cps := 2.0  #its like 1 click per clicking_hand_cps second
 var clicking_hand_cooldown := 5.0
 var clicking_hand_clicks_before_cooldown := 5.0
 

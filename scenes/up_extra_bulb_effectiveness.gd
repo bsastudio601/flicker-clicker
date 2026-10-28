@@ -82,3 +82,15 @@ func update_upgrade_info() -> void:
 		return
 
 	info_label.text = "Decreases the generation time to : " + str(new_var[level]) + "s"
+	
+var unlocked := false
+@onready var dependent_on : PanelContainer = $"../Extra_Bulb_Up"
+
+func hiding_unhiding_dependent() -> void:
+	if dependent_on.visible:
+		unlocked = true
+
+	if unlocked:
+		show()
+	else:
+		hide()

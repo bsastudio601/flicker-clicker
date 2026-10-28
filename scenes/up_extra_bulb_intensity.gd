@@ -57,13 +57,14 @@ func buying_item() -> void:
 		return
 	GameData.light -= cost
 	
-	level += 1
+
 	update_cost()
 	
 	#here site the actual gamedata var logic
 	
-	
 	GameData.extra_bulb_light_generation = new_var[level]
+	
+	level += 1
 	
 	var next_cost: float = costs[level] if level < max_level else -1.0
 	var next_level: int = level + 1 if level < max_level else -1

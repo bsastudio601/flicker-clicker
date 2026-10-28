@@ -1,4 +1,5 @@
 extends PanelContainer
+signal upgrade_unlocked
 
 #Labels
 @onready var name_label: Label = $Control/Upgrade_Name
@@ -95,8 +96,8 @@ func update_upgrade_info() -> void:
 var unlocked := false
 
 func hiding_unhiding() -> void:
-	if GameData.light >= costs[0]:
+	if not unlocked and GameData.light >= costs[0]:
 		unlocked = true
-
-	if unlocked:
-		show() 
+		show()
+		upgrade_unlocked.emit()
+		

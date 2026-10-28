@@ -47,7 +47,7 @@ func update_bulb_visual() -> void:
 	var charge_consumption := GameData.extra_bulb_charge_consumption
 
 	if GameData.charge >= charge_consumption:
-		create_tween().tween_property(point_light , "energy" , 2.0 , 1.0)
+		create_tween().tween_property(point_light , "energy" , 1.5 , 1.0)
 
 	else:
 		create_tween().tween_property(point_light , "energy" , 0.0 , 1.0)
