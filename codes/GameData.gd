@@ -5,7 +5,7 @@ var clicked := 0
 var charge := 0.0
 
 #currency
-var light_raw: float = 0.0
+var light_raw: float = 250000
 
 var light: int:
 	get:
@@ -24,7 +24,7 @@ var drain_per_second := 1.0
 var generation_per_sec := 0.0
 var consumption_per_sec := 100.0
 
-var generation_per_sec_peak := 0.0
+var generation_per_sec_peak := 110.0
 
 var generation_efficiency := 0.0
 

@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://dj6pw128dw7cf"]
+
+[ext_resource type="Texture2D" uid="uid://cw2sc5tf2dqc7" path="res://sprites/cutscene_layer_0_bg.png" id="1_igcyj"]
+[ext_resource type="Script" uid="uid://c0okc8esb3qhi" path="res://scenes/cutscene_end.gd" id="1_r5kfn"]
+[ext_resource type="Texture2D" uid="uid://djl1mqxjg6erh" path="res://sprites/cutscene_layer_2.png" id="2_r5kfn"]
+[ext_resource type="Texture2D" uid="uid://dv0037bffninc" path="res://sprites/cutscene_layer_1.png" id="3_y5cf3"]
+[ext_resource type="Texture2D" uid="uid://d0sk3uiovydbs" path="res://sprites/cutscene_layer_3_light.png" id="4_2udl6"]
+[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="6_y5cf3"]
+
+[sub_resource type="Environment" id="Environment_b30ca"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.8
+glow_bloom = 0.85
+glow_blend_mode = 0
+adjustment_brightness = 0.71
+
+[node name="Cutscene_End" type="Node2D" unique_id=469251351]
+script = ExtResource("1_r5kfn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1609758604]
+environment = SubResource("Environment_b30ca")
+
+[node name="layer0" type="Sprite2D" parent="." unique_id=721398391]
+position = Vector2(64, 142)
+texture = ExtResource("1_igcyj")
+
+[node name="layer1" type="Sprite2D" parent="." unique_id=272462215]
+position = Vector2(64, 49)
+texture = ExtResource("2_r5kfn")
+
+[node name="layer2" type="Sprite2D" parent="layer1" unique_id=59670308]
+position = Vector2(0, 93)
+texture = ExtResource("3_y5cf3")
+
+[node name="layer3_light" type="PointLight2D" parent="layer1" unique_id=56012978]
+position = Vector2(0, 30)
+energy = 0.0
+texture = ExtResource("4_2udl6")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1307611650]
+color = Color(0.49108773, 0.49108768, 0.49108768, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894535953]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=13812246]
+visible = false
+offset_right = 128.0
+offset_bottom = 284.0
+color = Color(0, 0, 0, 1)
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=1063520331]
+
+[node name="ui_element" type="Control" parent="ui" unique_id=1564965817]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 170.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start_again" type="Button" parent="ui/ui_element" unique_id=660505945]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.5
+offset_right = 27.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "> start again <"
+
+[node name="exit_button" type="Button" parent="ui/ui_element" unique_id=1696131193]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 4.0
+offset_right = 15.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "> exit <"
+
+[node name="end_text" type="Label" parent="ui/ui_element" unique_id=1779747565]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -23.0
+offset_right = 55.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 7
+text = "You have reached max efficiency!"
+
+[node name="credit_text" type="Control" parent="ui" unique_id=1667343277]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 283.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="ui/credit_text" unique_id=1858158849]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 15.0
+offset_right = 117.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 9
+text = "Flicker Clicker"
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="ui/credit_text" unique_id=1490133317]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 29.0
+offset_right = 116.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 5
+text = "a short idle clicker game."
+horizontal_alignment = 1
+
+[node name="title6" type="Label" parent="ui/credit_text" unique_id=719563660]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 121.0
+offset_bottom = 90.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 5
+text = "
+Copyright (c) 2026 Aritro Halder
+
+Open-source software
+Licensed under the MIT License.
+
+Repo : github.com/bsastudio601/flicker-clicker"
+horizontal_alignment = 1
+
+[node name="title3" type="Label" parent="ui/credit_text" unique_id=68057450]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 106.0
+offset_right = 118.0
+offset_bottom = 122.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "Development
+Created by Aritro Halder"
+horizontal_alignment = 1
+
+[node name="title4" type="Label" parent="ui/credit_text" unique_id=1829233789]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 133.0
+offset_right = 118.0
+offset_bottom = 149.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "Art & Design
+Aritro Halder"
+horizontal_alignment = 1
+
+[node name="title5" type="Label" parent="ui/credit_text" unique_id=24303814]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 160.0
+offset_right = 117.0
+offset_bottom = 176.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "Music & SFX
+Pixabay"
+horizontal_alignment = 1
+
+[node name="title7" type="Label" parent="ui/credit_text" unique_id=1508896384]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 184.0
+offset_right = 118.0
+offset_bottom = 200.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "Special Thanks
+To everyone who played"
+horizontal_alignment = 1
+
+[node name="title8" type="Label" parent="ui/credit_text" unique_id=698173784]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 236.0
+offset_right = 116.0
+offset_bottom = 252.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_y5cf3")
+theme_override_font_sizes/font_size = 6
+text = "Thanks for keeping
+ the lights on!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ui/ui_element/start_again" to="." method="_on_start_again_pressed"]
+[connection signal="pressed" from="ui/ui_element/exit_button" to="." method="_on_exit_button_pressed"]

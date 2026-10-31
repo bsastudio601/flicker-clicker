@@ -1,62 +1,61 @@
 [gd_scene format=3 uid="uid://dedlxesrql1yu"]
 
-[ext_resource type="Texture2D" uid="uid://d14sgui1djid" path="res://sprites/background.png" id="1_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://cgl2niusxjmnu" path="res://sprites/Bulb_sprite.png" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="2_1bvp3"]
-[ext_resource type="AudioStream" uid="uid://p3shthyvpjeo" path="res://sfx/turning_pages-quiet-courtyard-610075.mp3" id="2_4w656"]
-[ext_resource type="Script" uid="uid://bt8rm1vma1xmc" path="res://backgroun_music.gd" id="3_e71vb"]
-[ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="3_lquwl"]
-[ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://codes/bulb_system_script.gd" id="3_qsp4k"]
-[ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="4_272bh"]
-[ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="5_5vw27"]
-[ext_resource type="AudioStream" uid="uid://gnepjrnparm8" path="res://sfx/universfield-click-button-140881.mp3" id="5_b1qrp"]
-[ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://codes/ui.gd" id="5_cegan"]
-[ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="5_w48qg"]
-[ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="6_vivmo"]
-[ext_resource type="Texture2D" uid="uid://c3c4mu5tggaxf" path="res://sprites/icon_bolt.png" id="7_kek77"]
-[ext_resource type="PackedScene" uid="uid://c32n00jgqltwu" path="res://scenes/damage_number_spawner/DamageNumberSpawner.tscn" id="7_qsp4k"]
-[ext_resource type="LabelSettings" uid="uid://bdko5crsju2qf" path="res://idk/new_label_settings.tres" id="8_kq58d"]
-[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="10_efxa6"]
-[ext_resource type="Script" uid="uid://c233cl0no0gbx" path="res://news_popup.gd" id="11_blkrb"]
-[ext_resource type="Script" uid="uid://ddnd4edom7wxx" path="res://upgrades/up_battery_capacity.gd" id="11_d13ii"]
-[ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="12_dg77c"]
-[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_stronger_filament.gd" id="13_ryguw"]
-[ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://upgrades/up_clicking_hands.gd" id="14_1u8w0"]
-[ext_resource type="PackedScene" uid="uid://d3qtqjydygtmu" path="res://scenes/news_item.tscn" id="15_0cbny"]
-[ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/upgrade_item.tscn" id="15_vivmo"]
-[ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="15_yaehf"]
-[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="16_2cqfq"]
-[ext_resource type="Script" uid="uid://c4eeucjicrme3" path="res://stats_popup.gd" id="17_hrvbo"]
-[ext_resource type="Script" uid="uid://cytcdetbnom4t" path="res://scenes/up_overcharge_protection.gd" id="18_0cbny"]
-[ext_resource type="Script" uid="uid://05wi4mig00tf" path="res://scenes/up_efficient_filament.gd" id="18_kq58d"]
-[ext_resource type="Script" uid="uid://bqsxlhm4uv7mo" path="res://scenes/up_clicking_hand_speed.gd" id="20_seu75"]
-[ext_resource type="Script" uid="uid://dmqhe1nrenj2l" path="res://scenes/up_clicking_hand_cooldown.gd" id="21_htxhm"]
-[ext_resource type="Script" uid="uid://cagx4dmjdphp7" path="res://upgrades/up_extra_bulb.gd" id="22_jq2sk"]
-[ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hands/clicker_hand.tscn" id="22_ryguw"]
-[ext_resource type="Script" uid="uid://bc04qc4lrsbky" path="res://codes/charge_bar_script.gd" id="22_xuqvo"]
-[ext_resource type="Script" uid="uid://bhkgw71c0a5am" path="res://scenes/up_extra_bulb_intensity.gd" id="23_4k2k6"]
-[ext_resource type="Script" uid="uid://dfpx3l12sml3n" path="res://scenes/up_extra_bulb_efficiency.gd" id="24_0rl1p"]
-[ext_resource type="Script" uid="uid://3wyk2p54viq8" path="res://codes/label_system_script.gd" id="24_kq58d"]
-[ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs/extra_bulbs.tscn" id="25_0odxb"]
-[ext_resource type="AudioStream" uid="uid://di1fde1pr6u02" path="res://sfx/universfield-computer-mouse-click-352734.mp3" id="26_f6a44"]
-[ext_resource type="Script" uid="uid://bkw8r131qr17s" path="res://scenes/up_extra_bulb_effectiveness.gd" id="27_hrvbo"]
-[ext_resource type="Texture2D" uid="uid://3xw5tfp65fr1" path="res://sprites/news_button_normal.png" id="31_blkrb"]
-[ext_resource type="Texture2D" uid="uid://bd8id4ap3ox4x" path="res://sprites/news_button_pressed.png" id="32_abqjc"]
-[ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="35_ok6jj"]
-[ext_resource type="AudioStream" uid="uid://c72226ihmitwn" path="res://sfx/universfield-new-notification-062-494544.mp3" id="36_6iyjs"]
-[ext_resource type="Texture2D" uid="uid://bivgf0epytbk2" path="res://sprites/new_news_dot.png" id="36_abqjc"]
-[ext_resource type="Script" uid="uid://bjvp2hlwtau11" path="res://scenes/up_asscend.gd" id="38_e71vb"]
-[ext_resource type="Texture2D" uid="uid://iqiwm2mnt6uw" path="res://sprites/stats_button_normal.png" id="39_0cp0l"]
-[ext_resource type="Script" uid="uid://dwlyx84t6gi01" path="res://setting_window.gd" id="39_0n3wm"]
-[ext_resource type="Texture2D" uid="uid://dgs8bfbup02up" path="res://sprites/stats_button_pressed.png" id="40_d2t1y"]
-[ext_resource type="Texture2D" uid="uid://d21485qpraepv" path="res://sprites/slider_bar_button.png" id="40_wnkbs"]
-[ext_resource type="Texture2D" uid="uid://c8n47u3cpa0ml" path="res://sprites/slider_1_line.png" id="41_f6a44"]
-[ext_resource type="Texture2D" uid="uid://dllqvcqouh2qn" path="res://sprites/setting_icon_normal.png" id="41_gngh3"]
-[ext_resource type="Texture2D" uid="uid://bb6annyfixmv7" path="res://sprites/setting_icon_pressedl.png" id="42_0n3wm"]
-[ext_resource type="Texture2D" uid="uid://dgqtne8gd8pjp" path="res://sprites/credit_button_normal.png" id="43_gngh3"]
-[ext_resource type="Texture2D" uid="uid://2d036xukme3f" path="res://sprites/credit_button_pressed.png" id="44_0n3wm"]
-[ext_resource type="Script" uid="uid://dfpu1037k0t7l" path="res://credit_button.gd" id="57_rnkwl"]
+[ext_resource type="Texture2D" uid="uid://d14sgui1djid" path="res://sprites/background.png" id="1_1v6qk"]
+[ext_resource type="AudioStream" uid="uid://p3shthyvpjeo" path="res://sfx/turning_pages-quiet-courtyard-610075.mp3" id="2_augu2"]
+[ext_resource type="Script" uid="uid://bt8rm1vma1xmc" path="res://codes/backgroun_music.gd" id="3_tm6hj"]
+[ext_resource type="Script" uid="uid://dpy1n26y5a0ad" path="res://codes/bulb_system_script.gd" id="4_kf5aa"]
+[ext_resource type="Texture2D" uid="uid://c0r6j5hnsesaj" path="res://sprites/button_normal.png" id="5_t5ykj"]
+[ext_resource type="Texture2D" uid="uid://bxxepgtrxnbwj" path="res://sprites/button_pressed.png" id="6_e755i"]
+[ext_resource type="AudioStream" uid="uid://gnepjrnparm8" path="res://sfx/universfield-click-button-140881.mp3" id="7_ro3en"]
+[ext_resource type="Texture2D" uid="uid://cgl2niusxjmnu" path="res://sprites/Bulb_sprite.png" id="8_od4ux"]
+[ext_resource type="Texture2D" uid="uid://t8tu6hrh803g" path="res://sprites/wire.png" id="9_xhfw6"]
+[ext_resource type="PackedScene" uid="uid://c32n00jgqltwu" path="res://scenes/damage_number_spawner/DamageNumberSpawner.tscn" id="10_1epgm"]
+[ext_resource type="LabelSettings" uid="uid://bdko5crsju2qf" path="res://style/new_label_settings.tres" id="11_152kg"]
+[ext_resource type="Script" uid="uid://dny4h06i3pwx0" path="res://codes/ui/ui.gd" id="12_dnhof"]
+[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="14_mlv25"]
+[ext_resource type="Texture2D" uid="uid://3xw5tfp65fr1" path="res://sprites/news_button_normal.png" id="15_a82wo"]
+[ext_resource type="Texture2D" uid="uid://bd8id4ap3ox4x" path="res://sprites/news_button_pressed.png" id="16_gdvew"]
+[ext_resource type="Texture2D" uid="uid://cecbofmmc13tt" path="res://sprites/popup_bg.png" id="17_kjtvk"]
+[ext_resource type="PackedScene" uid="uid://d3qtqjydygtmu" path="res://scenes/ui/news_item.tscn" id="18_xrs0c"]
+[ext_resource type="Script" uid="uid://c4eeucjicrme3" path="res://codes/ui/stats_popup.gd" id="19_dnhof"]
+[ext_resource type="AudioStream" uid="uid://di1fde1pr6u02" path="res://sfx/universfield-computer-mouse-click-352734.mp3" id="19_xljpf"]
+[ext_resource type="Texture2D" uid="uid://iqiwm2mnt6uw" path="res://sprites/stats_button_normal.png" id="21_ksmap"]
+[ext_resource type="Texture2D" uid="uid://dgs8bfbup02up" path="res://sprites/stats_button_pressed.png" id="22_ygd8o"]
+[ext_resource type="Texture2D" uid="uid://cs26ojwk4pldf" path="res://sprites/icon_button_factory_b.png" id="23_2s0kr"]
+[ext_resource type="Texture2D" uid="uid://7x2rthagihv8" path="res://sprites/icon_button_factory_a.png" id="24_xaipn"]
+[ext_resource type="PackedScene" uid="uid://thsgsvrjm61o" path="res://scenes/ui/upgrade_item.tscn" id="25_ndrjj"]
+[ext_resource type="Script" uid="uid://ddnd4edom7wxx" path="res://upgrades/up_battery_capacity.gd" id="26_ih3m7"]
+[ext_resource type="Script" uid="uid://b7cc1mtegldc8" path="res://upgrades/up_upgraded_battery.gd" id="27_11yus"]
+[ext_resource type="Script" uid="uid://cytcdetbnom4t" path="res://codes/upgrade/up_overcharge_protection.gd" id="27_dnhof"]
+[ext_resource type="Script" uid="uid://05wi4mig00tf" path="res://codes/upgrade/up_efficient_filament.gd" id="29_1v6qk"]
+[ext_resource type="Script" uid="uid://ceresa5p7btfl" path="res://upgrades/up_stronger_filament.gd" id="29_155or"]
+[ext_resource type="Script" uid="uid://dn0qlsreb6g3u" path="res://upgrades/up_clicking_hands.gd" id="31_63lxy"]
+[ext_resource type="Script" uid="uid://bqsxlhm4uv7mo" path="res://codes/upgrade/up_clicking_hand_speed.gd" id="31_augu2"]
+[ext_resource type="Script" uid="uid://dmqhe1nrenj2l" path="res://codes/upgrade/up_clicking_hand_cooldown.gd" id="32_tm6hj"]
+[ext_resource type="Script" uid="uid://bhkgw71c0a5am" path="res://codes/upgrade/up_extra_bulb_intensity.gd" id="34_kf5aa"]
+[ext_resource type="Script" uid="uid://cagx4dmjdphp7" path="res://upgrades/up_extra_bulb.gd" id="34_r4ag1"]
+[ext_resource type="Script" uid="uid://dfpx3l12sml3n" path="res://codes/upgrade/up_extra_bulb_efficiency.gd" id="35_t5ykj"]
+[ext_resource type="Script" uid="uid://bkw8r131qr17s" path="res://codes/upgrade/up_extra_bulb_effectiveness.gd" id="36_e755i"]
+[ext_resource type="Script" uid="uid://bjvp2hlwtau11" path="res://codes/upgrade/up_asscend.gd" id="37_ro3en"]
+[ext_resource type="AudioStream" uid="uid://c72226ihmitwn" path="res://sfx/universfield-new-notification-062-494544.mp3" id="39_k42av"]
+[ext_resource type="Texture2D" uid="uid://bivgf0epytbk2" path="res://sprites/new_news_dot.png" id="40_gr8w0"]
+[ext_resource type="PackedScene" uid="uid://cgjxtjbbufgra" path="res://scenes/clicker_hands/clicker_hand.tscn" id="41_673bd"]
+[ext_resource type="PackedScene" uid="uid://bfdq8pb51er1h" path="res://scenes/extra_bulbs/extra_bulbs.tscn" id="42_akjxb"]
+[ext_resource type="Script" uid="uid://3wyk2p54viq8" path="res://codes/ui/label_system_script.gd" id="42_dnhof"]
+[ext_resource type="Texture2D" uid="uid://ci4qkd880whs4" path="res://sprites/icon_light.png" id="44_1uevf"]
+[ext_resource type="Texture2D" uid="uid://coaapwb7siy44" path="res://sprites/charge_bar_bg.png" id="45_tc087"]
+[ext_resource type="Texture2D" uid="uid://b58ecvph1pv7a" path="res://sprites/charge_bar_fill.png" id="46_73205"]
+[ext_resource type="Script" uid="uid://bc04qc4lrsbky" path="res://codes/charge_bar_script.gd" id="47_0tljd"]
+[ext_resource type="Texture2D" uid="uid://c3c4mu5tggaxf" path="res://sprites/icon_bolt.png" id="48_mgpkq"]
+[ext_resource type="Script" uid="uid://dwlyx84t6gi01" path="res://codes/ui/setting_window.gd" id="49_dnhof"]
+[ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="49_xmrkg"]
+[ext_resource type="Texture2D" uid="uid://d21485qpraepv" path="res://sprites/slider_bar_button.png" id="51_engxj"]
+[ext_resource type="Texture2D" uid="uid://c8n47u3cpa0ml" path="res://sprites/slider_1_line.png" id="52_raiwf"]
+[ext_resource type="Texture2D" uid="uid://dllqvcqouh2qn" path="res://sprites/setting_icon_normal.png" id="53_roort"]
+[ext_resource type="Texture2D" uid="uid://bb6annyfixmv7" path="res://sprites/setting_icon_pressedl.png" id="54_gm02q"]
+[ext_resource type="Texture2D" uid="uid://dgqtne8gd8pjp" path="res://sprites/credit_button_normal.png" id="55_07pt3"]
+[ext_resource type="Texture2D" uid="uid://2d036xukme3f" path="res://sprites/credit_button_pressed.png" id="56_37xlc"]
+[ext_resource type="Script" uid="uid://dfpu1037k0t7l" path="res://codes/ui/credit_button.gd" id="56_dnhof"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -73,7 +72,7 @@ fill_from = Vector2(0.5, 0.5)
 bg_color = Color(0, 0, 0, 0.40392157)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_074og"]
-texture = ExtResource("15_yaehf")
+texture = ExtResource("17_kjtvk")
 
 [sub_resource type="GDScript" id="GDScript_f6a44"]
 script/source = "extends Control
@@ -100,7 +99,7 @@ func _on_texture_button_pressed() -> void:
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rl1p"]
-texture = ExtResource("35_ok6jj")
+texture = ExtResource("49_xmrkg")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqjc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -108,10 +107,10 @@ border_width_top = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrvbo"]
-texture = ExtResource("41_f6a44")
+texture = ExtResource("52_raiwf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cbny"]
-texture = ExtResource("41_f6a44")
+texture = ExtResource("52_raiwf")
 
 [node name="Main" type="Node2D" unique_id=1473243590]
 
@@ -125,16 +124,16 @@ scale = Vector2(1.3338861, 1.2875249)
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1967612789]
 position = Vector2(26.158422, 110.9632)
 scale = Vector2(1.0012668, 1.2544515)
-texture = ExtResource("1_1bvp3")
+texture = ExtResource("1_1v6qk")
 
 [node name="Backgroun_music" type="AudioStreamPlayer" parent="Background" unique_id=529663803]
-stream = ExtResource("2_4w656")
+stream = ExtResource("2_augu2")
 bus = &"music"
-script = ExtResource("3_e71vb")
+script = ExtResource("3_tm6hj")
 
 [node name="Bulb" type="Node2D" parent="." unique_id=626596963]
 position = Vector2(63, 134)
-script = ExtResource("3_qsp4k")
+script = ExtResource("4_kf5aa")
 
 [node name="Bulb_Button" type="TextureButton" parent="Bulb" unique_id=424303906]
 anchors_preset = 8
@@ -148,15 +147,15 @@ offset_right = 16.0
 offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_1bvp3")
-texture_pressed = ExtResource("3_lquwl")
+texture_normal = ExtResource("5_t5ykj")
+texture_pressed = ExtResource("6_e755i")
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="Bulb/Bulb_Button" unique_id=1849726800]
-stream = ExtResource("5_b1qrp")
+stream = ExtResource("7_ro3en")
 bus = &"sfx"
 
 [node name="Sprite2D" type="Sprite2D" parent="Bulb" unique_id=731785263]
-texture = ExtResource("1_h2yge")
+texture = ExtResource("8_od4ux")
 
 [node name="PointLight2D" type="PointLight2D" parent="Bulb" unique_id=978394815]
 position = Vector2(-1.9073486e-06, -8.000003)
@@ -167,21 +166,19 @@ texture_scale = 1.93
 
 [node name="Sprite2D2" type="Sprite2D" parent="Bulb" unique_id=1947696895]
 position = Vector2(0, 34)
-texture = ExtResource("4_5vw27")
+texture = ExtResource("9_xhfw6")
 
-[node name="DamageNodeSpawner" parent="Bulb" unique_id=1807784680 instance=ExtResource("7_qsp4k")]
+[node name="DamageNodeSpawner" parent="Bulb" unique_id=1807784680 instance=ExtResource("10_1epgm")]
 position = Vector2(0, -11)
-label_settings = ExtResource("8_kq58d")
+label_settings = ExtResource("11_152kg")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490822066]
-script = ExtResource("5_cegan")
+script = ExtResource("12_dnhof")
 
 [node name="News_Popup" type="Panel" parent="UI" unique_id=869492641]
-visible = false
 offset_right = 130.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
-script = ExtResource("11_blkrb")
 
 [node name="Label" type="Label" parent="UI/News_Popup" unique_id=294467559]
 layout_mode = 0
@@ -189,7 +186,7 @@ offset_left = 42.0
 offset_top = 7.0
 offset_right = 85.0
 offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 10
 text = "News
 "
@@ -201,8 +198,8 @@ offset_left = 80.0
 offset_top = 249.0
 offset_right = 96.0
 offset_bottom = 265.0
-texture_normal = ExtResource("31_blkrb")
-texture_pressed = ExtResource("32_abqjc")
+texture_normal = ExtResource("15_a82wo")
+texture_pressed = ExtResource("16_gdvew")
 
 [node name="Panel" type="Panel" parent="UI/News_Popup" unique_id=1459333729]
 layout_mode = 0
@@ -229,7 +226,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Consumption1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=2082741052 instance=ExtResource("15_0cbny")]
+[node name="Consumption1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=2082741052 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Corner Store Adds Cold Storage"
 date = "01-01-2025"
@@ -238,7 +235,7 @@ consumption_adds = 5.0
 gps_required = 30.0
 applied_delay = 20.0
 
-[node name="Hint1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1423266293 instance=ExtResource("15_0cbny")]
+[node name="Hint1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1423266293 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Utility Reports Steady Growth In Evening Load"
 date = "05-01-2025"
@@ -246,7 +243,7 @@ details = "The regional utility reports that evening electricity use has grown f
 gps_required = 78.0
 applied_delay = 35.0
 
-[node name="Consumption2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1590839420 instance=ExtResource("15_0cbny")]
+[node name="Consumption2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1590839420 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Evening Demand Rises As Shops Extend Hours"
 date = "10-01-2025"
@@ -258,7 +255,7 @@ consumption_adds = 5.0
 gps_required = 85.0
 applied_delay = 20.0
 
-[node name="Hint2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1806874102 instance=ExtResource("15_0cbny")]
+[node name="Hint2" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1806874102 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Developer Files Plans For New Apartment Block"
 date = "11-01-2025"
@@ -266,7 +263,7 @@ details = "A developer has filed plans with the council for a six-storey apartme
 gps_required = 90.0
 applied_delay = 54.0
 
-[node name="Consumption3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1284790625 instance=ExtResource("15_0cbny")]
+[node name="Consumption3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1284790625 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "New Apartment Block Connects To The Feeder"
 date = "02-03-2025"
@@ -275,7 +272,7 @@ consumption_adds = 20.0
 gps_required = 98.0
 applied_delay = 48.0
 
-[node name="Hint3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1527883424 instance=ExtResource("15_0cbny")]
+[node name="Hint3" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1527883424 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "City Approves Charging Stations On Main Street"
 date = "05-03-2025"
@@ -283,7 +280,7 @@ details = "The city council has voted to install six electric vehicle charging s
 gps_required = 158.0
 applied_delay = 60.0
 
-[node name="Consumption4" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=262201083 instance=ExtResource("15_0cbny")]
+[node name="Consumption4" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=262201083 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Electric Vehicle Hub Opens Downtown"
 date = "01-04-2025"
@@ -292,7 +289,7 @@ consumption_adds = 45.0
 gps_required = 220.0
 applied_delay = 30.0
 
-[node name="Hint4" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=961442891 instance=ExtResource("15_0cbny")]
+[node name="Hint4" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=961442891 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Grid Operator Forecasts Record Evening Peak"
 date = "16-04-2025"
@@ -300,7 +297,7 @@ details = "The grid operator has published its seasonal outlook and expects a ne
 gps_required = 230.0
 applied_delay = 38.0
 
-[node name="Consumption5" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1163316954 instance=ExtResource("15_0cbny")]
+[node name="Consumption5" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1163316954 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Evening Demand Sets A New Record"
 date = "10-05-2025"
@@ -310,7 +307,7 @@ consumption_adds = 55.0
 gps_required = 240.0
 applied_delay = 60.0
 
-[node name="Consumption6" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1845335343 instance=ExtResource("15_0cbny")]
+[node name="Consumption6" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1845335343 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Hospital Annex Opens Its Doors"
 date = "14-05-2025"
@@ -319,7 +316,7 @@ consumption_adds = 60.0
 gps_required = 260.0
 applied_delay = 16.0
 
-[node name="Hint5" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1598494102 instance=ExtResource("15_0cbny")]
+[node name="Hint5" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1598494102 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Weather Service Issues Heat Advisory"
 date = "27-06-2025"
@@ -327,7 +324,7 @@ details = "The weather service has issued a heat advisory for the coming week, w
 gps_required = 280.0
 applied_delay = 60.0
 
-[node name="Consumption7" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1357892717 instance=ExtResource("15_0cbny")]
+[node name="Consumption7" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1357892717 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Heat Wave Pushes Cooling Demand To A High"
 date = "01-07-2025"
@@ -336,7 +333,7 @@ consumption_adds = 100.0
 gps_required = 337.0
 applied_delay = 60.0
 
-[node name="Consumption8" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1984660749 instance=ExtResource("15_0cbny")]
+[node name="Consumption8" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1984660749 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Rising Line Losses Reported On Old Cables"
 date = "10-08-2025"
@@ -345,7 +342,7 @@ consumption_adds = 100.0
 gps_required = 460.0
 applied_delay = 30.0
 
-[node name="Consumption9" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=806103811 instance=ExtResource("15_0cbny")]
+[node name="Consumption9" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=806103811 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Water Plant Expansion Comes Online"
 date = "12-08-2025"
@@ -354,7 +351,7 @@ consumption_adds = 120.0
 gps_required = 570.0
 applied_delay = 35.0
 
-[node name="Hint6" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=798886875 instance=ExtResource("15_0cbny")]
+[node name="Hint6" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=798886875 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Planning Board Approves Large Data Center"
 date = "26-08-2025"
@@ -362,7 +359,7 @@ details = "The planning board has approved a permit for a large data center on t
 gps_required = 647.0
 applied_delay = 60.0
 
-[node name="Consumption10" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1562311736 instance=ExtResource("15_0cbny")]
+[node name="Consumption10" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1562311736 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Rail Depot Switches To Electric Traction"
 date = "02-10-2025"
@@ -371,7 +368,7 @@ consumption_adds = 160.0
 gps_required = 860.0
 applied_delay = 60.0
 
-[node name="Hint7" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1682769267 instance=ExtResource("15_0cbny")]
+[node name="Hint7" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1682769267 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Data Center Begins Commissioning Tests"
 date = "01-12-2025"
@@ -379,7 +376,7 @@ details = "Engineers at the new data center on the industrial estate have starte
 gps_required = 880.0
 applied_delay = 53.0
 
-[node name="Consumption11" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1290722199 instance=ExtResource("15_0cbny")]
+[node name="Consumption11" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1290722199 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "New Data Center Goes Live"
 date = "02-01-2026"
@@ -388,7 +385,7 @@ consumption_adds = 205.0
 gps_required = 920.0
 applied_delay = 60.0
 
-[node name="Hint8" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1266633152 instance=ExtResource("15_0cbny")]
+[node name="Hint8" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1266633152 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Operator Warns Of Maintenance Risk On The Northern Line"
 date = "11-02-2026"
@@ -396,7 +393,7 @@ details = "The grid operator has warned that the northern transmission line is o
 gps_required = 1030.0
 applied_delay = 60.0
 
-[node name="Consumption12" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=765583793 instance=ExtResource("15_0cbny")]
+[node name="Consumption12" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=765583793 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
 headline = "Regional Blackout Forces Emergency Load Transfer"
 date = "15-02-2026"
@@ -406,17 +403,16 @@ gps_required = 1150.0
 applied_delay = 28.0
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=1387187370]
-stream = ExtResource("26_f6a44")
+stream = ExtResource("19_xljpf")
 
 [node name="Stats_Popup" type="Panel" parent="UI" unique_id=1193389610]
-visible = false
 offset_right = 128.0
 offset_bottom = 284.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
-script = ExtResource("17_hrvbo")
+script = ExtResource("19_dnhof")
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Stats_Popup" unique_id=780028542]
-stream = ExtResource("26_f6a44")
+stream = ExtResource("19_xljpf")
 
 [node name="Label" type="Label" parent="UI/Stats_Popup" unique_id=1856456279]
 layout_mode = 0
@@ -424,7 +420,7 @@ offset_left = 42.0
 offset_top = 100.0
 offset_right = 85.0
 offset_bottom = 129.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 10
 text = "Stats
 "
@@ -436,8 +432,8 @@ offset_left = -12.0
 offset_top = 149.0
 offset_right = 4.0
 offset_bottom = 165.0
-texture_normal = ExtResource("39_0cp0l")
-texture_pressed = ExtResource("40_d2t1y")
+texture_normal = ExtResource("21_ksmap")
+texture_pressed = ExtResource("22_ygd8o")
 
 [node name="Panel" type="Panel" parent="UI/Stats_Popup" unique_id=1407150442]
 layout_mode = 0
@@ -453,7 +449,7 @@ offset_left = 5.0
 offset_top = 8.0
 offset_right = 117.0
 offset_bottom = 33.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 8
 text = "Light
 ======================="
@@ -465,7 +461,7 @@ offset_left = 6.0
 offset_top = 33.0
 offset_right = 118.0
 offset_bottom = 45.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 8
 text = "generation : 20.00 /s"
 
@@ -475,7 +471,7 @@ offset_left = 6.0
 offset_top = 46.0
 offset_right = 118.0
 offset_bottom = 57.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 8
 text = "consumption : 20.00 /s"
 
@@ -485,7 +481,7 @@ offset_left = 6.0
 offset_top = 59.0
 offset_right = 118.0
 offset_bottom = 70.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 8
 text = "efficiency: 100%"
 
@@ -495,7 +491,7 @@ offset_left = 4.0
 offset_top = 75.0
 offset_right = 116.0
 offset_bottom = 100.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 8
 text = "Clicks
 ======================="
@@ -507,12 +503,11 @@ offset_left = 6.0
 offset_top = 104.0
 offset_right = 118.0
 offset_bottom = 115.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 8
 text = "total clicks : 34"
 
 [node name="Factory_Popup" type="Panel" parent="UI" unique_id=1351545184]
-visible = false
 offset_right = 130.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
@@ -523,7 +518,7 @@ offset_left = 42.0
 offset_top = 7.0
 offset_right = 85.0
 offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 10
 text = "Factory "
 
@@ -533,8 +528,8 @@ offset_left = 53.0
 offset_top = 249.0
 offset_right = 73.0
 offset_bottom = 265.0
-texture_normal = ExtResource("5_w48qg")
-texture_pressed = ExtResource("6_vivmo")
+texture_normal = ExtResource("23_2s0kr")
+texture_pressed = ExtResource("24_xaipn")
 
 [node name="Panel" type="Panel" parent="UI/Factory_Popup" unique_id=1550187219]
 layout_mode = 0
@@ -561,143 +556,143 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Upgraded_Capacity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=655123472 instance=ExtResource("15_vivmo")]
+[node name="Upgraded_Capacity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=655123472 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("11_d13ii")
+script = ExtResource("26_ih3m7")
 
-[node name="Efficient_Battery_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("15_vivmo")]
+[node name="Efficient_Battery_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=348018492 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("16_2cqfq")
+script = ExtResource("27_11yus")
 
-[node name="Overcharge_protection_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1620329305 instance=ExtResource("15_vivmo")]
+[node name="Overcharge_protection_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1620329305 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("18_0cbny")
+script = ExtResource("27_dnhof")
 
-[node name="Bright_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("15_vivmo")]
+[node name="Bright_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=624296735 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("13_ryguw")
+script = ExtResource("29_155or")
 
-[node name="Upgraded_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1567299439 instance=ExtResource("15_vivmo")]
+[node name="Upgraded_Filament_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1567299439 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("18_kq58d")
+script = ExtResource("29_1v6qk")
 
-[node name="Clicker_Hands_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("15_vivmo")]
+[node name="Clicker_Hands_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=8462628 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("14_1u8w0")
+script = ExtResource("31_63lxy")
 
-[node name="Clicking_Hand_Speed_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1392930644 instance=ExtResource("15_vivmo")]
+[node name="Clicking_Hand_Speed_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=1392930644 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("20_seu75")
+script = ExtResource("31_augu2")
 
-[node name="Clicking_Hand_Cooldown_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=2053930824 instance=ExtResource("15_vivmo")]
+[node name="Clicking_Hand_Cooldown_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=2053930824 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("21_htxhm")
+script = ExtResource("32_tm6hj")
 
-[node name="Extra_Bulb_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=599464913 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("22_jq2sk")
+script = ExtResource("34_r4ag1")
 
-[node name="Extra_Bulb_intensity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=281134204 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_intensity_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=281134204 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("23_4k2k6")
+script = ExtResource("34_kf5aa")
 
-[node name="Extra_Bulb_Efficiency_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=714071102 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_Efficiency_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=714071102 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("24_0rl1p")
+script = ExtResource("35_t5ykj")
 
-[node name="Extra_Bulb_Effectiveness_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=809125 instance=ExtResource("15_vivmo")]
+[node name="Extra_Bulb_Effectiveness_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=809125 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("27_hrvbo")
+script = ExtResource("36_e755i")
 
-[node name="Ascend_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=760594522 instance=ExtResource("15_vivmo")]
+[node name="Ascend_Up" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=760594522 instance=ExtResource("25_ndrjj")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("38_e71vb")
+script = ExtResource("37_ro3en")
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="UI/Factory_Popup/Panel/Item_List/Item_Vbox" unique_id=367711867]
-stream = ExtResource("26_f6a44")
+stream = ExtResource("19_xljpf")
 
 [node name="notification_sfx" type="AudioStreamPlayer" parent="UI" unique_id=1191375368]
-stream = ExtResource("36_6iyjs")
+stream = ExtResource("39_k42av")
 
 [node name="Factory_Button" type="TextureButton" parent="." unique_id=926082729]
 offset_left = 53.0
 offset_top = 249.0
 offset_right = 73.0
 offset_bottom = 265.0
-texture_normal = ExtResource("5_w48qg")
-texture_pressed = ExtResource("6_vivmo")
+texture_normal = ExtResource("23_2s0kr")
+texture_pressed = ExtResource("24_xaipn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Factory_Button" unique_id=1127791566]
 position = Vector2(21, 1)
-texture = ExtResource("36_abqjc")
+texture = ExtResource("40_gr8w0")
 
 [node name="news_button" type="TextureButton" parent="." unique_id=412455254]
 offset_left = 80.0
 offset_top = 249.0
 offset_right = 96.0
 offset_bottom = 265.0
-texture_normal = ExtResource("31_blkrb")
-texture_pressed = ExtResource("32_abqjc")
+texture_normal = ExtResource("15_a82wo")
+texture_pressed = ExtResource("16_gdvew")
 
 [node name="Sprite2D" type="Sprite2D" parent="news_button" unique_id=345883868]
 position = Vector2(16, 1)
-texture = ExtResource("36_abqjc")
+texture = ExtResource("40_gr8w0")
 
 [node name="Stats_button" type="TextureButton" parent="." unique_id=1635771142]
 offset_left = 30.0
 offset_top = 249.0
 offset_right = 46.0
 offset_bottom = 265.0
-texture_normal = ExtResource("39_0cp0l")
-texture_pressed = ExtResource("40_d2t1y")
+texture_normal = ExtResource("21_ksmap")
+texture_pressed = ExtResource("22_ygd8o")
 
 [node name="AutoClickerHand" type="Node" parent="." unique_id=1296696959]
 
-[node name="Clicker_Hand1" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("22_ryguw")]
+[node name="Clicker_Hand1" parent="AutoClickerHand" unique_id=1900481451 instance=ExtResource("41_673bd")]
 position = Vector2(65, 186)
 scale = Vector2(1.0731764, 1.1910853)
 
-[node name="Clicker_Hand2" parent="AutoClickerHand" unique_id=1119065800 instance=ExtResource("22_ryguw")]
+[node name="Clicker_Hand2" parent="AutoClickerHand" unique_id=1119065800 instance=ExtResource("41_673bd")]
 position = Vector2(81, 178)
 rotation = -1.5707964
 
-[node name="Clicker_Hand3" parent="AutoClickerHand" unique_id=827688609 instance=ExtResource("22_ryguw")]
+[node name="Clicker_Hand3" parent="AutoClickerHand" unique_id=827688609 instance=ExtResource("41_673bd")]
 position = Vector2(45, 179)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="ExtraAutoBulb" type="Node" parent="." unique_id=1873554621]
 
-[node name="extra_bulbs" parent="ExtraAutoBulb" unique_id=1768370951 instance=ExtResource("25_0odxb")]
+[node name="extra_bulbs" parent="ExtraAutoBulb" unique_id=1768370951 instance=ExtResource("42_akjxb")]
 position = Vector2(102, 141)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ExtraAutoBulb/extra_bulbs" unique_id=482582121]
 position = Vector2(-23.000004, 15.999997)
 rotation = 1.7208946
 scale = Vector2(1, 1.8566383)
-texture = ExtResource("4_5vw27")
+texture = ExtResource("9_xhfw6")
 
-[node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("25_0odxb")]
+[node name="extra_bulbs2" parent="ExtraAutoBulb" unique_id=537962600 instance=ExtResource("42_akjxb")]
 position = Vector2(26, 140)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ExtraAutoBulb/extra_bulbs2" unique_id=1988480695]
 position = Vector2(22, 16)
 rotation = -1.7208947
 scale = Vector2(1, 1.8566384)
-texture = ExtResource("4_5vw27")
+texture = ExtResource("9_xhfw6")
 
 [node name="Labels" type="Control" parent="." unique_id=460599528]
 layout_mode = 3
@@ -705,7 +700,7 @@ anchors_preset = 0
 offset_top = 1.0
 offset_right = 40.0
 offset_bottom = 41.0
-script = ExtResource("24_kq58d")
+script = ExtResource("42_dnhof")
 
 [node name="Light_Label" type="Label" parent="Labels" unique_id=721523755]
 layout_mode = 0
@@ -713,7 +708,7 @@ offset_left = 16.0
 offset_top = 26.0
 offset_right = 39.0
 offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 6
 text = "light"
 
@@ -722,7 +717,7 @@ layout_mode = 0
 offset_left = -10.0
 offset_right = -2.0
 offset_bottom = 8.0
-texture = ExtResource("12_dg77c")
+texture = ExtResource("44_1uevf")
 expand_mode = 1
 
 [node name="Charge_Bar" type="TextureProgressBar" parent="Labels" unique_id=323203053]
@@ -731,9 +726,9 @@ offset_left = 8.0
 offset_top = 13.0
 offset_right = 56.0
 offset_bottom = 23.0
-texture_under = ExtResource("4_272bh")
-texture_progress = ExtResource("5_5vw27")
-script = ExtResource("22_xuqvo")
+texture_under = ExtResource("45_tc087")
+texture_progress = ExtResource("46_73205")
+script = ExtResource("47_0tljd")
 
 [node name="TextureRect" type="TextureRect" parent="Labels/Charge_Bar" unique_id=1470159783]
 layout_mode = 0
@@ -741,7 +736,7 @@ offset_left = -2.0
 offset_top = 1.0
 offset_right = 6.0
 offset_bottom = 9.0
-texture = ExtResource("7_kek77")
+texture = ExtResource("48_mgpkq")
 expand_mode = 1
 
 [node name="Multiplier_Label" type="Label" parent="Labels/Charge_Bar" unique_id=914645631]
@@ -750,7 +745,7 @@ offset_left = 41.0
 offset_top = 2.0
 offset_right = 56.0
 offset_bottom = 13.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 5
 text = "00x"
 
@@ -760,7 +755,7 @@ offset_left = 15.0
 offset_top = 2.0
 offset_right = 55.0
 offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 4
 text = "2.0k/2.0k"
 
@@ -779,7 +774,7 @@ offset_top = 1.0
 offset_right = 41.0
 offset_bottom = 24.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 4
 text = "2.0k/2.0k"
 
@@ -805,10 +800,10 @@ offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
-script = ExtResource("39_0n3wm")
+script = ExtResource("49_dnhof")
 
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="DashBoard/SettingWindow" unique_id=1072490669]
-stream = ExtResource("26_f6a44")
+stream = ExtResource("19_xljpf")
 
 [node name="sliders" type="Control" parent="DashBoard/SettingWindow" unique_id=534937052]
 anchors_preset = 0
@@ -821,7 +816,7 @@ offset_bottom = 31.0
 layout_mode = 0
 offset_right = 11.0
 offset_bottom = 8.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 6
 text = "sfx"
 
@@ -830,7 +825,7 @@ layout_mode = 0
 offset_top = 16.0
 offset_right = 17.0
 offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 6
 text = "music"
 
@@ -839,10 +834,10 @@ layout_mode = 0
 offset_top = 7.0
 offset_right = 44.0
 offset_bottom = 15.0
-theme_override_icons/grabber = ExtResource("40_wnkbs")
-theme_override_icons/grabber_highlight = ExtResource("40_wnkbs")
-theme_override_icons/grabber_disabled = ExtResource("40_wnkbs")
-theme_override_icons/tick = ExtResource("40_wnkbs")
+theme_override_icons/grabber = ExtResource("51_engxj")
+theme_override_icons/grabber_highlight = ExtResource("51_engxj")
+theme_override_icons/grabber_disabled = ExtResource("51_engxj")
+theme_override_icons/tick = ExtResource("51_engxj")
 theme_override_styles/slider = SubResource("StyleBoxFlat_abqjc")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hrvbo")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0cbny")
@@ -855,10 +850,10 @@ layout_mode = 0
 offset_top = 22.0
 offset_right = 44.0
 offset_bottom = 30.0
-theme_override_icons/grabber = ExtResource("40_wnkbs")
-theme_override_icons/grabber_highlight = ExtResource("40_wnkbs")
-theme_override_icons/grabber_disabled = ExtResource("40_wnkbs")
-theme_override_icons/tick = ExtResource("40_wnkbs")
+theme_override_icons/grabber = ExtResource("51_engxj")
+theme_override_icons/grabber_highlight = ExtResource("51_engxj")
+theme_override_icons/grabber_disabled = ExtResource("51_engxj")
+theme_override_icons/tick = ExtResource("51_engxj")
 theme_override_styles/slider = SubResource("StyleBoxFlat_abqjc")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hrvbo")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0cbny")
@@ -873,8 +868,8 @@ offset_top = 7.0
 offset_right = 111.99999
 offset_bottom = 23.0
 scale = Vector2(0.67, 0.67)
-texture_normal = ExtResource("41_gngh3")
-texture_pressed = ExtResource("42_0n3wm")
+texture_normal = ExtResource("53_roort")
+texture_pressed = ExtResource("54_gm02q")
 
 [node name="Credit_button" type="TextureButton" parent="DashBoard" unique_id=451026051]
 layout_mode = 0
@@ -883,9 +878,22 @@ offset_top = 7.0
 offset_right = 128.0
 offset_bottom = 23.0
 scale = Vector2(0.67, 0.67)
-texture_normal = ExtResource("43_gngh3")
-texture_pressed = ExtResource("44_0n3wm")
-script = ExtResource("57_rnkwl")
+texture_normal = ExtResource("55_07pt3")
+texture_pressed = ExtResource("56_37xlc")
+script = ExtResource("56_dnhof")
+
+[node name="Transition" type="CanvasLayer" parent="." unique_id=1253460585]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="Transition" unique_id=1524629221]
+z_index = 1100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/News_Popup/new_button_close" to="UI" method="_on_new_button_close_pressed"]
