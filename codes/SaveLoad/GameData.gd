@@ -5,7 +5,7 @@ var clicked := 0
 var charge := 0.0
 
 #currency
-var light_raw: float = 250000
+var light_raw: float = 100
 
 var light: int:
 	get:
@@ -51,3 +51,19 @@ var power_generation_per_second := 0.0
 var power_consumption_per_second := 0.0 
 
 var total_light := light
+
+#Upgrade saves
+var level_upgraded_capacity := 0
+var level_efficient_battery := 0
+var level_overcharge_protection := 0
+var level_bright_filament := 0
+var level_upgraded_filament := 0
+var level_clicker_hands := 0
+var level_clicker_hand_speed := 0
+var level_clicker_hand_cooldown := 0
+var level_extra_bulb := 0
+var level_extra_bulb_intensity := 0
+var level_extra_bulb_efficiency := 0
+var level_extra_bulb_effectiveness := 0
+
+var level_ascend :=0

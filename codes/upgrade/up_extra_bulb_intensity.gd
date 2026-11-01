@@ -12,7 +12,6 @@ var upgrade_info := "Increases the charge generation to: "
 var max_reached_info := "Max intensity reached"
 
 
-var level := 0
 var max_level := 7
 var new_var := [2,3,4,5,6,8,10]
 var costs := [6300,8400,11000,15000,19000,25000,33000]
@@ -35,23 +34,23 @@ func _on_buy_button_pressed() -> void:
 	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
-	if level >= max_level:
+	if GameData.level_extra_bulb_intensity >= max_level:
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 		return
 
-	if costs[level] >= 1000:
-		cost_label.text = str(round(costs[level] / 100.0) / 10.0) + "K"
+	if costs[GameData.level_extra_bulb_intensity] >= 1000:
+		cost_label.text = str(round(costs[GameData.level_extra_bulb_intensity] / 100.0) / 10.0) + "K"
 	else:
-		cost_label.text = str(costs[level])
-	buy_button.disabled = GameData.light < costs[level]
+		cost_label.text = str(costs[GameData.level_extra_bulb_intensity])
+	buy_button.disabled = GameData.light < costs[GameData.level_extra_bulb_intensity]
 
 func buying_item() -> void:
 
-	if level >= max_level:
+	if GameData.level_extra_bulb_intensity >= max_level:
 		return
 
-	var cost = costs[level]
+	var cost = costs[GameData.level_extra_bulb_intensity]
 
 	if GameData.light < cost:
 		return
@@ -62,16 +61,16 @@ func buying_item() -> void:
 	
 	#here site the actual gamedata var logic
 	
-	GameData.extra_bulb_light_generation = new_var[level]
+	GameData.extra_bulb_light_generation = new_var[GameData.level_extra_bulb_intensity]
 	
-	level += 1
+	GameData.level_extra_bulb_intensity += 1
 	
-	var next_cost: float = costs[level] if level < max_level else -1.0
-	var next_level: int = level + 1 if level < max_level else -1
+	var next_cost: float = costs[GameData.level_extra_bulb_intensity] if GameData.level_extra_bulb_intensity < max_level else -1.0
+	var next_level: int = GameData.level_extra_bulb_intensity + 1 if GameData.level_extra_bulb_intensity < max_level else -1
 
 	ProgressionTracker.record_upgrade(
 		upgrade_name,
-		level,
+		GameData.level_extra_bulb_intensity,
 		cost,
 		GameData.light,
 		GameData.generation_per_sec_peak,
@@ -82,11 +81,11 @@ func buying_item() -> void:
 	
 	
 func update_upgrade_info() -> void:
-	if level >= max_level:
+	if GameData.level_extra_bulb_intensity >= max_level:
 		info_label.text = max_reached_info
 		return
 
-	info_label.text = upgrade_info + str(new_var[level])
+	info_label.text = upgrade_info + str(new_var[GameData.level_extra_bulb_intensity])
 var unlocked := false
 @onready var dependent_on : PanelContainer = $"../Extra_Bulb_Up"
 

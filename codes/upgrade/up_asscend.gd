@@ -12,7 +12,6 @@ extends PanelContainer
 var upgrade_name := "Ascend"
 var upgrade_info := "You need to reach 99.99% efficiency"
 
-var level := 0
 var max_level := 1
 var costs := [100000]
 
@@ -38,7 +37,7 @@ func _on_buy_button_pressed() -> void:
 
 
 func update_cost() -> void:
-	if level >= max_level:
+	if GameData.level_ascend >= max_level:
 		cost_label.text = "!!!"
 		buy_button.disabled = true
 		return
@@ -48,7 +47,7 @@ func update_cost() -> void:
 		buy_button.disabled = true
 		return
 
-	var cost: int = costs[level]
+	var cost: int = costs[GameData.level_ascend]
 
 	if cost >= 1000:
 		cost_label.text = str(snappedf(float(cost) / 1000.0, 0.1)) + "K"
@@ -59,18 +58,18 @@ func update_cost() -> void:
 
 
 func buying_item() -> void:
-	if level >= max_level:
+	if GameData.level_ascend >= max_level:
 		return
 
 	if GameData.generation_efficiency < 99.99:
 		return
 
-	var cost: int = costs[level]
+	var cost: int = costs[GameData.level_ascend]
 
 	if GameData.light < cost:
 		return
 
-	level += 1
+	GameData.level_ascend += 1
 	GameData.light -= cost
 	
 	activate_ending()
@@ -85,7 +84,7 @@ func buying_item() -> void:
 
 
 func update_upgrade_info() -> void:
-	if level >= max_level:
+	if GameData.level_ascend >= max_level:
 		info_label.text = "You have finished your job!"
 	else:
 		info_label.text = upgrade_info

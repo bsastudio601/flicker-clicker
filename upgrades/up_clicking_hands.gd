@@ -15,8 +15,6 @@ signal upgrade_unlocked
 var upgrade_name := "Clicking Hands"
 var upgrade_info := ""
 
-
-var level := 0
 var max_level := 3
 
 var costs := [170,600,2400]
@@ -41,43 +39,43 @@ func _on_buy_button_pressed() -> void:
 	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
-	if level >= max_level:
+	if GameData.level_clicker_hands >= max_level:
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 		return
 
-	if costs[level] >= 1000:
-		cost_label.text = str(round(costs[level] / 100.0) / 10.0) + "K"
+	if costs[GameData.level_clicker_hands] >= 1000:
+		cost_label.text = str(round(costs[GameData.level_clicker_hands] / 100.0) / 10.0) + "K"
 	else:
-		cost_label.text = str(costs[level])
-	buy_button.disabled = GameData.light < costs[level]
+		cost_label.text = str(costs[GameData.level_clicker_hands])
+	buy_button.disabled = GameData.light < costs[GameData.level_clicker_hands]
 
 func buying_item() -> void:
-	if level >= max_level:
+	if GameData.level_clicker_hands >= max_level:
 		return
 
-	var cost = costs[level]
+	var cost = costs[GameData.level_clicker_hands]
 
 	if GameData.light < cost:
 		return
 
 	GameData.light -= cost
 
-	level += 1
+	GameData.level_clicker_hands += 1
 
-	if level == 1:
+	if GameData.level_clicker_hands == 1:
 		clicker1.activate()
-	elif level == 2:
+	elif GameData.level_clicker_hands == 2:
 		clicker2.activate()
-	elif level == 3:
+	elif GameData.level_clicker_hands == 3:
 		clicker3.activate()
 		
-	var next_cost: float = costs[level] if level < max_level else -1.0
-	var next_level: int = level + 1 if level < max_level else -1
+	var next_cost: float = costs[GameData.level_clicker_hands] if GameData.level_clicker_hands < max_level else -1.0
+	var next_level: int = GameData.level_clicker_hands + 1 if GameData.level_clicker_hands < max_level else -1
 
 	ProgressionTracker.record_upgrade(
 		upgrade_name,
-		level,
+		GameData.level_clicker_hands,
 		cost,
 		GameData.light,
 		GameData.generation_per_sec_peak,
@@ -90,7 +88,7 @@ func buying_item() -> void:
 	update_upgrade_info()
 	
 func update_upgrade_info() -> void:
-	if level >= max_level:
+	if GameData.level_clicker_hands >= max_level:
 		info_label.text = "More the hand more the light"
 		return
 

@@ -10,8 +10,6 @@ extends PanelContainer
 var upgrade_name := "Bright Filament"
 var upgrade_info := ""
 
-
-var level := 0
 var max_level := 10
 var light_generation_per_click := [2,3,4,5,6,8,10,12,15,18]
 var costs := [60,110,210,400,770,1500,2800,5300,10000,19000]
@@ -33,37 +31,37 @@ func _on_buy_button_pressed() -> void:
 	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
-	if level >= max_level:
+	if GameData.level_bright_filament >= max_level:
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 		return
 
-	if costs[level] >= 1000:
-		cost_label.text = str(round(costs[level] / 100.0) / 10.0) + "K"
+	if costs[GameData.level_bright_filament] >= 1000:
+		cost_label.text = str(round(costs[GameData.level_bright_filament] / 100.0) / 10.0) + "K"
 	else:
-		cost_label.text = str(costs[level])
-	buy_button.disabled = GameData.light < costs[level]
+		cost_label.text = str(costs[GameData.level_bright_filament])
+	buy_button.disabled = GameData.light < costs[GameData.level_bright_filament]
 
 func buying_item() -> void:
 
-	if level >= max_level:
+	if GameData.level_bright_filament >= max_level:
 		return
 
-	var cost = costs[level]
+	var cost = costs[GameData.level_bright_filament]
 
 	if GameData.light < cost:
 		return
 
 	GameData.light -= cost
-	GameData.main_bulb_light_generation = light_generation_per_click[level]
-	level += 1
+	GameData.main_bulb_light_generation = light_generation_per_click[GameData.level_bright_filament]
+	GameData.level_bright_filament += 1
 	
-	var next_cost: float = costs[level] if level < max_level else -1.0
-	var next_level: int = level + 1 if level < max_level else -1
+	var next_cost: float = costs[GameData.level_bright_filament] if GameData.level_bright_filament < max_level else -1.0
+	var next_level: int = GameData.level_bright_filament + 1 if GameData.level_bright_filament < max_level else -1
 
 	ProgressionTracker.record_upgrade(
 		upgrade_name,
-		level,
+		GameData.level_bright_filament,
 		cost,
 		GameData.light,
 		GameData.generation_per_sec_peak,
@@ -74,8 +72,8 @@ func buying_item() -> void:
 	update_cost()
 	
 func update_upgrade_info() -> void:
-	if level >= max_level:
+	if GameData.level_bright_filament >= max_level:
 		info_label.text = "LIGHT LIGHT LIGHT EVERYWHERE"
 		return
 
-	info_label.text = "Increases the light generation to " + str(light_generation_per_click[level])
+	info_label.text = "Increases the light generation to " + str(light_generation_per_click[GameData.level_bright_filament])

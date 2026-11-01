@@ -14,8 +14,6 @@ signal upgrade_unlocked
 var upgrade_name := "Extra Bulb"
 var upgrade_info := ""
 
-
-var level := 0
 var max_level := 2
 
 var costs := [1800,4000]
@@ -39,45 +37,45 @@ func _on_buy_button_pressed() -> void:
 	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
-	if level >= max_level:
+	if GameData.level_extra_bulb >= max_level:
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 		return
 
-	if costs[level] >= 1000:
-		cost_label.text = str(round(costs[level] / 100.0) / 10.0) + "K"
+	if costs[GameData.level_extra_bulb] >= 1000:
+		cost_label.text = str(round(costs[GameData.level_extra_bulb] / 100.0) / 10.0) + "K"
 	else:
-		cost_label.text = str(costs[level])
-	buy_button.disabled = GameData.light < costs[level]
+		cost_label.text = str(costs[GameData.level_extra_bulb])
+	buy_button.disabled = GameData.light < costs[GameData.level_extra_bulb]
 
 func buying_item() -> void:
-	if level >= max_level:
+	if GameData.level_extra_bulb >= max_level:
 		return
 
-	var cost = costs[level]
+	var cost = costs[GameData.level_extra_bulb]
 
 	if GameData.light < cost:
 		return
 
 	GameData.light -= cost
 
-	level += 1
+	GameData.level_extra_bulb += 1
 
-	if level == 1:
+	if GameData.level_extra_bulb == 1:
 		bulb1.activate()
-	elif level == 2:
+	elif GameData.level_extra_bulb == 2:
 		bulb2.activate()
 
  	
 	update_cost()
 	update_upgrade_info()
 	
-	var next_cost: float = costs[level] if level < max_level else -1.0
-	var next_level: int = level + 1 if level < max_level else -1
+	var next_cost: float = costs[GameData.level_extra_bulb] if GameData.level_extra_bulb < max_level else -1.0
+	var next_level: int = GameData.level_extra_bulb + 1 if GameData.level_extra_bulb < max_level else -1
 
 	ProgressionTracker.record_upgrade(
 		upgrade_name,
-		level,
+		GameData.level_extra_bulb,
 		cost,
 		GameData.light,
 		GameData.generation_per_sec_peak,
@@ -87,7 +85,7 @@ func buying_item() -> void:
 	)
 	
 func update_upgrade_info() -> void:
-	if level >= max_level:
+	if GameData.level_extra_bulb >= max_level:
 		info_label.text = "more bulbs more light!"
 		return
 

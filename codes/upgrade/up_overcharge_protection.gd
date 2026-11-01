@@ -11,8 +11,7 @@ var upgrade_name := "Overcharge Prot."
 var upgrade_info := ""
 
 
-var level := 0
-var max_level := 4
+var max_level := 5
 var new_var := [2,2.5,3,3.5,4]
 var costs := [3000,6500,14000,32000,48000] 
 
@@ -33,38 +32,40 @@ func _on_buy_button_pressed() -> void:
 	$"../button_click_sfx".play()
 	
 func update_cost() -> void:
-	if level >= max_level:
+	if GameData.level_overcharge_protection >= max_level:
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 		return
 	
-	if costs[level] >= 1000:
-		cost_label.text = str(round(costs[level] / 100.0) / 10.0) + "K"
+	if costs[GameData.level_overcharge_protection] >= 1000:
+		cost_label.text = str(round(costs[GameData.level_overcharge_protection] / 100.0) / 10.0) + "K"
 	else:
-		cost_label.text = str(costs[level])
-	buy_button.disabled = GameData.light < costs[level]
+		cost_label.text = str(costs[GameData.level_overcharge_protection])
+	buy_button.disabled = GameData.light < costs[GameData.level_overcharge_protection]
 
 func buying_item() -> void:
 
-	if level >= max_level:
+	if GameData.level_overcharge_protection >= max_level:
 		return
 
-	var cost = costs[level]
+	var cost = costs[GameData.level_overcharge_protection]
 
 	if GameData.light < cost:
 		return
 		
-	level += 1
+
 	GameData.light -= cost
 	
-	GameData.charge_multiplier = new_var[level]
-	
-	var next_cost: float = costs[level] if level < max_level else -1.0
-	var next_level: int = level + 1 if level < max_level else -1
+	GameData.charge_multiplier = new_var[GameData.level_overcharge_protection]
+		
+	GameData.level_overcharge_protection += 1
+		
+	var next_cost: float = costs[GameData.level_overcharge_protection] if GameData.level_overcharge_protection < max_level else -1.0
+	var next_level: int = GameData.level_overcharge_protection + 1 if GameData.level_overcharge_protection < max_level else -1
 
 	ProgressionTracker.record_upgrade(
 		upgrade_name,
-		level,
+		GameData.level_overcharge_protection,
 		cost,
 		GameData.light,
 		GameData.generation_per_sec_peak,
@@ -76,8 +77,8 @@ func buying_item() -> void:
 	update_cost()
 	
 func update_upgrade_info() -> void:
-	if level >= max_level:
+	if GameData.level_overcharge_protection >= max_level:
 		info_label.text = "Getting greedy for light"
 		return
 
-	info_label.text = "Increases max charge multiplier to " + str(new_var[level]) + "x"
+	info_label.text = "Increases max charge multiplier to " + str(new_var[GameData.level_overcharge_protection]) + "x"

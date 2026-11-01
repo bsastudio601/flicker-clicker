@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.7", "Mobile")
 
 ProgressionTracker="*uid://bxk0277r0rara"
 GameData="*uid://xwb50k50orgt"
+SaveLoad="*uid://b81phq888ljfo"
 
 [display]
 
