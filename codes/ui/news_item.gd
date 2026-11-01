@@ -18,9 +18,13 @@ signal new_news
 @export var collapsed_texture: Texture2D
 @export var expanded_texture: Texture2D
 
+@export var news_id: String = ""
+
 var applied: bool = false
 var expanded: bool = false
 var shown: bool = false
+var countdown_started: bool = false
+var time_remaining: float = 0.0
 
 
 func _ready() -> void:
@@ -35,6 +39,19 @@ func _ready() -> void:
 	details_label.custom_maximum_size.y = 16
 
 	change_background(collapsed_texture)
+
+	var progress: Dictionary = GameData.news_progress.get(news_id, {})
+
+	shown = progress.get("shown", false)
+	applied = progress.get("applied", false)
+	time_remaining = progress.get("time_remaining", applied_delay)
+
+	if shown:
+		show()
+
+		if applied:
+			details_label.text = details + "\n\nConsumption increased by +" \
+				+ str(consumption_adds) + "/sec"
 
 
 func _process(_delta: float) -> void:
@@ -59,15 +76,34 @@ func _on_button_pressed() -> void:
 
 
 func check_gps() -> void:
-	if shown or GameData.generation_per_sec_peak < gps_required:
+	if news_id == "" or shown or countdown_started:
 		return
 
-	# Prevent multiple timers from starting.
-	shown = true
+	if GameData.generation_per_sec_peak < gps_required:
+		return
 
-	# Wait before unlocking the news.
-	await get_tree().create_timer(applied_delay).timeout
-	
+	countdown_started = true
+
+	var remaining_time: float = time_remaining
+
+	while remaining_time > 0.0:
+		var timer := get_tree().create_timer(1.0)
+		await timer.timeout
+
+		if not is_inside_tree():
+			return
+
+		remaining_time -= 1.0
+		time_remaining = remaining_time
+
+		GameData.news_progress[news_id] = {
+			"shown": false,
+			"applied": applied,
+			"time_remaining": time_remaining
+		}
+
+		SaveLoad._save()
+
 	ProgressionTracker.record_news(
 		headline,
 		gps_required,
@@ -77,17 +113,24 @@ func check_gps() -> void:
 		GameData.consumption_per_sec
 	)
 
-	# Show the news and notify the UI.
+	shown = true
 	show()
 	new_news.emit()
 
-	# Apply consumption at the same time.
 	if not applied:
 		GameData.consumption_per_sec += consumption_adds
 		applied = true
-		
+
 		details_label.text = details + "\n\nConsumption increased by +" \
 			+ str(consumption_adds) + "/sec"
+
+	GameData.news_progress[news_id] = {
+		"shown": true,
+		"applied": applied,
+		"time_remaining": 0.0
+	}
+
+	SaveLoad._save()
 
 
 func change_background(texture: Texture2D) -> void:

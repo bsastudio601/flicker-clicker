@@ -67,3 +67,6 @@ var level_extra_bulb_efficiency := 0
 var level_extra_bulb_effectiveness := 0
 
 var level_ascend :=0
+
+#news saves
+var news_progress: Dictionary = {}

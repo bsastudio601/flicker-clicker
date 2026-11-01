@@ -60,7 +60,10 @@ func _save() -> void:
 		"level_extra_bulb_intensity": GameData.level_extra_bulb_intensity,
 		"level_extra_bulb_efficiency": GameData.level_extra_bulb_efficiency,
 		"level_extra_bulb_effectiveness": GameData.level_extra_bulb_effectiveness,
-		"level_ascend": GameData.level_ascend
+		"level_ascend": GameData.level_ascend,
+		
+		#NEWS ITEM
+		"news_progress": GameData.news_progress
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -147,5 +150,8 @@ func _load() -> void:
 	GameData.level_extra_bulb_efficiency = data.get("level_extra_bulb_efficiency", 0)
 	GameData.level_extra_bulb_effectiveness = data.get("level_extra_bulb_effectiveness", 0)
 	GameData.level_ascend = data.get("level_ascend", 0)
+	
+	# NEWS SAVE
+	GameData.news_progress = data.get("news_progress", {})
 
 	print("Game loaded successfully!")

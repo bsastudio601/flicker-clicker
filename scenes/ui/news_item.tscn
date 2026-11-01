@@ -41,10 +41,10 @@ mouse_filter = 1
 
 [node name="date" type="Label" parent="Control" unique_id=1336905025]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 2.0
-offset_right = 113.0
-offset_bottom = 9.0
+offset_left = 85.0
+offset_top = 4.0
+offset_right = 111.0
+offset_bottom = 11.0
 theme_override_fonts/font = ExtResource("2_r5l84")
 theme_override_font_sizes/font_size = 5
 text = "23-10-2026"
