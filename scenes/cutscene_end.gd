@@ -68,13 +68,25 @@ func start_again() -> void:
 	fade.modulate.a = 0.0              # start invisible
 	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
-
+	
+	reset_before_new_game()
+	
 	var fade_out := create_tween()
 	fade_out.tween_property(fade, "modulate:a", 1.0, 2.0)
 	await fade_out.finished
 	await get_tree().process_frame
-
+	
+	reset_before_new_game()
+	
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+func exiting_game() -> void:
+	get_tree().quit()
+	
+func reset_before_new_game() -> void:
+	GameData.reset_game()
+	await  get_tree().create_timer(0.1).timeout
+	SaveLoad._load()
 
 	
 	

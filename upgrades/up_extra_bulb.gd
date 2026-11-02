@@ -15,18 +15,16 @@ var upgrade_name := "Extra Bulb"
 var upgrade_info := ""
 
 var max_level := 2
-
 var costs := [1800,4000]
-
-
+  
 func _ready() -> void:
 	buy_button.pressed.connect(_on_buy_button_pressed)
-
 	name_label.text = upgrade_name
 	info_label.text = upgrade_info
 	hide()
-
 	update_cost()
+	load_save_data()
+	
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
@@ -41,7 +39,6 @@ func update_cost() -> void:
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 		return
-
 	if costs[GameData.level_extra_bulb] >= 1000:
 		cost_label.text = str(round(costs[GameData.level_extra_bulb] / 100.0) / 10.0) + "K"
 	else:
@@ -51,22 +48,13 @@ func update_cost() -> void:
 func buying_item() -> void:
 	if GameData.level_extra_bulb >= max_level:
 		return
-
 	var cost = costs[GameData.level_extra_bulb]
-
 	if GameData.light < cost:
 		return
-
 	GameData.light -= cost
-
 	GameData.level_extra_bulb += 1
 
-	if GameData.level_extra_bulb == 1:
-		bulb1.activate()
-	elif GameData.level_extra_bulb == 2:
-		bulb2.activate()
-
- 	
+	activate_bulb()
 	update_cost()
 	update_upgrade_info()
 	
@@ -88,9 +76,7 @@ func update_upgrade_info() -> void:
 	if GameData.level_extra_bulb >= max_level:
 		info_label.text = "more bulbs more light!"
 		return
-
 	info_label.text = "adds smaller bulb that generates light with charge"
-
 var unlocked := false
 
 func hiding_unhiding() -> void:
@@ -98,4 +84,15 @@ func hiding_unhiding() -> void:
 		unlocked = true
 		show()
 		upgrade_unlocked.emit()
+	
+func activate_bulb() -> void:
+	if GameData.level_extra_bulb == 1:
+		bulb1.activate()
+	elif GameData.level_extra_bulb == 2:
+		bulb2.activate()
+		
+func load_save_data() -> void:
+	await get_tree().create_timer(1.0).timeout
+
+	activate_bulb()
 		

@@ -82,10 +82,16 @@ script/source = "extends Control
 @onready var setting_popup:Panel = $SettingWindow
 @onready var setting_button: TextureButton =  $Setting_button
 
+@onready var check_box : CheckBox = $SettingWindow/CheckBox
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setting_popup.hide()
+	
+	check_box.button_pressed = false
+	if check_box.button_pressed:
+		SaveLoad._load()
 	
 	pass # Replace with function body.
 
@@ -107,6 +113,11 @@ func _on_save_pressed() -> void:
 
 func _on_load_pressed() -> void:
 	SaveLoad._load()
+	pass # Replace with function body.
+
+
+func _on_reset_pressed() -> void:
+	GameData.reset_game()
 	pass # Replace with function body.
 "
 
@@ -249,7 +260,7 @@ For this reason, consumption has increased by +5/s.
 "
 consumption_adds = 5.0
 gps_required = 30.0
-applied_delay = 20.0
+applied_delay = 5.0
 collapsed_texture = ExtResource("18_augu2")
 expanded_texture = ExtResource("19_tm6hj")
 news_id = "1"
@@ -936,6 +947,12 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
+[node name="CheckBox" type="CheckBox" parent="DashBoard/SettingWindow" unique_id=11575913]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 24.0
+offset_bottom = 55.0
+
 [node name="Setting_button" type="TextureButton" parent="DashBoard" unique_id=1495491499]
 layout_mode = 0
 offset_left = 95.99999
@@ -974,6 +991,16 @@ offset_right = 127.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 7
 text = "load
+"
+
+[node name="reset" type="Button" parent="DashBoard" unique_id=1169209901]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 72.0
+offset_right = 128.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 7
+text = "reset
 "
 
 [node name="Transition" type="CanvasLayer" parent="." unique_id=1253460585]
@@ -1023,9 +1050,11 @@ color = Color(0, 0, 0, 0)
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="Bulb" method="_on_clicker_hand_3_hand_clicked"]
 [connection signal="changed" from="DashBoard/SettingWindow/sliders/sfx_slider" to="DashBoard/SettingWindow" method="_on_sfx_slider_changed"]
 [connection signal="changed" from="DashBoard/SettingWindow/sliders/music_slider" to="DashBoard/SettingWindow" method="_on_music_slider_changed"]
+[connection signal="button_down" from="DashBoard/SettingWindow/CheckBox" to="DashBoard" method="_on_check_box_button_down"]
 [connection signal="pressed" from="DashBoard/Setting_button" to="DashBoard" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="DashBoard/Credit_button" to="DashBoard/Credit_button" method="_on_pressed"]
 [connection signal="pressed" from="DashBoard/save" to="DashBoard" method="_on_save_pressed"]
 [connection signal="pressed" from="DashBoard/load" to="DashBoard" method="_on_load_pressed"]
+[connection signal="pressed" from="DashBoard/reset" to="DashBoard" method="_on_reset_pressed"]
 
 [editable path="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Upgraded_Capacity_Up"]

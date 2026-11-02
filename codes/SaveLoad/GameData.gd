@@ -5,7 +5,7 @@ var clicked := 0
 var charge := 0.0
 
 #currency
-var light_raw: float = 100
+var light_raw: float = 200000
 
 var light: int:
 	get:
@@ -70,3 +70,67 @@ var level_ascend :=0
 
 #news saves
 var news_progress: Dictionary = {}
+
+func reset_game() -> void:
+	# Tracking
+	clicked = 0
+	charge = 0.0
+
+	# Currency
+	light_raw = 100.0
+	base_multiplier = 1
+
+	# Charge
+	charge_multiplier = 1
+	max_charge = 20
+	charge_per_click = 1.0
+	drain_per_second = 1.0
+
+	# Balance
+	generation_per_sec = 0.0
+	consumption_per_sec = 100.0
+	generation_per_sec_peak = 0.0
+	generation_efficiency = 0.0
+
+	# Main bulb
+	main_bulb_light_generation = 1.0
+	main_bulb_charge_generation = 1.0
+
+	# Clicking hands
+	clicking_hand_cps = 2.0
+	clicking_hand_cooldown = 5.0
+	clicking_hand_clicks_before_cooldown = 5.0
+
+	# Extra bulbs
+	extra_bulb_light_generation = 1.0
+	extra_bulb_charge_consumption = 10.0
+	extra_bulb_generation_interval = 1.0
+
+	# Power statistics
+	total_power_generation = 0.0
+	total_charges_generation = 0.0
+	total_power_consumption = 0.0
+	power_generation_per_second = 0.0
+	power_consumption_per_second = 0.0
+	total_light = light
+
+	# Upgrade levels
+	level_upgraded_capacity = 0
+	level_efficient_battery = 0
+	level_overcharge_protection = 0
+	level_bright_filament = 0
+	level_upgraded_filament = 0
+	level_clicker_hands = 0
+	level_clicker_hand_speed = 0
+	level_clicker_hand_cooldown = 0
+	level_extra_bulb = 0
+	level_extra_bulb_intensity = 0
+	level_extra_bulb_efficiency = 0
+	level_extra_bulb_effectiveness = 0
+	level_ascend = 0
+
+	# News
+	news_progress.clear()
+
+	# Delete saved progress
+	SaveLoad._save()

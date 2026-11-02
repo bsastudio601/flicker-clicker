@@ -22,6 +22,7 @@ func _ready() -> void:
 	info_label.text = upgrade_info
 
 	update_cost()
+	load_save_data()
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
@@ -77,3 +78,8 @@ func update_upgrade_info() -> void:
 		return
 
 	info_label.text = "Increases the light generation to " + str(light_generation_per_click[GameData.level_bright_filament])
+
+func load_save_data() -> void:
+	await get_tree().create_timer(0.5).timeout
+
+	buying_item()

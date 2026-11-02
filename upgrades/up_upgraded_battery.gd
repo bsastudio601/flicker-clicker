@@ -21,6 +21,7 @@ func _ready() -> void:
 	name_label.text = upgrade_name
 	update_cost()
 	update_upgrade_info()
+	load_save_data()
 
 
 func _process(_delta: float) -> void:
@@ -89,3 +90,8 @@ func update_upgrade_info() -> void:
 		return
 
 	info_label.text = "Decreases battery drain by " + str(drain_decrease_percent[GameData.level_efficient_battery]) + "%"
+
+func load_save_data() -> void:
+	await get_tree().create_timer(0.5).timeout
+
+	buying_item()

@@ -25,14 +25,18 @@ func _ready() -> void:
 
 	name_label.text = upgrade_name
 	info_label.text = upgrade_info
-	
+
 	hide()
 
 	update_cost()
+	
+	load_save_data()
+
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
 	hiding_unhiding()
+	
 
 func _on_buy_button_pressed() -> void:
 	buying_item()
@@ -63,12 +67,7 @@ func buying_item() -> void:
 
 	GameData.level_clicker_hands += 1
 
-	if GameData.level_clicker_hands == 1:
-		clicker1.activate()
-	elif GameData.level_clicker_hands == 2:
-		clicker2.activate()
-	elif GameData.level_clicker_hands == 3:
-		clicker3.activate()
+	hand_activate()
 		
 	var next_cost: float = costs[GameData.level_clicker_hands] if GameData.level_clicker_hands < max_level else -1.0
 	var next_level: int = GameData.level_clicker_hands + 1 if GameData.level_clicker_hands < max_level else -1
@@ -101,3 +100,16 @@ func hiding_unhiding() -> void:
 		unlocked = true
 		show()
 		upgrade_unlocked.emit()
+		
+func hand_activate() -> void:
+	if GameData.level_clicker_hands == 1:
+		clicker1.activate()
+	elif GameData.level_clicker_hands == 2:
+		clicker2.activate()
+	elif GameData.level_clicker_hands == 3:
+		clicker3.activate()
+	
+func load_save_data() -> void:
+	await get_tree().create_timer(1.0).timeout
+	hand_activate()
+	

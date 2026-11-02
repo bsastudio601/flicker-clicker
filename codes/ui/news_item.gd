@@ -102,7 +102,7 @@ func check_gps() -> void:
 			"time_remaining": time_remaining
 		}
 
-		SaveLoad._save()
+
 
 	ProgressionTracker.record_news(
 		headline,

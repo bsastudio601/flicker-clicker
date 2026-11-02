@@ -24,6 +24,7 @@ func _ready() -> void:
 
 	update_cost()
 	update_upgrade_info()
+# add save loder here i might need it 
 
 
 func _process(_delta: float) -> void:
@@ -105,3 +106,8 @@ func activate_ending() -> void:
 	await fade_out.finished
 	await get_tree().process_frame
 	get_tree().change_scene_to_packed(END_SCENE)
+
+func load_save_data() -> void:
+	await get_tree().create_timer(0.5).timeout
+	
+	buying_item()
