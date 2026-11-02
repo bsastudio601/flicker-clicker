@@ -1,5 +1,6 @@
 extends Node
 
+var autosave_enable := true
 #track var (dont edit)
 var clicked := 0
 var charge := 0.0

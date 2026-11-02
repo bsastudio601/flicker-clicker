@@ -2,7 +2,18 @@ extends Node
 
 const SAVE_PATH = "user://savefile.json"
 
+var autosave_interval:= 10.0
+var autosave_timer : Timer
 
+func _ready() -> void:
+	autosave_timer = Timer.new()
+	autosave_timer.wait_time = autosave_interval
+	autosave_timer.timeout.connect(_on_autosave_timeout)
+	add_child(autosave_timer)
+	if GameData.autosave_enable:
+		_load()
+		autosave_timer.start()
+		
 func _save() -> void:
 	var contents_to_save: Dictionary = {
 		# Tracking
@@ -155,3 +166,25 @@ func _load() -> void:
 	GameData.news_progress = data.get("news_progress", {})
 
 	print("Game loaded successfully!")
+
+func _on_autosave_timeout()-> void:
+	if GameData.autosave_enable:
+		_save()
+
+func set_autosave(enable:bool) -> void:
+	GameData.autosave_enable = enable
+	
+	if enable:
+		_save()
+		autosave_timer.start()
+	else:
+		autosave_timer.stop()
+
+func _notification(what: int) -> void:
+	if not GameData.autosave_enable:
+		return
+	if what == NOTIFICATION_APPLICATION_PAUSED \
+	or what == NOTIFICATION_APPLICATION_FOCUS_OUT \
+	or what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_save()
+	

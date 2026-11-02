@@ -25,7 +25,7 @@ func _ready() -> void:
 	info_label.text = upgrade_info
 
 	update_cost()
-	load_save_data()
+
 func _process(_delta: float) -> void:
 	update_cost()
 	update_upgrade_info()
@@ -101,8 +101,3 @@ func hiding_unhiding_dependent() -> void:
 		show()
 	else:
 		hide()
-
-func load_save_data() -> void:
-	await get_tree().create_timer(0.5).timeout
-
-	buying_item()

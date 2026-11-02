@@ -89,11 +89,10 @@ script/source = "extends Control
 func _ready() -> void:
 	setting_popup.hide()
 	
-	check_box.button_pressed = false
-	if check_box.button_pressed:
-		SaveLoad._load()
-	
-	pass # Replace with function body.
+	check_box.button_pressed = GameData.autosave_enable
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	SaveLoad.set_autosave(toggled_on)
 
 
 
@@ -888,6 +887,17 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_0rl1p")
 script = ExtResource("49_dnhof")
 
+[node name="reset" type="Button" parent="DashBoard/SettingWindow" unique_id=1169209901]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 37.0
+offset_right = 49.0
+offset_bottom = 56.0
+scale = Vector2(0.715, 0.715)
+theme_override_font_sizes/font_size = 7
+text = "reset
+"
+
 [node name="button_click_sfx" type="AudioStreamPlayer" parent="DashBoard/SettingWindow" unique_id=1072490669]
 stream = ExtResource("19_xljpf")
 
@@ -974,35 +984,6 @@ texture_normal = ExtResource("55_07pt3")
 texture_pressed = ExtResource("56_37xlc")
 script = ExtResource("56_dnhof")
 
-[node name="save" type="Button" parent="DashBoard" unique_id=1728034372]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 24.0
-offset_right = 127.0
-offset_bottom = 43.0
-theme_override_font_sizes/font_size = 7
-text = "save"
-
-[node name="load" type="Button" parent="DashBoard" unique_id=1480437752]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 47.0
-offset_right = 127.0
-offset_bottom = 66.0
-theme_override_font_sizes/font_size = 7
-text = "load
-"
-
-[node name="reset" type="Button" parent="DashBoard" unique_id=1169209901]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 72.0
-offset_right = 128.0
-offset_bottom = 91.0
-theme_override_font_sizes/font_size = 7
-text = "reset
-"
-
 [node name="Transition" type="CanvasLayer" parent="." unique_id=1253460585]
 layer = 100
 
@@ -1048,13 +1029,11 @@ color = Color(0, 0, 0, 0)
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand1" to="Bulb" method="_on_clicker_hand_1_hand_clicked"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand2" to="Bulb" method="_on_clicker_hand_2_hand_clicked"]
 [connection signal="hand_clicked" from="AutoClickerHand/Clicker_Hand3" to="Bulb" method="_on_clicker_hand_3_hand_clicked"]
+[connection signal="pressed" from="DashBoard/SettingWindow/reset" to="DashBoard" method="_on_reset_pressed"]
 [connection signal="changed" from="DashBoard/SettingWindow/sliders/sfx_slider" to="DashBoard/SettingWindow" method="_on_sfx_slider_changed"]
 [connection signal="changed" from="DashBoard/SettingWindow/sliders/music_slider" to="DashBoard/SettingWindow" method="_on_music_slider_changed"]
 [connection signal="button_down" from="DashBoard/SettingWindow/CheckBox" to="DashBoard" method="_on_check_box_button_down"]
 [connection signal="pressed" from="DashBoard/Setting_button" to="DashBoard" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="DashBoard/Credit_button" to="DashBoard/Credit_button" method="_on_pressed"]
-[connection signal="pressed" from="DashBoard/save" to="DashBoard" method="_on_save_pressed"]
-[connection signal="pressed" from="DashBoard/load" to="DashBoard" method="_on_load_pressed"]
-[connection signal="pressed" from="DashBoard/reset" to="DashBoard" method="_on_reset_pressed"]
 
 [editable path="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Upgraded_Capacity_Up"]

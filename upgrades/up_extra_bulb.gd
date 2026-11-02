@@ -86,13 +86,12 @@ func hiding_unhiding() -> void:
 		upgrade_unlocked.emit()
 	
 func activate_bulb() -> void:
-	if GameData.level_extra_bulb == 1:
+	if GameData.level_extra_bulb >= 1:
 		bulb1.activate()
-	elif GameData.level_extra_bulb == 2:
+	elif GameData.level_extra_bulb >= 2:
 		bulb2.activate()
 		
 func load_save_data() -> void:
 	await get_tree().create_timer(1.0).timeout
-
 	activate_bulb()
 		

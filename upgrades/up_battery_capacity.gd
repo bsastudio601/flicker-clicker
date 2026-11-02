@@ -26,7 +26,6 @@ func _ready() -> void:
 
 	update_cost()
 	update_upgrade_info()
-	load_save_data()
 
 
 func _process(_delta: float) -> void:
@@ -94,7 +93,3 @@ func update_upgrade_info() -> void:
 		return
 
 	info_label.text = "Increases battery capacity to " + str(battery_increase[GameData.level_upgraded_capacity])
-
-func load_save_data() -> void:
-	await get_tree().create_timer(0.5).timeout
-	buying_item()
