@@ -22,6 +22,8 @@ func _ready() -> void:
 
 	await play_cutscene()
 	
+	hide()
+	
 func play_cutscene() -> void:
 	var fade_in := create_tween()
 	fade_in.set_parallel(true)

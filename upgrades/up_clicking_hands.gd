@@ -104,9 +104,9 @@ func hiding_unhiding() -> void:
 func hand_activate() -> void:
 	if GameData.level_clicker_hands >= 1:
 		clicker1.activate()
-	elif GameData.level_clicker_hands >= 2:
+	if GameData.level_clicker_hands >= 2:
 		clicker2.activate()
-	elif GameData.level_clicker_hands >= 3:
+	if GameData.level_clicker_hands >= 3:
 		clicker3.activate()
 	
 func load_save_data() -> void:

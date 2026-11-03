@@ -53,11 +53,15 @@
 [ext_resource type="Texture2D" uid="uid://c4otgevw3bh5s" path="res://sprites/stats_popup_bg.png" id="49_xmrkg"]
 [ext_resource type="Texture2D" uid="uid://d21485qpraepv" path="res://sprites/slider_bar_button.png" id="51_engxj"]
 [ext_resource type="Texture2D" uid="uid://c8n47u3cpa0ml" path="res://sprites/slider_1_line.png" id="52_raiwf"]
+[ext_resource type="Texture2D" uid="uid://bn41hih5a4ei2" path="res://sprites/buy_button_bg.png" id="52_t5ykj"]
 [ext_resource type="Texture2D" uid="uid://dllqvcqouh2qn" path="res://sprites/setting_icon_normal.png" id="53_roort"]
 [ext_resource type="Texture2D" uid="uid://bb6annyfixmv7" path="res://sprites/setting_icon_pressedl.png" id="54_gm02q"]
 [ext_resource type="Texture2D" uid="uid://dgqtne8gd8pjp" path="res://sprites/credit_button_normal.png" id="55_07pt3"]
+[ext_resource type="Texture2D" uid="uid://c4yqhd3w6qj32" path="res://sprites/checkbox_pressed.png" id="55_e755i"]
 [ext_resource type="Texture2D" uid="uid://2d036xukme3f" path="res://sprites/credit_button_pressed.png" id="56_37xlc"]
 [ext_resource type="Script" uid="uid://dfpu1037k0t7l" path="res://codes/ui/credit_button.gd" id="56_dnhof"]
+[ext_resource type="Texture2D" uid="uid://cq67y4ckxt4d7" path="res://sprites/checkbox_normal.png" id="56_ro3en"]
+[ext_resource type="Texture2D" uid="uid://q3kno4ucdhj" path="res://sprites/buy_button_disabled_bg.png" id="62_e755i"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
 offsets = PackedFloat32Array(0, 0.26506025, 0.7710843)
@@ -84,15 +88,19 @@ script/source = "extends Control
 
 @onready var check_box : CheckBox = $SettingWindow/CheckBox
 
+@onready var areyousure : Panel = $\"../areyousure/areyousure\"
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	areyousure.hide()
 	setting_popup.hide()
-	
 	check_box.button_pressed = GameData.autosave_enable
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	SaveLoad.set_autosave(toggled_on)
+	$\"../areyousure/areyousure/button_click_sfx\".play()
 
 
 
@@ -105,23 +113,30 @@ func _on_texture_button_pressed() -> void:
 		$SettingWindow/button_click_sfx.play()
 
 
-func _on_save_pressed() -> void:
-	SaveLoad._save()
-	pass # Replace with function body.
-
-
-func _on_load_pressed() -> void:
-	SaveLoad._load()
-	pass # Replace with function body.
-
-
 func _on_reset_pressed() -> void:
+	areyousure.show()
+	$\"../areyousure/areyousure/button_click_sfx\".play()
+	pass # Replace with function body.
+
+
+func _on_yes_pressed() -> void:
 	GameData.reset_game()
+	areyousure.hide()
+	$\"../areyousure/areyousure/button_click_sfx\".play()
+	pass # Replace with function body.
+
+
+func _on_no_pressed() -> void:
+	areyousure.hide()
+	$\"../areyousure/areyousure/button_click_sfx\".play()
 	pass # Replace with function body.
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rl1p"]
 texture = ExtResource("49_xmrkg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e07un"]
+texture = ExtResource("52_t5ykj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqjc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -133,6 +148,24 @@ texture = ExtResource("52_raiwf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cbny"]
 texture = ExtResource("52_raiwf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4kkl"]
+texture = ExtResource("18_augu2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpifi"]
+texture = ExtResource("52_t5ykj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82tj2"]
+texture = ExtResource("62_e755i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro3en"]
+texture = ExtResource("62_e755i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_od4ux"]
+texture = ExtResource("52_t5ykj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhfw6"]
+texture = ExtResource("62_e755i")
 
 [node name="Main" type="Node2D" unique_id=1473243590]
 
@@ -200,6 +233,7 @@ script = ExtResource("12_dnhof")
 [node name="News_Popup" type="Panel" parent="UI" unique_id=869492641]
 offset_right = 130.0
 offset_bottom = 287.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
 
 [node name="Label" type="Label" parent="UI/News_Popup" unique_id=294467559]
@@ -229,6 +263,7 @@ offset_left = 3.0
 offset_top = 24.0
 offset_right = 125.0
 offset_bottom = 248.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
 
 [node name="Item_List" type="ScrollContainer" parent="UI/News_Popup/Panel" unique_id=1975956597]
@@ -247,6 +282,7 @@ propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Consumption1" parent="UI/News_Popup/Panel/Item_List/Item_Vbox" unique_id=2082741052 instance=ExtResource("18_xrs0c")]
 layout_mode = 2
@@ -889,12 +925,14 @@ script = ExtResource("49_dnhof")
 
 [node name="reset" type="Button" parent="DashBoard/SettingWindow" unique_id=1169209901]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 37.0
-offset_right = 49.0
-offset_bottom = 56.0
+offset_left = 24.0
+offset_top = 39.000004
+offset_right = 50.0
+offset_bottom = 52.769005
 scale = Vector2(0.715, 0.715)
+theme_override_fonts/font = ExtResource("14_mlv25")
 theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_e07un")
 text = "reset
 "
 
@@ -904,9 +942,9 @@ stream = ExtResource("19_xljpf")
 [node name="sliders" type="Control" parent="DashBoard/SettingWindow" unique_id=534937052]
 anchors_preset = 0
 offset_left = 2.0
-offset_top = 6.0
+offset_top = 3.0
 offset_right = 51.0
-offset_bottom = 31.0
+offset_bottom = 28.0
 
 [node name="Label" type="Label" parent="DashBoard/SettingWindow/sliders" unique_id=1180628828]
 layout_mode = 0
@@ -959,9 +997,12 @@ value = 1.0
 
 [node name="CheckBox" type="CheckBox" parent="DashBoard/SettingWindow" unique_id=11575913]
 layout_mode = 0
-offset_top = 31.0
-offset_right = 24.0
-offset_bottom = 55.0
+offset_left = 4.0
+offset_top = 36.0
+offset_right = 28.0
+offset_bottom = 60.0
+theme_override_icons/checked = ExtResource("55_e755i")
+theme_override_icons/unchecked = ExtResource("56_ro3en")
 
 [node name="Setting_button" type="TextureButton" parent="DashBoard" unique_id=1495491499]
 layout_mode = 0
@@ -996,6 +1037,65 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="areyousure" type="CanvasLayer" parent="." unique_id=1403043745]
+
+[node name="areyousure" type="Panel" parent="areyousure" unique_id=813191055]
+offset_left = 8.0
+offset_top = 133.0
+offset_right = 120.0
+offset_bottom = 162.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_t4kkl")
+
+[node name="yes" type="Button" parent="areyousure/areyousure" unique_id=707802168]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 38.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("14_mlv25")
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_tpifi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_82tj2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ro3en")
+text = "yes
+"
+
+[node name="no" type="Button" parent="areyousure/areyousure" unique_id=65189539]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 17.0
+offset_right = 87.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("14_mlv25")
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_od4ux")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_82tj2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xhfw6")
+text = "no
+
+"
+
+[node name="Label" type="Label" parent="areyousure/areyousure" unique_id=1940151205]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_mlv25")
+theme_override_font_sizes/font_size = 6
+text = "are you sure?"
+horizontal_alignment = 1
+
+[node name="button_click_sfx" type="AudioStreamPlayer" parent="areyousure/areyousure" unique_id=1859980052]
+stream = ExtResource("19_xljpf")
 
 [connection signal="pressed" from="Bulb/Bulb_Button" to="Bulb" method="_on_bulb_button_pressed"]
 [connection signal="pressed" from="UI/News_Popup/new_button_close" to="UI" method="_on_new_button_close_pressed"]
@@ -1032,8 +1132,10 @@ color = Color(0, 0, 0, 0)
 [connection signal="pressed" from="DashBoard/SettingWindow/reset" to="DashBoard" method="_on_reset_pressed"]
 [connection signal="changed" from="DashBoard/SettingWindow/sliders/sfx_slider" to="DashBoard/SettingWindow" method="_on_sfx_slider_changed"]
 [connection signal="changed" from="DashBoard/SettingWindow/sliders/music_slider" to="DashBoard/SettingWindow" method="_on_music_slider_changed"]
-[connection signal="button_down" from="DashBoard/SettingWindow/CheckBox" to="DashBoard" method="_on_check_box_button_down"]
+[connection signal="toggled" from="DashBoard/SettingWindow/CheckBox" to="DashBoard" method="_on_check_box_toggled"]
 [connection signal="pressed" from="DashBoard/Setting_button" to="DashBoard" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="DashBoard/Credit_button" to="DashBoard/Credit_button" method="_on_pressed"]
+[connection signal="pressed" from="areyousure/areyousure/yes" to="DashBoard" method="_on_yes_pressed"]
+[connection signal="pressed" from="areyousure/areyousure/no" to="DashBoard" method="_on_no_pressed"]
 
 [editable path="UI/Factory_Popup/Panel/Item_List/Item_Vbox/Upgraded_Capacity_Up"]

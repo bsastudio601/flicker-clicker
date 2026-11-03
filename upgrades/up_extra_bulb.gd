@@ -88,7 +88,7 @@ func hiding_unhiding() -> void:
 func activate_bulb() -> void:
 	if GameData.level_extra_bulb >= 1:
 		bulb1.activate()
-	elif GameData.level_extra_bulb >= 2:
+	if GameData.level_extra_bulb >= 2:
 		bulb2.activate()
 		
 func load_save_data() -> void:

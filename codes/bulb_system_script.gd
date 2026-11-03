@@ -67,6 +67,7 @@ func press_button_animation() -> void:  												#Call this func to play the 
 	bulb_button.texture_normal = normal_texture
 	
 func clicking_hand_signals() -> void:
+	press_button_animation()
 	add_light_and_charge()
 	GameData.clicked += 1
 

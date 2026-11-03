@@ -45,7 +45,6 @@ color = Color(0.49108773, 0.49108768, 0.49108768, 1)
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=13812246]
-visible = false
 offset_right = 128.0
 offset_bottom = 284.0
 color = Color(0, 0, 0, 1)
@@ -61,6 +60,7 @@ offset_top = 170.0
 offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="start_again" type="Button" parent="ui/ui_element" unique_id=660505945]
 layout_mode = 1
@@ -78,6 +78,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_y5cf3")
 theme_override_font_sizes/font_size = 6
 text = "> start again <"
+metadata/_edit_use_anchors_ = true
 
 [node name="exit_button" type="Button" parent="ui/ui_element" unique_id=1696131193]
 layout_mode = 1
@@ -95,6 +96,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_y5cf3")
 theme_override_font_sizes/font_size = 6
 text = "> exit <"
+metadata/_edit_use_anchors_ = true
 
 [node name="end_text" type="Label" parent="ui/ui_element" unique_id=1779747565]
 layout_mode = 1
@@ -112,6 +114,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_y5cf3")
 theme_override_font_sizes/font_size = 7
 text = "You have reached max efficiency!"
+metadata/_edit_use_anchors_ = true
 
 [node name="credit_text" type="Control" parent="ui" unique_id=1667343277]
 layout_mode = 3
@@ -122,6 +125,7 @@ offset_top = 283.0
 offset_bottom = 283.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Label" parent="ui/credit_text" unique_id=1858158849]
 layout_mode = 0

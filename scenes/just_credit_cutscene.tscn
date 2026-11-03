@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://ckqum18wvjwn1"]
+
+[ext_resource type="Texture2D" uid="uid://cw2sc5tf2dqc7" path="res://sprites/cutscene_layer_0_bg.png" id="1_2amr7"]
+[ext_resource type="Script" uid="uid://qou716seq26f" path="res://scenes/just_credit_cutscene.gd" id="1_iqill"]
+[ext_resource type="Texture2D" uid="uid://djl1mqxjg6erh" path="res://sprites/cutscene_layer_2.png" id="2_iqill"]
+[ext_resource type="Texture2D" uid="uid://dv0037bffninc" path="res://sprites/cutscene_layer_1.png" id="3_d0cjr"]
+[ext_resource type="Texture2D" uid="uid://d0sk3uiovydbs" path="res://sprites/cutscene_layer_3_light.png" id="4_pdv86"]
+[ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="5_wrc0x"]
+
+[sub_resource type="Environment" id="Environment_2nvye"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.8
+glow_bloom = 0.85
+glow_blend_mode = 0
+adjustment_brightness = 0.71
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e755i"]
+bg_color = Color(0.89979166, 0.21802102, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro3en"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od4ux"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[node name="just_credit_cutscene" type="Node2D" unique_id=1381727992]
+script = ExtResource("1_iqill")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2106422155]
+environment = SubResource("Environment_2nvye")
+
+[node name="layer0" type="Sprite2D" parent="." unique_id=799628515]
+position = Vector2(64, 142)
+texture = ExtResource("1_2amr7")
+
+[node name="layer1" type="Sprite2D" parent="." unique_id=1773084906]
+position = Vector2(64, 49)
+texture = ExtResource("2_iqill")
+
+[node name="layer2" type="Sprite2D" parent="layer1" unique_id=2018043388]
+position = Vector2(0, 93)
+texture = ExtResource("3_d0cjr")
+
+[node name="layer3_light" type="PointLight2D" parent="layer1" unique_id=1768668869]
+position = Vector2(0, 30)
+energy = 0.0
+texture = ExtResource("4_pdv86")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=777685345]
+color = Color(0.49108773, 0.49108768, 0.49108768, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1404633841]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1407180258]
+offset_right = 128.0
+offset_bottom = 284.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=1377385406]
+
+[node name="credit_text" type="Control" parent="ui" unique_id=1928411480]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 283.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="ui/credit_text" unique_id=864208304]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 15.0
+offset_right = 117.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 9
+text = "Flicker Clicker"
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="ui/credit_text" unique_id=1080271402]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 29.0
+offset_right = 116.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 5
+text = "a short idle clicker game."
+horizontal_alignment = 1
+
+[node name="title6" type="Label" parent="ui/credit_text" unique_id=1113724577]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 121.0
+offset_bottom = 90.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 5
+text = "
+Copyright (c) 2026 Aritro Halder
+
+Open-source software
+Licensed under the MIT License.
+
+Repo : github.com/bsastudio601/flicker-clicker"
+horizontal_alignment = 1
+
+[node name="title3" type="Label" parent="ui/credit_text" unique_id=1085129182]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 106.0
+offset_right = 118.0
+offset_bottom = 122.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 6
+text = "Development
+Created by Aritro Halder"
+horizontal_alignment = 1
+
+[node name="title4" type="Label" parent="ui/credit_text" unique_id=268214464]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 133.0
+offset_right = 118.0
+offset_bottom = 149.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 6
+text = "Art & Design
+Aritro Halder"
+horizontal_alignment = 1
+
+[node name="title5" type="Label" parent="ui/credit_text" unique_id=1233994545]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 160.0
+offset_right = 117.0
+offset_bottom = 176.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 6
+text = "Music & SFX
+Pixabay"
+horizontal_alignment = 1
+
+[node name="title7" type="Label" parent="ui/credit_text" unique_id=2034351827]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 184.0
+offset_right = 118.0
+offset_bottom = 200.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 6
+text = "Special Thanks
+To everyone who played"
+horizontal_alignment = 1
+
+[node name="title8" type="Label" parent="ui/credit_text" unique_id=1569423257]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 236.0
+offset_right = 116.0
+offset_bottom = 252.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_wrc0x")
+theme_override_font_sizes/font_size = 6
+text = "Thanks for keeping
+ the lights on!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ui" unique_id=967604861]
+z_index = 99
+offset_right = 130.0
+offset_bottom = 570.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e755i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ro3en")
+theme_override_styles/hover = SubResource("StyleBoxFlat_od4ux")
+
+[connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]

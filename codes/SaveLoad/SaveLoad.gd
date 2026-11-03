@@ -74,7 +74,8 @@ func _save() -> void:
 		"level_ascend": GameData.level_ascend,
 		
 		#NEWS ITEM
-		"news_progress": GameData.news_progress
+		"news_progress": GameData.news_progress,
+		"autosave_enable": GameData.autosave_enable
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -164,7 +165,6 @@ func _load() -> void:
 	
 	# NEWS SAVE
 	GameData.news_progress = data.get("news_progress", {})
-
 	print("Game loaded successfully!")
 
 func _on_autosave_timeout()-> void:
