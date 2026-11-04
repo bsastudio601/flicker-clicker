@@ -7,8 +7,6 @@ func _ready() -> void:
 	update_light_label()
 
 
-
-
 func _process(delta: float) -> void:
 	update_light_label()
 

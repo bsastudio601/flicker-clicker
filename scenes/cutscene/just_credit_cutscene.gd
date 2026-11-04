@@ -52,7 +52,7 @@ func back_to_game() -> void:
 
 	await fade_out.finished
 	
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 	
 func _on_button_pressed() -> void:
 	back_to_game()

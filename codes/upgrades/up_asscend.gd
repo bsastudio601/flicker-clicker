@@ -90,7 +90,7 @@ func update_upgrade_info() -> void:
 	else:
 		info_label.text = upgrade_info
 
-const END_SCENE := preload("res://scenes/cutscene_end.tscn")
+const END_SCENE := preload("res://scenes/cutscene/cutscene_end.tscn")
 	
 func activate_ending() -> void:
 	buy_button.disabled = true

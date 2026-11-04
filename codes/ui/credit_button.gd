@@ -2,7 +2,7 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 	
-const END_SCENE := preload("res://scenes/just_credit_cutscene.tscn")
+const END_SCENE := preload("res://scenes/cutscene/just_credit_cutscene.tscn")
 
 @onready var fade_out_canvas : ColorRect = $"../../Transition/ColorRect"
 

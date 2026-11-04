@@ -80,7 +80,7 @@ func start_again() -> void:
 	
 	reset_before_new_game()
 	
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
 func exiting_game() -> void:
 	get_tree().quit()

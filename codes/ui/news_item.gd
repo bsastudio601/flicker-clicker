@@ -1,8 +1,7 @@
 extends PanelContainer
 
 signal new_news
-
-@onready var ghost_button: Button = $Control/Button
+@onready var expand_button: TextureButton = $Control/TextureButton
 @onready var headline_label: Label = $Control/headline
 @onready var date_label: Label = $Control/date
 @onready var details_label: Label = $Control/details
@@ -35,7 +34,7 @@ func _ready() -> void:
 	details_label.text = details
 
 	custom_minimum_size.y = 32
-	ghost_button.custom_minimum_size.y = 32
+
 	details_label.custom_maximum_size.y = 16
 
 	change_background(collapsed_texture)
@@ -58,19 +57,22 @@ func _process(_delta: float) -> void:
 	check_gps()
 
 
-func _on_button_pressed() -> void:
+
+func _on_texture_button_pressed() -> void:
 	expanded = not expanded
 
 	if expanded:
 		custom_minimum_size.y = 128
-		ghost_button.custom_minimum_size.y = 128
+
 		details_label.custom_maximum_size.y = 112
 		change_background(expanded_texture)
+		expand_button.flip_v = true
 	else:
 		custom_minimum_size.y = 32
-		ghost_button.custom_minimum_size.y = 32
+
 		details_label.custom_maximum_size.y = 16
 		change_background(collapsed_texture)
+		expand_button.flip_v = false
 
 	$button_sound.play()
 

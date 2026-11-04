@@ -78,7 +78,7 @@ func reset_game() -> void:
 	charge = 0.0
 
 	# Currency
-	light_raw = 100.0
+	light_raw = 10.0
 	base_multiplier = 1
 
 	# Charge
