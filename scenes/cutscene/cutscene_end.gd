@@ -1,5 +1,4 @@
 extends Node2D
-@onready var layer0 : Sprite2D = $layer0
 @onready var layer1 : Sprite2D = $layer1
 @onready var layer3_light : PointLight2D = $layer1/layer3_light
 @onready var fade : ColorRect = $CanvasLayer/ColorRect
@@ -25,6 +24,8 @@ func _ready() -> void:
 	hide()
 	
 func play_cutscene() -> void:
+	$AudioStreamPlayer.play()
+	
 	var fade_in := create_tween()
 	fade_in.set_parallel(true)
 	fade_in.tween_property(fade,"modulate:a",0.0,2.0)
@@ -86,6 +87,7 @@ func exiting_game() -> void:
 	get_tree().quit()
 	
 func reset_before_new_game() -> void:
+	$AudioStreamPlayer.stop()
 	GameData.reset_game()
 	await  get_tree().create_timer(0.1).timeout
 	SaveLoad._load()

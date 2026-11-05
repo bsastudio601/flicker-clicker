@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv0037bffninc" path="res://sprites/cutscene_layer_1.png" id="3_y5cf3"]
 [ext_resource type="Texture2D" uid="uid://d0sk3uiovydbs" path="res://sprites/cutscene_layer_3_light.png" id="4_2udl6"]
 [ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="6_y5cf3"]
+[ext_resource type="AudioStream" uid="uid://ckjmn17jxxbc5" path="res://sfx/monume-retro-arcade-game-music-577980.mp3" id="7_y6qwk"]
 
 [sub_resource type="Environment" id="Environment_b30ca"]
 background_mode = 3
@@ -14,6 +15,18 @@ glow_intensity = 0.8
 glow_bloom = 0.85
 glow_blend_mode = 0
 adjustment_brightness = 0.71
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf8y6"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtexc"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6qwk"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cmfw"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 
 [node name="Cutscene_End" type="Node2D" unique_id=469251351]
 script = ExtResource("1_r5kfn")
@@ -77,6 +90,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_y5cf3")
 theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_rf8y6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtexc")
 text = "> start again <"
 metadata/_edit_use_anchors_ = true
 
@@ -95,6 +110,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_y5cf3")
 theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_y6qwk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4cmfw")
 text = "> exit <"
 metadata/_edit_use_anchors_ = true
 
@@ -231,6 +248,10 @@ theme_override_font_sizes/font_size = 6
 text = "Thanks for keeping
  the lights on!"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2012232978]
+stream = ExtResource("7_y6qwk")
+bus = &"music"
 
 [connection signal="pressed" from="ui/ui_element/start_again" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="ui/ui_element/exit_button" to="." method="_on_exit_button_pressed"]

@@ -21,6 +21,8 @@ func _ready() -> void:
 	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 func play_cutscene() -> void:
+	
+	$AudioStreamPlayer.play()
 	var fade_in := create_tween()
 	fade_in.set_parallel(true)
 	fade_in.tween_property(fade,"modulate:a",0.0,2.0)
@@ -55,5 +57,6 @@ func back_to_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 	
 func _on_button_pressed() -> void:
+	$AudioStreamPlayer.stop()
 	back_to_game()
 	pass # Replace with function body.

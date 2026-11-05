@@ -13,6 +13,7 @@ config_version=5
 config/name="Flicker Clicker"
 run/main_scene="uid://dedlxesrql1yu"
 config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/image="uid://cvaxcam4ey6vs"
 
 [autoload]
 

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv0037bffninc" path="res://sprites/cutscene_layer_1.png" id="3_d0cjr"]
 [ext_resource type="Texture2D" uid="uid://d0sk3uiovydbs" path="res://sprites/cutscene_layer_3_light.png" id="4_pdv86"]
 [ext_resource type="FontFile" uid="uid://bf5q81fbv8uay" path="res://fonts/PixelifySans-Regular.ttf" id="5_wrc0x"]
+[ext_resource type="AudioStream" uid="uid://ckjmn17jxxbc5" path="res://sfx/monume-retro-arcade-game-music-577980.mp3" id="7_sj7ei"]
 
 [sub_resource type="Environment" id="Environment_2nvye"]
 background_mode = 3
@@ -185,5 +186,9 @@ offset_bottom = 570.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_e755i")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ro3en")
 theme_override_styles/hover = SubResource("StyleBoxFlat_od4ux")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1980670856]
+stream = ExtResource("7_sj7ei")
+bus = &"music"
 
 [connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
