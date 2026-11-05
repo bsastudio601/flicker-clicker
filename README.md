@@ -11,10 +11,10 @@ official release: http://github.com/bsastudio601/flicker-clicker/releases/tag/Fl
 
 Some gameplay footage:
 	
-![alt-text](assets/one.png)
-![alt-text](assets/two.png)
-![alt-text](assets/three.png)
-![alt-text](assets/four.png)
+![alt-text](assets/one.jpg)
+![alt-text](assets/two.jpg)
+![alt-text](assets/three.jpg)
+![alt-text](assets/four.jpg)
 
 # How to install
 
